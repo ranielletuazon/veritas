@@ -4,6 +4,7 @@ import logo from "../../assets/images/veritas_landscape_logo_white.png";
 const NAV_LINKS = [
     { label: "Home", href: "#" },
     { label: "Products", href: "#" },
+    { label: "News", href: "#" },
     { label: "Careers", href: "#" },
     { label: "About Us", href: "#" },
 ];
@@ -54,7 +55,7 @@ export default function Header() {
                                 after:h-px after:w-0 after:bg-purple-400
                                 hover:after:w-full after:transition-all after:duration-300"
                         >
-                            {label}
+                            {label.toUpperCase()}
                         </a>
                     ))}
 
@@ -62,11 +63,12 @@ export default function Header() {
                     <a
                         href="#"
                         className="ml-1 px-5 py-2 text-sm font-semibold tracking-wide text-white
-                            bg-purple-700 border border-purple-500/60
-                            hover:bg-purple-600 hover:border-purple-400/80
+                            bg-purple-600/25 backdrop-blur-md border border-purple-300/40
+                            shadow-[0_8px_32px_-8px_rgba(147,51,234,0.45)]
+                            hover:bg-purple-600/40 hover:border-purple-200/60 hover:-translate-y-0.5
                             transition-all duration-300"
                     >
-                        Get In Touch
+                        CONTACT US
                     </a>
                 </nav>
 
@@ -118,7 +120,9 @@ export default function Header() {
                         href="#"
                         onClick={() => setMenuOpen(false)}
                         className="mt-3 px-5 py-2.5 text-sm font-semibold text-center tracking-wide text-white
-                            bg-purple-700 border border-purple-500/60"
+                            bg-purple-600/25 backdrop-blur-md border border-purple-300/40
+                            shadow-[0_8px_32px_-8px_rgba(147,51,234,0.45)]
+                            transition-all duration-300"
                     >
                         Get In Touch
                     </a>
