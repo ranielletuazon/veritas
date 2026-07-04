@@ -1,30 +1,82 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import hero_desktop from "../assets/images/hero_web.jpg";
 import hero_mobile from "../assets/images/hero_web_mobile.jpg";
 
+// Images
+import globe from "../assets/images/globe.webp";
+
+// Lucide Icons
+import {
+    Network,
+    Target,
+    Users,
+    TrendingUp,
+    ShieldCheck,
+    Zap,
+    Printer,
+    HomeIcon,
+} from "lucide-react";
+
+// Components
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import MarqueeStrip from "./components/MarqueeStrip";
+
 export default function Home() {
-    const advantages = [
+    const reasons = [
         {
-            title: "Results-Based Model",
-            tags: ["Pay-for-Performance", "Zero Risk", "Transparent"],
+            icon: <Network className="h-6 w-6" strokeWidth={1.75} />,
+            title: "Extensive Lead Network",
             description:
-                "Clients pay only for measurable outcomes. Every dollar is tied to verified sales results — never activity or airtime.",
-            gradient: "from-indigo-600 via-violet-600 to-purple-600",
+                "Access to one of the most comprehensive lead-generation networks in the market.",
         },
         {
-            title: "B2B & B2C Direct Sales",
-            tags: ["B2B", "B2C", "Scalable"],
+            icon: <Target className="h-6 w-6" strokeWidth={1.75} />,
+            title: "Performance-Based Model",
             description:
-                "One accountable team across commercial and consumer channels, giving providers flexible, scalable routes to market.",
-            gradient: "from-violet-600 via-purple-600 to-fuchsia-600",
+                "Our focus is on delivering measurable outcomes and real business growth.",
         },
         {
-            title: "People-Led Execution",
-            tags: ["In-House Trained", "Accountable", "Dedicated"],
+            icon: <Users className="h-6 w-6" strokeWidth={1.75} />,
+            title: "Experienced Team",
             description:
-                "Campaigns run by reps we recruit, train, and coach ourselves — keeping conduct and quality under our control.",
-            gradient: "from-purple-600 via-fuchsia-600 to-pink-600",
+                "Dedicated sales professionals with proven industry expertise.",
+        },
+        {
+            icon: <TrendingUp className="h-6 w-6" strokeWidth={1.75} />,
+            title: "Scalable Growth",
+            description: "Solutions designed to grow alongside your business.",
+        },
+        {
+            icon: <ShieldCheck className="h-6 w-6" strokeWidth={1.75} />,
+            title: "Trusted Reputation",
+            description:
+                "Built on transparency, accountability, and consistent results.",
+        },
+    ];
+
+    // Add to your lucide import:
+    // import { Zap, Printer, Home as HomeIcon, TrendingUp } from "lucide-react";
+
+    const offerings = [
+        {
+            icon: <Zap className="h-5 w-5" strokeWidth={1.75} />,
+            name: "Electricity Solutions",
+            blurb: "Competitive electricity plans through trusted energy partners.",
+        },
+        {
+            icon: <Printer className="h-5 w-5" strokeWidth={1.75} />,
+            name: "Printer Solutions",
+            blurb: "Business-grade printing, leasing, and managed print services.",
+        },
+        {
+            icon: <HomeIcon className="h-5 w-5" strokeWidth={1.75} />,
+            name: "Residential Services",
+            blurb: "Essential home services from vetted, reliable providers.",
+        },
+        {
+            icon: <TrendingUp className="h-5 w-5" strokeWidth={1.75} />,
+            name: "Business Development",
+            blurb: "Lead generation and customer acquisition that scales revenue.",
         },
     ];
     return (
@@ -62,7 +114,7 @@ export default function Home() {
                         <div className="w-full md:w-1/2 flex flex-col gap-5 md:pl-10">
                             {/* Eyebrow */}
                             <div className="flex items-center gap-3">
-                                <span className="w-6 h-px bg-purple-400 shrink-0" />
+                                {/* <span className="w-6 h-px bg-purple-400 shrink-0" /> */}
                                 <span className="uppercase tracking-[0.22em] text-xs font-semibold text-purple-400">
                                     Performance-Driven Sales
                                 </span>
@@ -70,9 +122,9 @@ export default function Home() {
 
                             {/* Headline */}
                             <h1 className="text-white text-4xl sm:text-5xl xl:text-[3.6rem] font-bold leading-[1.08] tracking-tight">
-                                Truth,{" "}
+                                TRUTH,{" "}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-400">
-                                    Delivered
+                                    DELIVERED
                                 </span>
                             </h1>
 
@@ -142,105 +194,254 @@ export default function Home() {
                 </section>
 
                 {/* ── Second Content ── */}
-                {/* ── The Veritas Model ── */}
-                <section className="w-full border-t border-slate-100">
-                    <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-24">
-                        {/* Heading block */}
-                        <div className="flex flex-col items-center text-center">
-                            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200 bg-white text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-700">
-                                The Veritas Model
+                {/* ── Why Veritas ─────────────────────────────────────── */}
+                <section className="w-full bg-slate-50">
+                    <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-10">
+                        {/* Heading */}
+                        <div className="max-w-2xl">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-700">
+                                <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
+                                Why Veritas
                             </span>
-
-                            <h2 className="mt-5 text-3xl sm:text-4xl md:text-[2.75rem] font-bold tracking-tight text-slate-900 leading-[1.1]">
-                                Sales measured by{" "}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-fuchsia-600">
-                                    outcomes
+                            <h2 className="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-4xl md:text-[2.75rem]">
+                                RESULTS THAT{" "}
+                                <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
+                                    MATTER
                                 </span>
                             </h2>
-
-                            <p className="mt-4 max-w-xl text-slate-500 text-sm sm:text-base leading-relaxed">
-                                We plug into essential-service providers as an
-                                accountable revenue engine — clients carry the
-                                risk of nothing but the upside.
+                            <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-500 sm:text-base">
+                                The advantages that make Veritas a sales partner
+                                service providers keep coming back to.
                             </p>
                         </div>
 
-                        {/* Cards */}
-                        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-                            {advantages.map((card) => (
+                        {/* Bento grid: anchor cell + four supporting cells */}
+                        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
+                            {reasons.map((reason, i) => (
                                 <article
-                                    key={card.title}
-                                    className="group flex flex-col rounded-2xl border border-slate-200/80 bg-white p-7 lg:p-8"
+                                    key={reason.title}
+                                    className={`group relative flex flex-col overflow-hidden border border-slate-200/80 bg-white p-6 ${
+                                        i === 0 ? "lg:row-span-2 lg:p-8" : ""
+                                    }`}
                                 >
-                                    <h3 className="text-xl font-bold tracking-tight text-slate-900">
-                                        {card.title}
-                                    </h3>
+                                    {/* Hover accent — left edge only, not the whole border */}
+                                    <span className="absolute left-0 top-0 h-full w-[3px] scale-y-0 bg-indigo-600 transition-transform duration-300 ease-out group-hover:scale-y-100" />
 
-                                    {/* Tag pills */}
-                                    <div className="mt-3 flex flex-wrap gap-2">
-                                        {card.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="px-2.5 py-1 rounded-md border border-slate-200 bg-slate-50
-                                    text-[11px] font-medium text-slate-600"
-                                            >
-                                                {tag}
+                                    <div className="relative z-10 flex h-full flex-col">
+                                        {/* Index label + icon, inline — not a boxed centerpiece */}
+                                        <div className="flex items-center gap-2 text-indigo-600">
+                                            {/* <span className="font-mono text-[11px] font-semibold tracking-widest">
+                                                {String(i + 1).padStart(2, "0")}
                                             </span>
-                                        ))}
-                                    </div>
+                                            <span className="h-px w-4 bg-indigo-300" /> */}
+                                            {reason.icon}
+                                        </div>
 
-                                    <p className="mt-4 text-sm text-slate-500 leading-relaxed">
-                                        {card.description}
-                                    </p>
-
-                                    {/* Visual placeholder — swap this div for <img> when assets arrive */}
-                                    <div
-                                        className={`mt-6 relative aspect-[4/3] rounded-xl overflow-hidden
-                            bg-gradient-to-br ${card.gradient}`}
-                                    >
-                                        {/* Brand motif — echoes the hero's bubble language */}
-                                        <svg
-                                            className="absolute inset-0 w-full h-full opacity-90"
-                                            viewBox="0 0 400 300"
-                                            fill="none"
-                                            aria-hidden="true"
+                                        <h3
+                                            className={`mt-4 font-bold tracking-tight text-slate-900 ${
+                                                i === 0 ? "text-2xl" : "text-lg"
+                                            }`}
                                         >
-                                            <circle
-                                                cx="120"
-                                                cy="120"
-                                                r="70"
-                                                fill="white"
-                                                fillOpacity="0.10"
-                                            />
-                                            <circle
-                                                cx="150"
-                                                cy="150"
-                                                r="34"
-                                                fill="white"
-                                                fillOpacity="0.14"
-                                            />
-                                            <circle
-                                                cx="300"
-                                                cy="90"
-                                                r="16"
-                                                fill="white"
-                                                fillOpacity="0.16"
-                                            />
-                                            <circle
-                                                cx="330"
-                                                cy="220"
-                                                r="46"
-                                                fill="white"
-                                                fillOpacity="0.08"
-                                            />
-                                        </svg>
+                                            {reason.title}
+                                        </h3>
+                                        <p
+                                            className={`mt-2.5 leading-relaxed text-slate-500 ${
+                                                i === 0
+                                                    ? "text-base"
+                                                    : "text-sm"
+                                            }`}
+                                        >
+                                            {reason.description}
+                                        </p>
 
-                                        <span className="absolute bottom-3 left-4 text-[10px] font-medium uppercase tracking-widest text-white/70">
-                                            Visual placeholder
-                                        </span>
+                                        {/* Anchor cell visual — unchanged from before */}
+                                        {i === 0 && (
+                                            <div className="mt-auto pt-8">
+                                                <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600">
+                                                    <img
+                                                        src={globe}
+                                                        alt=""
+                                                        aria-hidden="true"
+                                                        className="absolute -bottom-10 left-1/2 w-[140%] max-w-none -translate-x-1/2 opacity-90"
+                                                    />
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </article>
                             ))}
+                        </div>
+                    </div>
+                </section>
+
+                <MarqueeStrip />
+
+                {/* Third Content Section */}
+                {/* ── What We Offer ─────────────────────────────────────── */}
+                <section className="w-full bg-slate-50">
+                    <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 md:py-28 lg:grid-cols-2 lg:gap-16 lg:px-10">
+                        {/* Left — positioning + image */}
+                        <div className="flex flex-col">
+                            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-700">
+                                <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
+                                What We Offer
+                            </span>
+
+                            <h2 className="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-4xl md:text-[2.75rem]">
+                                QUALITY SOLUTIONS,{" "}
+                                <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
+                                    TRUSTED PARTNERS
+                                </span>
+                            </h2>
+
+                            <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-500 sm:text-base">
+                                We don't just sell — we connect. Veritas matches
+                                households and businesses to vetted partners
+                                offering competitive rates, dependable service,
+                                and solutions built to fit.
+                            </p>
+
+                            {/* Single supporting image placeholder */}
+                            <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+                                <span className="absolute bottom-3 left-4 text-[10px] font-medium uppercase tracking-widest text-slate-400">
+                                    Image placeholder
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Right — offerings as index rows */}
+                        <div className="flex flex-col justify-center border-t border-slate-200 lg:border-l lg:border-t-0 lg:pl-16">
+                            {offerings.map((item, i) => (
+                                <a
+                                    key={item.name}
+                                    href="/products"
+                                    className="group flex items-start gap-5 border-b border-slate-200 py-6 lg:py-7"
+                                >
+                                    <span className="mt-0.5 font-mono text-[11px] font-semibold tracking-widest text-indigo-400">
+                                        {String(i + 1).padStart(2, "0")}
+                                    </span>
+                                    <span className="text-indigo-600">
+                                        {item.icon}
+                                    </span>
+                                    <div className="flex-1">
+                                        <h3 className="text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-indigo-700">
+                                            {item.name}
+                                        </h3>
+                                        <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                                            {item.blurb}
+                                        </p>
+                                    </div>
+                                    <span className="mt-1 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-indigo-500">
+                                        →
+                                    </span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* ── Closing CTA ───────────────────────────────────────── */}
+                <section className="w-full bg-slate-50">
+                    <div className="mx-auto max-w-7xl px-6 pb-20 md:pb-28 lg:px-10">
+                        {/* Deep panel — darker, no rounding */}
+                        <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950">
+                            {/* Grain texture — replaces the blob-circle cliché */}
+                            <svg
+                                className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.35] mix-blend-overlay"
+                                aria-hidden="true"
+                            >
+                                <filter id="veritas-grain">
+                                    <feTurbulence
+                                        type="fractalNoise"
+                                        baseFrequency="0.9"
+                                        numOctaves="2"
+                                        stitchTiles="stitch"
+                                    />
+                                    <feColorMatrix type="saturate" values="0" />
+                                </filter>
+                                <rect
+                                    width="100%"
+                                    height="100%"
+                                    filter="url(#veritas-grain)"
+                                />
+                            </svg>
+
+                            {/* Single restrained light source, top-left — not a rainbow blob pair */}
+                            <div
+                                aria-hidden="true"
+                                className="pointer-events-none absolute -left-1/4 -top-1/2 h-[140%] w-[70%]"
+                                style={{
+                                    background:
+                                        "radial-gradient(closest-side, rgba(129,140,248,0.18), transparent 70%)",
+                                }}
+                            />
+
+                            {/* Asymmetric grid — text left, glass stat panel right */}
+                            <div className="relative grid grid-cols-1 gap-10 px-6 py-16 sm:px-10 md:py-20 lg:grid-cols-5 lg:gap-16 lg:px-14 lg:py-24">
+                                {/* Left — text, left-aligned, not centered */}
+                                <div className="flex flex-col lg:col-span-3">
+                                    <span className="inline-flex w-fit items-center gap-2 border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-200">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                                        Get Started
+                                    </span>
+
+                                    <h2 className="mt-5 max-w-md text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.5rem]">
+                                        TWO WAYS FORWARD WITH VERITAS
+                                    </h2>
+
+                                    <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60 sm:text-base">
+                                        Build a career with a team that rewards
+                                        performance — or discover solutions
+                                        matched to your needs through our
+                                        trusted partners.
+                                    </p>
+
+                                    <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                                        <a
+                                            href="/careers"
+                                            className="border border-white bg-white px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-slate-950 transition-colors duration-300 hover:bg-white/90"
+                                        >
+                                            View Open Roles
+                                        </a>
+                                        <a
+                                            href="/products"
+                                            className="border border-white/25 bg-white/[0.04] px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-white backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 hover:bg-white/[0.08] hover:border-white/40"
+                                        >
+                                            Explore Our Solutions
+                                        </a>
+                                    </div>
+                                </div>
+
+                                {/* Right — real glass panel, carrying actual content (a stat), not decoration */}
+                                <div className="flex items-center lg:col-span-2">
+                                    <div className="relative w-full border border-white/15 bg-white/[0.06] p-8 backdrop-blur-2xl backdrop-saturate-150">
+                                        {/* Inset top highlight — the detail generic glass skips */}
+                                        <span
+                                            aria-hidden="true"
+                                            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"
+                                        />
+                                        <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-300">
+                                            Trusted since 2024
+                                        </span>
+                                        <p className="mt-3 text-5xl font-bold tracking-tight text-white">
+                                            500
+                                            <span className="text-indigo-300">
+                                                +
+                                            </span>
+                                        </p>
+                                        <p className="mt-1 text-sm text-white/55">
+                                            Businesses partnered with Veritas
+                                        </p>
+
+                                        <div className="mt-6 border-t border-white/10 pt-6">
+                                            <p className="text-sm leading-relaxed text-white/55">
+                                                Every partnership is measured on
+                                                results — not activity.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
