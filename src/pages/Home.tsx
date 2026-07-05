@@ -380,7 +380,7 @@ export default function Home() {
                             <div className="relative grid grid-cols-1 gap-10 px-6 py-16 sm:px-10 md:py-20 lg:grid-cols-5 lg:gap-16 lg:px-14 lg:py-24">
                                 {/* Left — text, left-aligned, not centered */}
                                 <div className="flex flex-col lg:col-span-3">
-                                    <span className="inline-flex w-fit items-center gap-2 border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-200">
+                                    <span className="inline-flex w-fit items-center rounded-full gap-2 border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-200">
                                         <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
                                         Get Started
                                     </span>
