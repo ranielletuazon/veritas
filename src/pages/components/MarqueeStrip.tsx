@@ -19,7 +19,7 @@ function SeparatorIcon() {
 
 export default function MarqueeStrip() {
     const MARQUEE_ITEMS = [
-        "Results-Based Sales",
+        "Results-Based Approach",
         "Revenue Growth",
         "Industry Expertise",
         "Product Quality",

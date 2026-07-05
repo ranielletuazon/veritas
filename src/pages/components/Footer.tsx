@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/veritas_landscape_logo.png";
 import { socials } from "../../data/social";
 
-const footerNav = [
-    { label: "Home", to: "/" },
-    { label: "Products", to: "/products" },
-    { label: "Careers", to: "/careers" },
-    { label: "About Us", to: "/about" },
-    { label: "Contact", to: "/contact" },
+const NAV_LINKS = [
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "News", href: "/news" },
+    { label: "Careers", href: "/careers" },
+    { label: "About Us", href: "/about" },
 ];
 
 export default function Footer() {
@@ -79,14 +79,14 @@ export default function Footer() {
                             Navigate
                         </h3>
                         <nav className="mt-5 flex flex-col gap-3">
-                            {footerNav.map((item) => (
-                                <Link
-                                    key={item.label}
-                                    to={item.to}
+                            {NAV_LINKS.map(({ label, href }) => (
+                                <a
+                                    key={label}
+                                    href={href}
                                     className="w-fit text-sm text-white/70 transition-colors duration-300 hover:text-white"
                                 >
-                                    {item.label}
-                                </Link>
+                                    {label}
+                                </a>
                             ))}
                         </nav>
                     </div>
