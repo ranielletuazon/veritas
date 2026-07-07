@@ -70,7 +70,7 @@ export default function Header() {
                             bg-purple-600/25 backdrop-blur-md border border-purple-300/40
                             shadow-[0_8px_32px_-8px_rgba(147,51,234,0.45)]
                             hover:bg-purple-600/40 hover:border-purple-200/60 hover:-translate-y-0.5
-                            transition-all duration-300"
+                            transition-all duration-300 rounded-lg"
                     >
                         CONTACT US
                     </a>
@@ -124,7 +124,7 @@ export default function Header() {
                         className="mt-3 px-5 py-2.5 text-sm font-semibold text-center tracking-wide text-white
                             bg-purple-600/25 backdrop-blur-md border border-purple-300/40
                             shadow-[0_8px_32px_-8px_rgba(147,51,234,0.45)]
-                            transition-all duration-300"
+                            transition-all duration-300 rounded-lg"
                     >
                         Get In Touch
                     </a>
