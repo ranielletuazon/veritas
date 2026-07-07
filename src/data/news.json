@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "slug": "final-stop-one-mind-one-goal",
+        "title": "Final Stop: One Mind, One Goal. ",
+        "description": "We’re heading to the last villa to wrap up an unforgettable Philippines retreat. While the scenery in Zambales has been breathtaking, the real takeaway is the clarity we’ve gained as a team.\n\n We spent these final hours putting the finishing touches on our roadmap and ensuring every person at Veritas is moving in the same direction. We aren't just leaving with memories; we’re leaving with a shared mission. \n\n The trip is ending, but the real work and the real impact starts now.",
+        "status": "published",
+        "published_at": "2026-05-20 09:00:00",
+        "created_at": "2026-05-26 08:53:35",
+        "images": ["final.png"]
+    },
+    {
+        "id": 2,
+        "slug": "three-weeks-one-mission",
+        "title": "Three Weeks, One Mission",
+        "description": "Our Philippines retreat has officially come to a close, and what a journey it’s been. We spent nearly three weeks balancing intensive huddles with well-deserved team bonding. \n\n While the beauty of the PH was the backdrop, the real magic happened in our strategy sessions. We didn’t just come here for the views. We came here to align, refocus, and build the roadmap for what’s next at Veritas. \n\n The retreat is done. The clarity is there. Now, we execute.\n\n Back to the grind let’s make it happen.",
+        "status": "published",
+        "published_at": "2026-05-10 09:00:00",
+        "created_at": "2026-05-26 08:53:35",
+        "images": ["three.png"]
+    },
+    {
+        "id": 3,
+        "slug": "sunset-reflections-day-2-in-zambales",
+        "title": "Sunset Reflections: Day 2 in Zambales ",
+        "description": "If Day 1 was about setting the foundation, Day 2 was about living it. We wrapped up another incredible day on the shores of Zambales, finding that perfect, elusive balance between high-level productivity and genuine enjoyment. There is something transformative about moving our \"office\" to the beach where the rhythm of the waves matches the flow of our brainstorming sessions \n\n But the real highlight wasn't just the tasks we knocked out or the goals we reached; it was the realization of who I was standing next to. At Veritas, the line between \"colleague\" and \"family\" continues to blur in the best way possible.",
+        "status": "published",
+        "published_at": "2026-05-01 09:00:00",
+        "created_at": "2026-05-26 08:53:35",
+        "images": ["sunset.png"]
+    },
+    {
+        "id": 4,
+        "slug": "new-horizons-same-mission-veritas-takes-on-zambales",
+        "title": "New Horizons, Same Mission: Veritas Takes on Zambales",
+        "description": "Growth isn’t just about the work we do; it’s about the people we become.\n\nToday, the Veritas team officially kicked off Team Building Part 2.\n\nWe’ve traded the plains of Pampanga for the shores of Zambales to embark on a journey of recalibration, connection, and collective elevation.\n\nAt Veritas, we believe that professional success is built on a foundation of personal growth. We are at our best when we support each other as whole individuals.\n\nAs we dive into our new agenda for Day 1, we are focused on two core pillars:\n\nGrowing as Individuals: We strive to become better versions of ourselves every day, refining our character alongside our skills. We believe that personal excellence fuels professional impact.\n\nGrowing Hand in Hand: Success is never a solo mission. We move forward as one, ensuring that as we climb, we reach back to lift one another up. No one walks the path alone.\n\nWe aren't just here to build careers; we are here to build a stronger, more resilient community. Ready for the challenge, the activities, and the growth that Zambales has in store for us.",
+        "status": "published",
+        "published_at": "2026-04-30 09:00:00",
+        "created_at": "2026-05-26 08:53:35",
+        "images": ["horizon.png"]
+    },
+    {
+        "id": 5,
+        "slug": "new-horizons-same-mission-veritas-takes-on-zambales",
+        "title": "Day 4: Captured Memories",
+        "description": "Day 4 was all about capturing memories and enjoying time together as a team. \n\n We started by taking photos within each team, followed by a group photo with the entire Veritas organization always a great way to document the people behind the work. \n\n Afterward, we headed to a bowling alley for some well-deserved recreational time. It was a fun and relaxed setting that brought out a different kind of team energy light, competitive, and full of laughs. \n\n To wrap up the evening, we shared a Korean barbecue dinner. Good food and great company made for the perfect ending to the day. \n\n Sometimes, it’s these simple moments that strengthen connections the most.",
+        "status": "published",
+        "published_at": "2026-04-25 09:00:00",
+        "created_at": "2026-05-26 08:53:35",
+        "images": [
+            "captured1.jpg",
+            "captured2.jpg",
+            "captured3.jpg",
+            "captured4.jpg"
+        ]
+    }
+]

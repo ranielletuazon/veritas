@@ -54,9 +54,6 @@ export default function Home() {
         },
     ];
 
-    // Add to your lucide import:
-    // import { Zap, Printer, Home as HomeIcon, TrendingUp } from "lucide-react";
-
     const offerings = [
         {
             icon: <Zap className="h-5 w-5" strokeWidth={1.75} />,
@@ -114,7 +111,6 @@ export default function Home() {
                         <div className="w-full md:w-1/2 flex flex-col gap-5 md:pl-10">
                             {/* Eyebrow */}
                             <div className="flex items-center gap-3">
-                                {/* <span className="w-6 h-px bg-purple-400 shrink-0" /> */}
                                 <span className="uppercase tracking-[0.22em] text-xs font-semibold text-purple-400">
                                     Performance-Driven Sales
                                 </span>
@@ -141,7 +137,7 @@ export default function Home() {
                                 <a
                                     href="#"
                                     className="px-6 py-3 text-sm font-semibold tracking-wide text-white text-center
-                                        bg-purple-600/25 backdrop-blur-md border border-purple-300/40
+                                        rounded-lg bg-purple-600/25 backdrop-blur-md border border-purple-300/40
                                         shadow-[0_8px_32px_-8px_rgba(147,51,234,0.45)]
                                         hover:bg-purple-600/40 hover:border-purple-200/60 hover:-translate-y-0.5
                                         transition-all duration-300"
@@ -151,7 +147,7 @@ export default function Home() {
                                 <a
                                     href="#"
                                     className="px-6 py-3 text-sm font-semibold tracking-wide text-center
-                                        text-white/85 bg-white/5 backdrop-blur-md border border-white/25
+                                        rounded-lg text-white/85 bg-white/5 backdrop-blur-md border border-white/25
                                         shadow-[0_8px_32px_-12px_rgba(0,0,0,0.5)]
                                         hover:text-white hover:bg-white/15 hover:border-white/45 hover:-translate-y-0.5
                                         transition-all duration-300"
@@ -193,7 +189,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ── Second Content ── */}
                 {/* ── Why Veritas ─────────────────────────────────────── */}
                 <section className="w-full bg-slate-50">
                     <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 lg:px-10">
@@ -220,7 +215,7 @@ export default function Home() {
                             {reasons.map((reason, i) => (
                                 <article
                                     key={reason.title}
-                                    className={`group relative flex flex-col overflow-hidden border border-slate-200/80 bg-white p-6 ${
+                                    className={`group relative flex flex-col overflow-hidden rounded-xl border border-slate-200/80 bg-white p-6 ${
                                         i === 0 ? "lg:row-span-2 lg:p-8" : ""
                                     }`}
                                 >
@@ -230,10 +225,6 @@ export default function Home() {
                                     <div className="relative z-10 flex h-full flex-col">
                                         {/* Index label + icon, inline — not a boxed centerpiece */}
                                         <div className="flex items-center gap-2 text-indigo-600">
-                                            {/* <span className="font-mono text-[11px] font-semibold tracking-widest">
-                                                {String(i + 1).padStart(2, "0")}
-                                            </span>
-                                            <span className="h-px w-4 bg-indigo-300" /> */}
                                             {reason.icon}
                                         </div>
 
@@ -254,10 +245,10 @@ export default function Home() {
                                             {reason.description}
                                         </p>
 
-                                        {/* Anchor cell visual — unchanged from before */}
+                                        {/* Anchor cell visual */}
                                         {i === 0 && (
                                             <div className="mt-auto pt-8">
-                                                <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600">
+                                                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600">
                                                     <img
                                                         src={globe}
                                                         alt=""
@@ -276,7 +267,6 @@ export default function Home() {
 
                 <MarqueeStrip />
 
-                {/* Third Content Section */}
                 {/* ── What We Offer ─────────────────────────────────────── */}
                 <section className="w-full bg-slate-50">
                     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 md:py-28 lg:grid-cols-2 lg:gap-16 lg:px-10">
@@ -302,7 +292,7 @@ export default function Home() {
                             </p>
 
                             {/* Single supporting image placeholder */}
-                            <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+                            <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-100 to-slate-200">
                                 <span className="absolute bottom-3 left-4 text-[10px] font-medium uppercase tracking-widest text-slate-400">
                                     Image placeholder
                                 </span>
@@ -343,9 +333,9 @@ export default function Home() {
                 {/* ── Closing CTA ───────────────────────────────────────── */}
                 <section className="w-full bg-slate-50">
                     <div className="mx-auto max-w-7xl px-6 pb-20 md:pb-28 lg:px-10">
-                        {/* Deep panel — darker, no rounding */}
-                        <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950">
-                            {/* Grain texture — replaces the blob-circle cliché */}
+                        {/* Deep panel */}
+                        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950">
+                            {/* Grain texture */}
                             <svg
                                 className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.35] mix-blend-overlay"
                                 aria-hidden="true"
@@ -366,7 +356,7 @@ export default function Home() {
                                 />
                             </svg>
 
-                            {/* Single restrained light source, top-left — not a rainbow blob pair */}
+                            {/* Single restrained light source, top-left */}
                             <div
                                 aria-hidden="true"
                                 className="pointer-events-none absolute -left-1/4 -top-1/2 h-[140%] w-[70%]"
@@ -378,7 +368,7 @@ export default function Home() {
 
                             {/* Asymmetric grid — text left, glass stat panel right */}
                             <div className="relative grid grid-cols-1 gap-10 px-6 py-16 sm:px-10 md:py-20 lg:grid-cols-5 lg:gap-16 lg:px-14 lg:py-24">
-                                {/* Left — text, left-aligned, not centered */}
+                                {/* Left — text */}
                                 <div className="flex flex-col lg:col-span-3">
                                     <span className="inline-flex w-fit items-center rounded-full gap-2 border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-200">
                                         <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
@@ -399,26 +389,26 @@ export default function Home() {
                                     <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
                                         <a
                                             href="/careers"
-                                            className="border border-white bg-white px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-slate-950 transition-colors duration-300 hover:bg-white/90"
+                                            className="rounded-lg border border-white bg-white px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-slate-950 transition-colors duration-300 hover:bg-white/90"
                                         >
                                             View Open Roles
                                         </a>
                                         <a
                                             href="/products"
-                                            className="border border-white/25 bg-white/[0.04] px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-white backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 hover:bg-white/[0.08] hover:border-white/40"
+                                            className="rounded-lg border border-white/25 bg-white/[0.04] px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-white backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 hover:bg-white/[0.08] hover:border-white/40"
                                         >
                                             Explore Our Solutions
                                         </a>
                                     </div>
                                 </div>
 
-                                {/* Right — real glass panel, carrying actual content (a stat), not decoration */}
+                                {/* Right — glass stat panel */}
                                 <div className="flex items-center lg:col-span-2">
-                                    <div className="relative w-full border border-white/15 bg-white/[0.06] p-8 backdrop-blur-2xl backdrop-saturate-150">
-                                        {/* Inset top highlight — the detail generic glass skips */}
+                                    <div className="relative w-full rounded-xl border border-white/15 bg-white/[0.06] p-8 backdrop-blur-2xl backdrop-saturate-150">
+                                        {/* Inset top highlight */}
                                         <span
                                             aria-hidden="true"
-                                            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"
+                                            className="pointer-events-none absolute inset-x-3 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"
                                         />
                                         <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-300">
                                             Trusted since 2024

@@ -35,18 +35,18 @@ export default function NotFound() {
 
                     {/* Actions */}
                     <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
-                        <Link
-                            to="/"
+                        <a
+                            href="/"
                             className="border border-indigo-600 bg-indigo-600 px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-colors duration-300 hover:bg-indigo-700"
                         >
-                            Back to Home
-                        </Link>
-                        <Link
-                            to="/contact"
+                            BACK TO HOME
+                        </a>
+                        <a
+                            href="/contact-us"
                             className="border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold tracking-wide text-slate-900 transition-colors duration-300 hover:border-indigo-400 hover:text-indigo-700"
                         >
-                            Contact Us
-                        </Link>
+                            CONTACT US
+                        </a>
                     </div>
                 </div>
             </section>
