@@ -11,6 +11,10 @@ export default function Products() {
             <main className="w-full">
                 <section className="w-full bg-slate-50 pt-32 md:pt-40">
                     <div className="mx-auto max-w-7xl px-6 pb-14 lg:px-10">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-700">
+                            <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
+                            Products
+                        </span>
                         <h1 className="mt-5 max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-4xl md:text-[2.75rem]">
                             WHAT WE{" "}
                             <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
@@ -26,12 +30,13 @@ export default function Products() {
                 </section>
 
                 <section className="w-full bg-slate-50 pb-24">
-                    <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-6 sm:grid-cols-2 lg:px-10">
+                    {/* Product Cards */}
+                    <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-6 sm:grid-cols-2 lg:px-10 ">
                         {PRODUCT_CATEGORIES.map((cat) => (
-                            <Link
+                            <a
                                 key={cat.id}
-                                to={`/products/${cat.slug}`}
-                                className="group relative flex flex-col overflow-hidden border border-slate-200 bg-white"
+                                href={`/products/${cat.slug}`}
+                                className="group relative flex flex-col overflow-hidden border border-slate-200 bg-white rounded-lg"
                             >
                                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600">
                                     <span className="absolute bottom-3 left-4 z-10 font-mono text-[10px] font-medium uppercase tracking-widest text-white/70">
@@ -61,7 +66,7 @@ export default function Products() {
                                 >
                                     <BenefitsList cat={cat} />
                                 </div>
-                            </Link>
+                            </a>
                         ))}
                     </div>
                 </section>
