@@ -3,7 +3,17 @@ import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import newsData from "../data/news.json";
-import type { NewsPost } from "../types/news";
+
+export interface NewsPost {
+    id: number;
+    slug: string;
+    title: string;
+    description: string;
+    status: "published" | "draft";
+    published_at: string;
+    created_at: string;
+    images: string[];
+}
 
 const PAGE_SIZE = 4;
 
