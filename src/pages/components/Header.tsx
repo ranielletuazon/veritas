@@ -7,7 +7,7 @@ const NAV_LINKS = [
     { label: "Products", href: "/products" },
     { label: "News", href: "/news" },
     { label: "Careers", href: "/careers" },
-    { label: "About Us", href: "/about" },
+    { label: "About Us", href: "/about-us" },
 ];
 
 export default function Header() {
@@ -65,7 +65,7 @@ export default function Header() {
                         </a>
                     ))}
                     <a
-                        href="#"
+                        href="/contact-us"
                         className="ml-1 px-5 py-2 text-sm font-semibold tracking-wide text-white
                             bg-purple-600/25 backdrop-blur-md border border-purple-300/40
                             shadow-[0_8px_32px_-8px_rgba(147,51,234,0.45)]

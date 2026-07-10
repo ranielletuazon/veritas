@@ -103,9 +103,9 @@ export default function News() {
                                 <>
                                     <div className="flex flex-col gap-5">
                                         {visiblePosts.map((post, i) => (
-                                            <Link
+                                            <a
                                                 key={post.id}
-                                                to={`/news/${post.slug}`}
+                                                href={`/news/${post.slug}`}
                                                 className="group flex gap-4 overflow-hidden rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-300 hover:border-indigo-200 sm:gap-5 sm:p-5"
                                             >
                                                 <div className="relative aspect-[4/3] w-28 shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 sm:w-44">
@@ -150,7 +150,7 @@ export default function News() {
                                                         }
                                                     </p>
                                                 </div>
-                                            </Link>
+                                            </a>
                                         ))}
                                     </div>
 
@@ -188,8 +188,8 @@ export default function News() {
                                             <ul className="mt-3 flex flex-col">
                                                 {monthPosts.map((post) => (
                                                     <li key={post.id}>
-                                                        <Link
-                                                            to={`/news/${post.slug}`}
+                                                        <a
+                                                            href={`/news/${post.slug}`}
                                                             className="group flex items-baseline justify-between gap-4 border-b border-slate-200 py-3"
                                                         >
                                                             <span className="text-sm font-medium text-slate-700 transition-colors group-hover:text-indigo-700">
@@ -206,7 +206,7 @@ export default function News() {
                                                                     },
                                                                 )}
                                                             </span>
-                                                        </Link>
+                                                        </a>
                                                     </li>
                                                 ))}
                                             </ul>
