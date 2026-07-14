@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { PRODUCT_CATEGORIES, type ProductCategory } from "../data/products";
-import { Eye, Target } from "lucide-react";
 
 export default function Products() {
     return (
