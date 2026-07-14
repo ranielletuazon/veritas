@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { PRODUCT_CATEGORIES, type ProductCategory } from "../data/products";
+import { PRODUCT_CATEGORIES, productImgSrc, type ProductCategory } from "../data/products";
 
 export default function Products() {
     return (
@@ -61,42 +61,67 @@ export default function Products() {
                 <section className="w-full bg-slate-50 pb-24">
                     {/* Product Cards */}
                     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-6 py-16 sm:grid-cols-2 lg:px-10 ">
-                        {PRODUCT_CATEGORIES.map((cat) => (
-                            <a
-                                key={cat.id}
-                                href={`/products/${cat.slug}`}
-                                className="group relative flex flex-col overflow-hidden border border-slate-200 bg-white rounded-lg"
-                            >
-                                <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600">
-                                    <span className="absolute bottom-3 left-4 z-10 font-mono text-[10px] font-medium uppercase tracking-widest text-white/70">
-                                        Image placeholder
-                                    </span>
-                                    <span className="absolute left-4 top-4 z-10 rounded-full border border-white/25 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-white backdrop-blur-md">
-                                        {cat.tagline}
-                                    </span>
-                                </div>
+                        {PRODUCT_CATEGORIES.map((cat) => {
+    const src = productImgSrc(cat.featured_image);
+    return (
+        <a
+            key={cat.id}
+            href={`/products/${cat.slug}`}
+            className="group relative flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition-colors duration-300 hover:border-indigo-200"
+        >
+            {/* Product stage — built for transparent cutouts */}
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200/60">
+                {/* Soft brand glow behind the product */}
+                <div
+                    aria-hidden="true"
+                    className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-400/20 blur-3xl transition-all duration-500 group-hover:bg-fuchsia-400/25"
+                />
+                {/* Ground shadow — anchors the floating cutout */}
+                <div
+                    aria-hidden="true"
+                    className="absolute bottom-6 left-1/2 h-4 w-40 -translate-x-1/2 rounded-[100%] bg-slate-900/10 blur-md"
+                />
 
-                                <div className="flex flex-1 flex-col p-6 lg:p-7">
-                                    <h2 className="text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
-                                        {cat.name}
-                                    </h2>
-                                    <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                                        {cat.description}
-                                    </p>
+                {src ? (
+                    <img
+                        src={src}
+                        alt={cat.name}
+                        loading="lazy"
+                        className="absolute inset-0 m-auto max-h-[75%] max-w-[70%] object-contain drop-shadow-[0_12px_20px_rgba(15,23,42,0.18)] transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                    />
+                ) : (
+                    <span className="absolute bottom-3 left-4 font-mono text-[10px] font-medium uppercase tracking-widest text-slate-400">
+                        Image placeholder
+                    </span>
+                )}
 
-                                    <div className="mt-5 md:hidden">
-                                        <BenefitsList cat={cat} />
-                                    </div>
-                                </div>
+                <span className="absolute left-4 top-4 z-10 rounded-full border border-slate-300/60 bg-white/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-slate-700 backdrop-blur-md">
+                    {cat.tagline}
+                </span>
+            </div>
 
-                                <div
-                                    className="pointer-events-none absolute inset-x-0 bottom-0 hidden translate-y-full border-t border-slate-200 bg-white p-6 transition-transform duration-300 ease-out group-hover:translate-y-0 md:block lg:p-7"
-                                    aria-hidden="true"
-                                >
-                                    <BenefitsList cat={cat} />
-                                </div>
-                            </a>
-                        ))}
+            <div className="flex flex-1 flex-col p-6 lg:p-7">
+                <h2 className="text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-indigo-700 sm:text-xl">
+                    {cat.name}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                    {cat.description}
+                </p>
+
+                <div className="mt-5 md:hidden">
+                    <BenefitsList cat={cat} />
+                </div>
+            </div>
+
+            <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 hidden translate-y-full border-t border-slate-200 bg-white p-6 transition-transform duration-300 ease-out group-hover:translate-y-0 md:block lg:p-7"
+                aria-hidden="true"
+            >
+                <BenefitsList cat={cat} />
+            </div>
+        </a>
+    );
+})}
                     </div>
                 </section>
             </main>
