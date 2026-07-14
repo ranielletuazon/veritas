@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 import News from "./pages/News";
 import About from "./pages/About";
+import NewsPost from "./pages/NewsPost";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/news" element={<News />} />
                     <Route path="/about-us" element={<About />} />
                     <Route path="*" element={<NotFound />} />
+                    <Route path="/news/:slug" element={<NewsPost />} />
                 </Routes>
             </BrowserRouter>
         </>
