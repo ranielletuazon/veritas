@@ -268,7 +268,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* <MarqueeStrip /> */}
+                <MarqueeStrip />
 
                 {/* ── What We Offer ─────────────────────────────────────── */}
                 <section className="w-full bg-slate-50">
