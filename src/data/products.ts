@@ -6,6 +6,8 @@ export interface ProductCategory {
     description: string;
     benefitsLabel: string;
     benefits: string[];
+    category: string;
+    featured_image: string;
 }
 
 export const PRODUCT_CATEGORIES: ProductCategory[] = [
@@ -23,6 +25,8 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
             "Hassle-free switching",
             "Personalized recommendations",
         ],
+        category: "Electricity",
+        featured_image: "electricity.png",
     },
     {
         id: "printer",
@@ -38,6 +42,8 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
             "Managed print services",
             "Ongoing technical support",
         ],
+        category: "Printer",
+        featured_image: "printer.png",
     },
     {
         id: "residential",
@@ -53,6 +59,8 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
             "Reliable customer support",
             "Tailored solutions",
         ],
+        category: "Residential",
+        featured_image: "residential.png",
     },
     {
         id: "business-dev",
@@ -70,5 +78,17 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
             "Market Expansion",
             "Revenue Growth Strategies",
         ],
+        category: "Business",
+        featured_image: "business.png",
     },
 ];
+
+/* Resolve product image filenames against bundled assets.
+   Folder assumed: src/assets/images/products/ — adjust glob path if different. */
+const productImages = import.meta.glob("../assets/images/products/*", {
+    eager: true,
+    import: "default",
+}) as Record<string, string>;
+
+export const productImgSrc = (file: string): string | undefined =>
+    productImages[`../assets/images/products/${file}`];

@@ -20,6 +20,7 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MarqueeStrip from "./components/MarqueeStrip";
+import HeroCarousel from "./components/HeroCarousel";
 
 export default function Home() {
     const reasons = [
@@ -105,7 +106,9 @@ export default function Home() {
                     {/* Content */}
                     <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-14 md:pb-0 flex flex-col md:flex-row items-end md:items-center">
                         {/* Left — reserved for future development */}
-                        <div className="hidden md:block md:w-1/2" />
+                        <div className="hidden md:block md:w-1/2">
+                            <HeroCarousel />
+                        </div>
 
                         {/* Right — Text Content */}
                         <div className="w-full md:w-1/2 flex flex-col gap-5 md:pl-10">
@@ -265,7 +268,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                <MarqueeStrip />
+                {/* <MarqueeStrip /> */}
 
                 {/* ── What We Offer ─────────────────────────────────────── */}
                 <section className="w-full bg-slate-50">
