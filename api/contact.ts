@@ -11,18 +11,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { inquiry, name, email, phone, company, message, website } = req.body;
 
-    /* Honeypot — if this hidden field is filled, it's a bot. Silently accept, do nothing. */
     if (website) {
         return res.status(200).json({ ok: true });
     }
 
-    /* Minimal server-side validation — never trust the client alone */
     if (!name || !email || !message) {
         return res.status(400).json({ error: "Missing required fields" });
     }
 
     try {
-        await resend.emails.send({
+        const { data, error } = await resend.emails.send({
             from: "Veritas Website <noreply@veritasorganisation.com>",
             to: "adrianetuazon18@gmail.com",
             replyTo: email,
@@ -38,9 +36,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             `,
         });
 
+        if (error) {
+            console.error("Resend rejected the send:", error);
+            return res.status(500).json({ error: error.message });
+        }
+
+        console.log("Email sent:", data?.id);
         return res.status(200).json({ ok: true });
     } catch (err) {
-        console.error("Resend error:", err);
+        console.error("Unexpected error:", err);
         return res.status(500).json({ error: "Failed to send message" });
     }
 }
