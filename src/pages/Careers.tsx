@@ -1,4 +1,4 @@
-import { MapPin, Clock, Users } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CAREERS } from "../data/careers";
