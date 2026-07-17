@@ -22,6 +22,9 @@ import Footer from "./components/Footer";
 import MarqueeStrip from "./components/MarqueeStrip";
 import HeroCarousel from "./components/HeroCarousel";
 
+import { Star, Quote } from "lucide-react";
+import { TESTIMONIALS, avatarSrc, initialsOf } from "../data/testimonials";
+
 export default function Home() {
     const reasons = [
         {
@@ -435,6 +438,111 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ── Testimonials ──────────────────────────────────────── */}
+                <section className="w-full bg-slate-50">
+                    <div className="mx-auto max-w-7xl px-6 pb-20 md:pb-28 lg:px-10">
+                        {/* Heading */}
+                        <div className="max-w-2xl">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-700">
+                                <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
+                                Testimonials
+                            </span>
+                            <h2 className="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-4xl md:text-[2.75rem]">
+                                WHAT OUR PARTNERS{" "}
+                                <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
+                                    SAY
+                                </span>
+                            </h2>
+                            <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-500 sm:text-base">
+                                Results speak louder than promises — here's what
+                                the businesses we work with have to say.
+                            </p>
+                        </div>
+
+                        {/* Cards */}
+                        <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                            {TESTIMONIALS.map((t) => {
+                                const src = avatarSrc(t.avatar);
+                                return (
+                                    <figure
+                                        key={t.id}
+                                        className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200/80 bg-white p-6 lg:p-7"
+                                    >
+                                        {/* Hover accent — matches the Why Veritas cards */}
+                                        <span className="absolute left-0 top-0 h-full w-[3px] scale-y-0 bg-indigo-600 transition-transform duration-300 ease-out group-hover:scale-y-100" />
+
+                                        {/* Watermark quote glyph */}
+                                        <Quote
+                                            className="pointer-events-none absolute -right-2 -top-2 h-20 w-20 text-slate-900/[0.03]"
+                                            fill="currentColor"
+                                            strokeWidth={0}
+                                            aria-hidden="true"
+                                        />
+
+                                        <div className="relative z-10 flex h-full flex-col">
+                                            {/* Rating */}
+                                            <div
+                                                className="flex items-center gap-0.5"
+                                                role="img"
+                                                aria-label={`${t.rating} out of 5 stars`}
+                                            >
+                                                {Array.from({ length: 5 }).map(
+                                                    (_, i) => (
+                                                        <Star
+                                                            key={i}
+                                                            className={`h-4 w-4 ${
+                                                                i < t.rating
+                                                                    ? "fill-amber-400 text-amber-400"
+                                                                    : "fill-slate-200 text-slate-200"
+                                                            }`}
+                                                            strokeWidth={0}
+                                                            aria-hidden="true"
+                                                        />
+                                                    ),
+                                                )}
+                                            </div>
+
+                                            {/* Quote */}
+                                            <blockquote className="mt-4 flex-1">
+                                                <p className="text-sm leading-relaxed text-slate-600">
+                                                    {t.quote}
+                                                </p>
+                                            </blockquote>
+
+                                            {/* Attribution */}
+                                            <figcaption className="mt-6 flex items-center gap-3 border-t border-slate-200 pt-5">
+                                                {src ? (
+                                                    <img
+                                                        src={src}
+                                                        alt=""
+                                                        loading="lazy"
+                                                        className="h-10 w-10 shrink-0 rounded-full object-cover"
+                                                    />
+                                                ) : (
+                                                    <span
+                                                        aria-hidden="true"
+                                                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-fuchsia-600 font-mono text-[11px] font-bold text-white"
+                                                    >
+                                                        {initialsOf(t.name)}
+                                                    </span>
+                                                )}
+                                                <div className="min-w-0">
+                                                    <p className="truncate text-sm font-bold tracking-tight text-slate-900">
+                                                        {t.name}
+                                                    </p>
+                                                    <p className="truncate text-xs text-slate-500">
+                                                        {t.role}, {t.company}
+                                                    </p>
+                                                </div>
+                                            </figcaption>
+                                        </div>
+                                    </figure>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
