@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Users, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { findCareerBySlug } from "../data/careers";
