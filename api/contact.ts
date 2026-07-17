@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
+// const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend("re_TjfNubWJ_HNx1pH4ggwK7Cxdr8UKEt9eB");
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (req.method !== "POST") {
@@ -21,7 +21,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         const { data, error } = await resend.emails.send({
-            from: "Veritas Website <noreply@veritasorganisation.com>",
+            from: "Veritas Organisation <onboarding@resend.dev>",
             to: "adrianetuazon18@gmail.com",
             replyTo: email,
             subject: `New ${inquiry === "business" ? "Business" : "Recruitment"} Inquiry — ${name}`,
