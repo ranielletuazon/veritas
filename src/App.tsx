@@ -9,6 +9,8 @@ import News from "./pages/News";
 import About from "./pages/About";
 import NewsPost from "./pages/NewsPost";
 import Contact from "./pages/Contact";
+import Careers from "./pages/Careers";
+import CareersView from "./pages/CareersView";
 
 function App() {
     return (
@@ -19,9 +21,11 @@ function App() {
                     <Route path="/products" element={<Products />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/about-us" element={<About />} />
-                    <Route path="*" element={<NotFound />} />
                     <Route path="/contact-us" element={<Contact />} />
+                    <Route path="/careers" element={<Careers />} />
+                    <Route path="/careers/:slug" element={<CareersView />} />
                     <Route path="/news/:slug" element={<NewsPost />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         </>
