@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "slug": "sales-executive",
+        "title": "Sales Executive",
+        "type": "Full-time",
+        "location": "Singapore",
+        "team": "Direct Sales",
+        "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required — full training provided.",
+        "duties": [
+            "Engage prospective customers through face-to-face and outbound campaigns",
+            "Present partner products and services with clarity and integrity",
+            "Meet and exceed weekly performance targets",
+            "Maintain accurate records of leads and outcomes",
+            "Participate in daily coaching and team huddles"
+        ],
+        "requirements": [
+            "Strong communication skills in English",
+            "Self-motivated and target-driven mindset",
+            "Willingness to learn — no sales experience required",
+            "Eligible to work in Singapore"
+        ],
+        "perks": [
+            "Uncapped performance-based commissions",
+            "Structured training and mentorship",
+            "Clear promotion pathway",
+            "Team incentives and retreats"
+        ]
+    },
+    {
+        "id": 2,
+        "slug": "team-leader",
+        "title": "Sales Team Leader",
+        "type": "Full-time",
+        "location": "Singapore",
+        "team": "Direct Sales",
+        "summary": "Lead a team of sales executives — coaching daily performance, running campaigns, and developing the next generation of leaders.",
+        "duties": [
+            "Lead, coach, and motivate a team of 4–8 sales executives",
+            "Run morning huddles and daily field coaching",
+            "Track team KPIs and report performance to management",
+            "Support recruitment and onboarding of new team members",
+            "Own campaign execution for assigned partner accounts"
+        ],
+        "requirements": [
+            "1+ year of direct sales or team leadership experience",
+            "Proven track record of hitting performance targets",
+            "Strong people-development instincts",
+            "Eligible to work in Singapore"
+        ],
+        "perks": [
+            "Leadership bonus structure on top of commissions",
+            "Direct mentorship from senior management",
+            "Fast-tracked growth into campaign management",
+            "Team incentives and retreats"
+        ]
+    },
+    {
+        "id": 3,
+        "slug": "corporate-sales-consultant",
+        "title": "Corporate Sales Consultant",
+        "type": "Full-time",
+        "location": "Singapore",
+        "team": "B2B Partnerships",
+        "summary": "Manage B2B relationships — helping businesses adopt our partners' electricity, printing, and service solutions.",
+        "duties": [
+            "Prospect and qualify B2B leads across assigned industries",
+            "Conduct consultative meetings with business decision-makers",
+            "Prepare proposals and close corporate accounts",
+            "Coordinate handover with partner providers",
+            "Maintain long-term client relationships for repeat business"
+        ],
+        "requirements": [
+            "2+ years in B2B sales or account management",
+            "Comfortable presenting to business owners and managers",
+            "Organized pipeline and follow-up discipline",
+            "Eligible to work in Singapore"
+        ],
+        "perks": [
+            "Higher-value commission tiers on corporate accounts",
+            "Autonomy over your own pipeline",
+            "Professional development budget",
+            "Team incentives and retreats"
+        ]
+    },
+    {
+        "id": 4,
+        "slug": "marketing-associate",
+        "title": "Marketing Associate",
+        "type": "Full-time",
+        "location": "Singapore",
+        "team": "Marketing",
+        "summary": "Support campaign marketing — content, social media, and lead-generation assets that fuel the sales teams.",
+        "duties": [
+            "Create content for social media and recruitment campaigns",
+            "Support lead-generation asset production",
+            "Track and report campaign engagement metrics",
+            "Coordinate with sales teams on campaign materials",
+            "Assist with events and team-building documentation"
+        ],
+        "requirements": [
+            "Portfolio of content or social media work (student projects welcome)",
+            "Working knowledge of Canva, CapCut, or similar tools",
+            "Strong written English",
+            "Eligible to work in Singapore"
+        ],
+        "perks": [
+            "Creative ownership from day one",
+            "Cross-team exposure to sales operations",
+            "Growth path into brand management",
+            "Team incentives and retreats"
+        ]
+    }
+]
