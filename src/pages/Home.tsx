@@ -1,6 +1,3 @@
-import hero_desktop from "../assets/images/hero_web.jpg";
-import hero_mobile from "../assets/images/hero_web_mobile.jpg";
-
 // Images
 import globe from "../assets/images/globe.webp";
 
@@ -94,11 +91,13 @@ export default function Home() {
                 >
                     <div
                         className="absolute inset-0 bg-cover bg-center md:hidden"
-                        style={{ backgroundImage: `url(${hero_mobile})` }}
+                        style={{
+                            backgroundImage: `url(/images/hero_web_mobile.jpg)`,
+                        }}
                     />
                     <div
                         className="absolute inset-0 bg-cover bg-top hidden md:block"
-                        style={{ backgroundImage: `url(${hero_desktop})` }}
+                        style={{ backgroundImage: `url(/images/hero_web.jpg)` }}
                     />
 
                     <div className="absolute inset-0 md:hidden bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
