@@ -8,3 +8,13 @@
 body{
   background-color: #F8FAFC;
 }
+
+/* NProgress Styles */
+#nprogress .bar {
+    background: #4F46E5;
+    height: 3px;
+    z-index: 9999;
+}
+#nprogress .peg {
+    box-shadow: 0 0 10px #4F46E5, 0 0 5px #4F46E5;
+}
