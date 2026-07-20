@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Briefcase, Users, Mail, Phone, MapPin } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Reveal from "./components/Reveal";
 
 type InquiryType = "business" | "recruitment";
 type Status = "idle" | "submitting" | "success" | "error";
@@ -21,7 +22,6 @@ export default function Contact() {
         const form = e.currentTarget;
         const data = new FormData(form);
 
-        /* Honeypot — bots fill every field; humans never see this one */
         if (data.get("website")) return;
 
         setStatus("submitting");
@@ -73,21 +73,27 @@ export default function Contact() {
                     </div>
 
                     <div className="relative mx-auto max-w-7xl px-6 pb-24 lg:px-10">
-                        <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-200">
-                            <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
-                            Contact Us
-                        </span>
-                        <h1 className="mt-5 max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem]">
-                            START THE{" "}
-                            <span className="bg-gradient-to-r from-indigo-300 to-fuchsia-300 bg-clip-text text-transparent">
-                                CONVERSATION
+                        <Reveal>
+                            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-200">
+                                <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                                Contact Us
                             </span>
-                        </h1>
-                        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-                            Business partnership or career inquiry — tell us
-                            what you're looking for and the right team will get
-                            back to you.
-                        </p>
+                        </Reveal>
+                        <Reveal delay={80}>
+                            <h1 className="mt-5 max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem]">
+                                START THE{" "}
+                                <span className="bg-gradient-to-r from-indigo-300 to-fuchsia-300 bg-clip-text text-transparent">
+                                    CONVERSATION
+                                </span>
+                            </h1>
+                        </Reveal>
+                        <Reveal delay={160}>
+                            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+                                Business partnership or career inquiry — tell us
+                                what you're looking for and the right team will
+                                get back to you.
+                            </p>
+                        </Reveal>
                     </div>
 
                     <div
@@ -101,8 +107,8 @@ export default function Contact() {
                 {/* ── Form + Info ─────────────────────────────── */}
                 <section className="w-full bg-slate-50 pb-24">
                     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-12 lg:grid-cols-5 lg:gap-14 lg:px-10">
-                        {/* Form */}
-                        <div className="lg:col-span-3">
+                        {/* Form — revealed as ONE unit, fields never individually animated */}
+                        <Reveal className="lg:col-span-3">
                             <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10">
                                 {status === "success" ? (
                                     <div className="py-12 text-center">
@@ -133,7 +139,6 @@ export default function Contact() {
                                             Send a message
                                         </p>
 
-                                        {/* Inquiry type toggle */}
                                         <div
                                             className="mt-5 grid grid-cols-2 gap-2"
                                             role="radiogroup"
@@ -178,7 +183,6 @@ export default function Contact() {
                                             ))}
                                         </div>
 
-                                        {/* Honeypot — hidden from humans, bait for bots */}
                                         <input
                                             type="text"
                                             name="website"
@@ -307,77 +311,83 @@ export default function Contact() {
                                     </form>
                                 )}
                             </div>
-                        </div>
+                        </Reveal>
 
-                        {/* Info panel */}
+                        {/* Info panel — each card cascades individually */}
                         <aside className="flex flex-col gap-5 lg:col-span-2">
-                            <div className="rounded-2xl border border-slate-200 bg-white p-7">
-                                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
-                                    Reach us directly
-                                </p>
-                                <ul className="mt-5 space-y-4 text-sm text-slate-600">
-                                    <li className="flex items-start gap-3">
-                                        <Mail
-                                            className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
-                                            strokeWidth={1.8}
-                                        />
-                                        <a
-                                            href="mailto:owner@veritasorganisation.com"
-                                            className="transition-colors hover:text-indigo-700"
-                                        >
-                                            owner@veritasorganisation.com
-                                        </a>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <Phone
-                                            className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
-                                            strokeWidth={1.8}
-                                        />
-                                        <a
-                                            href="tel:89220932"
-                                            className="transition-colors hover:text-indigo-700"
-                                        >
-                                            +65 8922 0932
-                                        </a>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <MapPin
-                                            className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
-                                            strokeWidth={1.8}
-                                        />
-                                        Singapore
-                                    </li>
-                                </ul>
-                            </div>
+                            <Reveal delay={100}>
+                                <div className="rounded-2xl border border-slate-200 bg-white p-7">
+                                    <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
+                                        Reach us directly
+                                    </p>
+                                    <ul className="mt-5 space-y-4 text-sm text-slate-600">
+                                        <li className="flex items-start gap-3">
+                                            <Mail
+                                                className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                                                strokeWidth={1.8}
+                                            />
+                                            <a
+                                                href="mailto:owner@veritasorganisation.com"
+                                                className="transition-colors hover:text-indigo-700"
+                                            >
+                                                owner@veritasorganisation.com
+                                            </a>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Phone
+                                                className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                                                strokeWidth={1.8}
+                                            />
+                                            <a
+                                                href="tel:89220932"
+                                                className="transition-colors hover:text-indigo-700"
+                                            >
+                                                +65 8922 0932
+                                            </a>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <MapPin
+                                                className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                                                strokeWidth={1.8}
+                                            />
+                                            Singapore
+                                        </li>
+                                    </ul>
+                                </div>
+                            </Reveal>
 
-                            <div className="rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 p-7">
-                                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-300">
-                                    Business inquiries
-                                </p>
-                                <p className="mt-3 text-sm leading-relaxed text-white/65">
-                                    Exploring a partnership or one of our
-                                    solutions? Select{" "}
-                                    <span className="text-white">
-                                        Business Inquiry
-                                    </span>{" "}
-                                    and the partnerships team will respond
-                                    directly.
-                                </p>
-                            </div>
+                            <Reveal delay={180}>
+                                <div className="rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 p-7">
+                                    <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-300">
+                                        Business inquiries
+                                    </p>
+                                    <p className="mt-3 text-sm leading-relaxed text-white/65">
+                                        Exploring a partnership or one of our
+                                        solutions? Select{" "}
+                                        <span className="text-white">
+                                            Business Inquiry
+                                        </span>{" "}
+                                        and the partnerships team will respond
+                                        directly.
+                                    </p>
+                                </div>
+                            </Reveal>
 
-                            <div className="rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 p-7">
-                                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-fuchsia-300">
-                                    Recruitment inquiries
-                                </p>
-                                <p className="mt-3 text-sm leading-relaxed text-white/65">
-                                    Ready to build a sales career? Select{" "}
-                                    <span className="text-white">
-                                        Recruitment
-                                    </span>{" "}
-                                    and tell us about yourself — no prior
-                                    experience required.
-                                </p>
-                            </div>
+                            <Reveal delay={260}>
+                                <div className="rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 p-7">
+                                    <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-fuchsia-300">
+                                        Recruitment inquiries
+                                    </p>
+                                    <p className="mt-3 text-sm leading-relaxed text-white/65">
+                                        Ready to build a sales career? Select{" "}
+                                        <span className="text-white">
+                                            Recruitment
+                                        </span>{" "}
+                                        and tell us about yourself — no prior
+                                        experience required.
+                                    </p>
+                                </div>
+                            </Reveal>
                         </aside>
                     </div>
                 </section>
