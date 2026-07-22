@@ -1,8 +1,10 @@
 import "./App.css";
 import "nprogress/nprogress.css";
-import { lazy, Suspense, useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import NProgress from "nprogress";
+import LoadingPage from "./pages/components/LoadingPage";
+import { AppReadyContext } from "./context/appReady";
 
 const Home = lazy(() => import("./pages/Home"));
 const Products = lazy(() => import("./pages/Products"));
@@ -16,23 +18,19 @@ const CareersView = lazy(() => import("./pages/CareersView"));
 
 NProgress.configure({ showSpinner: false });
 
-/* Job 1: start/stop the top bar the instant navigation happens.
-   Lives OUTSIDE Suspense so it fires immediately, unaffected by chunk loading. */
+const SPLASH_MIN_VISIBLE = 900;
+const SPLASH_FADE_DURATION = 500;
+
 function NavigationProgress() {
     const location = useLocation();
-
     useEffect(() => {
         NProgress.start();
         const timer = setTimeout(() => NProgress.done(), 300);
         return () => clearTimeout(timer);
     }, [location.pathname]);
-
     return null;
 }
 
-/* Job 2: fade the page IN once it's actually ready to render.
-   Lives INSIDE Suspense — the key only remounts (and replays the animation)
-   after the lazy chunk has loaded and the real content is what's mounting. */
 function FadeIn({ children }: { children: ReactNode }) {
     const location = useLocation();
     return (
@@ -43,28 +41,55 @@ function FadeIn({ children }: { children: ReactNode }) {
 }
 
 function App() {
+    const [showSplash, setShowSplash] = useState(true);
+    const [splashFading, setSplashFading] = useState(false);
+    const [appReady, setAppReady] = useState(false);
+
+    useEffect(() => {
+        const fadeTimer = setTimeout(() => {
+            setSplashFading(true);
+            setAppReady(true); // ← Reveal components are now allowed to trigger
+        }, SPLASH_MIN_VISIBLE);
+
+        const removeTimer = setTimeout(
+            () => setShowSplash(false),
+            SPLASH_MIN_VISIBLE + SPLASH_FADE_DURATION,
+        );
+
+        return () => {
+            clearTimeout(fadeTimer);
+            clearTimeout(removeTimer);
+        };
+    }, []);
+
     return (
-        <BrowserRouter>
-            <NavigationProgress />
-            <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
-                <FadeIn>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/products" element={<Products />} />
-                        <Route path="/news" element={<News />} />
-                        <Route path="/about-us" element={<About />} />
-                        <Route path="/contact-us" element={<Contact />} />
-                        <Route path="/careers" element={<Careers />} />
-                        <Route
-                            path="/careers/:slug"
-                            element={<CareersView />}
-                        />
-                        <Route path="/news/:slug" element={<NewsPost />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </FadeIn>
-            </Suspense>
-        </BrowserRouter>
+        <AppReadyContext.Provider value={appReady}>
+            <BrowserRouter>
+                {showSplash && <LoadingPage fadingOut={splashFading} />}
+
+                <NavigationProgress />
+                <Suspense
+                    fallback={<div className="min-h-screen bg-slate-50" />}
+                >
+                    <FadeIn>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/products" element={<Products />} />
+                            <Route path="/news" element={<News />} />
+                            <Route path="/about-us" element={<About />} />
+                            <Route path="/contact-us" element={<Contact />} />
+                            <Route path="/careers" element={<Careers />} />
+                            <Route
+                                path="/careers/:slug"
+                                element={<CareersView />}
+                            />
+                            <Route path="/news/:slug" element={<NewsPost />} />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </FadeIn>
+                </Suspense>
+            </BrowserRouter>
+        </AppReadyContext.Provider>
     );
 }
 
