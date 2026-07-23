@@ -113,6 +113,10 @@ export default function Products() {
                                             <p className="mt-2 text-sm leading-relaxed text-slate-500">
                                                 {cat.description}
                                             </p>
+                                            <p className="mt-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-indigo-500">
+                                                {cat.items.length}{" "}
+                                                {cat.itemsLabel} →
+                                            </p>
 
                                             <div className="mt-5 md:hidden">
                                                 <BenefitsList cat={cat} />

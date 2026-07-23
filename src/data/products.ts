@@ -1,94 +1,40 @@
+import productsData from "./products.json";
+
+export interface ProductItem {
+    id: string;
+    name: string;
+    badge?: string;
+    summary: string;
+    /** Filename in src/assets/images/products/ — omit for non-unit (service) items. */
+    image?: string;
+    specs: string[];
+}
+
 export interface ProductCategory {
     id: string;
     slug: string;
     name: string;
     tagline: string;
-    description: string;
-    benefitsLabel: string;
-    benefits: string[];
     category: string;
     featured_image: string;
+    description: string;
+    overview: string;
+    benefitsLabel: string;
+    benefits: string[];
+    itemsLabel: string;
+    items: ProductItem[];
 }
 
-export const PRODUCT_CATEGORIES: ProductCategory[] = [
-    {
-        id: "electricity",
-        slug: "electricity",
-        name: "Electricity Solutions",
-        tagline: "Energy",
-        description:
-            "Competitive electricity plans for homes and businesses through our trusted energy partners.",
-        benefitsLabel: "Benefits",
-        benefits: [
-            "Cost savings",
-            "Reliable providers",
-            "Hassle-free switching",
-            "Personalized recommendations",
-        ],
-        category: "Electricity",
-        featured_image: "electricity.png",
-    },
-    {
-        id: "printer",
-        slug: "printer-solutions",
-        name: "Printer Solutions",
-        tagline: "Office Equipment",
-        description:
-            "Professional printing, managed print services, and equipment support via trusted printer partners.",
-        benefitsLabel: "Benefits",
-        benefits: [
-            "Business-grade printers",
-            "Cost-efficient solutions",
-            "Managed print services",
-            "Ongoing technical support",
-        ],
-        category: "Printer",
-        featured_image: "printer.png",
-    },
-    {
-        id: "residential",
-        slug: "residential-services",
-        name: "Residential Services",
-        tagline: "Home",
-        description:
-            "Essential home services that improve everyday convenience, efficiency, and quality of life.",
-        benefitsLabel: "Benefits",
-        benefits: [
-            "Trusted service providers",
-            "Professional consultation",
-            "Reliable customer support",
-            "Tailored solutions",
-        ],
-        category: "Residential",
-        featured_image: "residential.png",
-    },
-    {
-        id: "business-dev",
-        slug: "business-development",
-        name: "Business Development & Lead Generation",
-        tagline: "Growth",
-        description:
-            "Targeted lead generation and customer acquisition campaigns that expand your customer base.",
-        benefitsLabel: "Services Include",
-        benefits: [
-            "Lead Generation",
-            "Sales Outsourcing",
-            "Customer Acquisition",
-            "Appointment Setting",
-            "Market Expansion",
-            "Revenue Growth Strategies",
-        ],
-        category: "Business",
-        featured_image: "business.png",
-    },
-];
+export const PRODUCT_CATEGORIES: ProductCategory[] =
+    productsData as ProductCategory[];
 
-/* Resolve product image filenames against bundled assets.
-   Folder assumed: src/assets/images/products/ — adjust glob path if different. */
+export const findCategoryBySlug = (slug: string): ProductCategory | undefined =>
+    PRODUCT_CATEGORIES.find((c) => c.slug === slug);
+
 const productImages = import.meta.glob("../assets/images/products/*", {
     eager: true,
     import: "default",
 }) as Record<string, string>;
 
-export const productImgSrc = (file: string): string | undefined =>
-    productImages[`../assets/images/products/${file}`];
+export const productImgSrc = (file?: string): string | undefined =>
+    file ? productImages[`../assets/images/products/${file}`] : undefined;

@@ -15,6 +15,7 @@ const NewsPost = lazy(() => import("./pages/NewsPost"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Careers = lazy(() => import("./pages/Careers"));
 const CareersView = lazy(() => import("./pages/CareersView"));
+const ProductsView = lazy(() => import("./pages/ProductsView"));
 
 NProgress.configure({ showSpinner: false });
 
@@ -84,6 +85,10 @@ function App() {
                                 element={<CareersView />}
                             />
                             <Route path="/news/:slug" element={<NewsPost />} />
+                            <Route
+                                path="/products/:slug"
+                                element={<ProductsView />}
+                            />
                             <Route path="*" element={<NotFound />} />
                         </Routes>
                     </FadeIn>
