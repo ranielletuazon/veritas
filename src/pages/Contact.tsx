@@ -1,10 +1,9 @@
 import { useState, type FormEvent } from "react";
-import { Briefcase, Users, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
 
-type InquiryType = "business" | "recruitment";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
@@ -14,7 +13,6 @@ const labelClass =
     "mb-2 block font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-500";
 
 export default function Contact() {
-    const [inquiry, setInquiry] = useState<InquiryType>("business");
     const [status, setStatus] = useState<Status>("idle");
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -30,7 +28,6 @@ export default function Contact() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    inquiry,
                     name: data.get("name"),
                     email: data.get("email"),
                     phone: data.get("phone"),
@@ -81,7 +78,7 @@ export default function Contact() {
                         </Reveal>
                         <Reveal delay={80}>
                             <h1 className="mt-5 max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem]">
-                                START THE{" "}
+                                LET'S START A{" "}
                                 <span className="bg-gradient-to-r from-indigo-300 to-fuchsia-300 bg-clip-text text-transparent">
                                     CONVERSATION
                                 </span>
@@ -89,9 +86,9 @@ export default function Contact() {
                         </Reveal>
                         <Reveal delay={160}>
                             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-                                Business partnership or career inquiry — tell us
-                                what you're looking for and the right team will
-                                get back to you.
+                                Questions about our solutions, partnerships, or
+                                anything else? Send us a message and the right
+                                team will get back to you.
                             </p>
                         </Reveal>
                     </div>
@@ -119,12 +116,8 @@ export default function Contact() {
                                             Thank you — we'll be in touch.
                                         </h2>
                                         <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
-                                            Your inquiry has been sent to the{" "}
-                                            {inquiry === "business"
-                                                ? "partnerships"
-                                                : "recruitment"}{" "}
-                                            team. Expect a reply within two
-                                            business days.
+                                            We've received your message and will
+                                            reply within two business days.
                                         </p>
                                         <button
                                             onClick={() => setStatus("idle")}
@@ -138,50 +131,6 @@ export default function Contact() {
                                         <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
                                             Send a message
                                         </p>
-
-                                        <div
-                                            className="mt-5 grid grid-cols-2 gap-2"
-                                            role="radiogroup"
-                                            aria-label="Inquiry type"
-                                        >
-                                            {(
-                                                [
-                                                    {
-                                                        key: "business",
-                                                        label: "Business Inquiry",
-                                                        icon: Briefcase,
-                                                    },
-                                                    {
-                                                        key: "recruitment",
-                                                        label: "Recruitment",
-                                                        icon: Users,
-                                                    },
-                                                ] as const
-                                            ).map((option) => (
-                                                <button
-                                                    key={option.key}
-                                                    type="button"
-                                                    role="radio"
-                                                    aria-checked={
-                                                        inquiry === option.key
-                                                    }
-                                                    onClick={() =>
-                                                        setInquiry(option.key)
-                                                    }
-                                                    className={`flex items-center justify-center gap-2 rounded-lg border px-4 py-3 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
-                                                        inquiry === option.key
-                                                            ? "border-indigo-600 bg-indigo-600 text-white"
-                                                            : "border-slate-200 bg-white text-slate-600 hover:border-indigo-300"
-                                                    }`}
-                                                >
-                                                    <option.icon
-                                                        className="h-4 w-4"
-                                                        strokeWidth={1.8}
-                                                    />
-                                                    {option.label}
-                                                </button>
-                                            ))}
-                                        </div>
 
                                         <input
                                             type="text"
@@ -248,23 +197,13 @@ export default function Contact() {
                                                     htmlFor="company"
                                                     className={labelClass}
                                                 >
-                                                    Company{" "}
-                                                    {inquiry ===
-                                                        "recruitment" &&
-                                                        "(optional)"}
+                                                    Company (optional)
                                                 </label>
                                                 <input
                                                     id="company"
                                                     name="company"
                                                     type="text"
-                                                    required={
-                                                        inquiry === "business"
-                                                    }
-                                                    placeholder={
-                                                        inquiry === "business"
-                                                            ? "Company name"
-                                                            : "Current company, if any"
-                                                    }
+                                                    placeholder="Company name"
                                                     className={inputClass}
                                                 />
                                             </div>
@@ -282,11 +221,7 @@ export default function Contact() {
                                                 name="message"
                                                 required
                                                 rows={5}
-                                                placeholder={
-                                                    inquiry === "business"
-                                                        ? "Tell us about your business and what you're looking for."
-                                                        : "Tell us about yourself and why you want to build a career in sales."
-                                                }
+                                                placeholder="Tell us how we can help — questions about our solutions, partnerships, or anything else."
                                                 className={inputClass}
                                             />
                                         </div>
@@ -313,7 +248,7 @@ export default function Contact() {
                             </div>
                         </Reveal>
 
-                        {/* Info panel — each card cascades individually */}
+                        {/* Info panel */}
                         <aside className="flex flex-col gap-5 lg:col-span-2">
                             <Reveal delay={100}>
                                 <div className="rounded-2xl border border-slate-200 bg-white p-7">
@@ -359,32 +294,18 @@ export default function Contact() {
                             <Reveal delay={180}>
                                 <div className="rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 p-7">
                                     <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-300">
-                                        Business inquiries
+                                        Looking for a career instead?
                                     </p>
                                     <p className="mt-3 text-sm leading-relaxed text-white/65">
-                                        Exploring a partnership or one of our
-                                        solutions? Select{" "}
-                                        <span className="text-white">
-                                            Business Inquiry
-                                        </span>{" "}
-                                        and the partnerships team will respond
-                                        directly.
-                                    </p>
-                                </div>
-                            </Reveal>
-
-                            <Reveal delay={260}>
-                                <div className="rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 p-7">
-                                    <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-fuchsia-300">
-                                        Recruitment inquiries
-                                    </p>
-                                    <p className="mt-3 text-sm leading-relaxed text-white/65">
-                                        Ready to build a sales career? Select{" "}
-                                        <span className="text-white">
-                                            Recruitment
-                                        </span>{" "}
-                                        and tell us about yourself — no prior
-                                        experience required.
+                                        Job applications are handled on our{" "}
+                                        <a
+                                            href="/careers"
+                                            className="text-white underline decoration-white/30 underline-offset-2 hover:decoration-white"
+                                        >
+                                            Careers page
+                                        </a>{" "}
+                                        — head there to view open roles and
+                                        apply directly.
                                     </p>
                                 </div>
                             </Reveal>

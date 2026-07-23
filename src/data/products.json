@@ -1,0 +1,272 @@
+[
+    {
+        "id": "electricity",
+        "slug": "electricity",
+        "name": "Electricity Solutions",
+        "tagline": "Energy",
+        "category": "Electricity",
+        "featured_image": "electricity.png",
+        "description": "Energy hardware and supply solutions for homes and businesses through our trusted energy partners.",
+        "overview": "We supply and install energy equipment sourced from vetted manufacturers, sized to your actual load requirements — with installation and after-sales support handled end to end.",
+        "benefitsLabel": "Benefits",
+        "benefits": [
+            "Cost savings",
+            "Reliable providers",
+            "Hassle-free installation",
+            "Personalized recommendations"
+        ],
+        "itemsLabel": "Available Units",
+        "items": [
+            {
+                "id": "elec-unit-1",
+                "name": "[Unit Model 1]",
+                "badge": "Residential",
+                "summary": "Entry-level unit suited to standard household requirements.",
+                "image": "unit-placeholder-1.png",
+                "specs": [
+                    "[Capacity / output spec]",
+                    "[Dimensions or footprint]",
+                    "[Warranty period]"
+                ]
+            },
+            {
+                "id": "elec-unit-2",
+                "name": "[Unit Model 2]",
+                "badge": "Residential",
+                "summary": "Mid-range unit with higher output for larger households.",
+                "image": "unit-placeholder-2.png",
+                "specs": [
+                    "[Capacity / output spec]",
+                    "[Dimensions or footprint]",
+                    "[Warranty period]"
+                ]
+            },
+            {
+                "id": "elec-unit-3",
+                "name": "[Unit Model 3]",
+                "badge": "Commercial",
+                "summary": "Commercial-grade unit for offices, retail, and light industrial sites.",
+                "image": "unit-placeholder-3.png",
+                "specs": [
+                    "[Capacity / output spec]",
+                    "[Dimensions or footprint]",
+                    "[Warranty period]"
+                ]
+            },
+            {
+                "id": "elec-unit-4",
+                "name": "[Unit Model 4]",
+                "badge": "Commercial",
+                "summary": "High-capacity unit for multi-site or high-demand installations.",
+                "image": "unit-placeholder-4.png",
+                "specs": [
+                    "[Capacity / output spec]",
+                    "[Dimensions or footprint]",
+                    "[Warranty period]"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "printer",
+        "slug": "printer-solutions",
+        "name": "Printer Solutions",
+        "tagline": "Office Equipment",
+        "category": "Printer",
+        "featured_image": "printer.png",
+        "description": "Business-grade printing units, leasing, and equipment support via trusted printer partners.",
+        "overview": "From a single desktop unit to a multi-floor fleet, we size the equipment to your actual print volume and handle supply, installation, and the ongoing service relationship on your behalf.",
+        "benefitsLabel": "Benefits",
+        "benefits": [
+            "Business-grade printers",
+            "Cost-efficient solutions",
+            "Managed print services",
+            "Ongoing technical support"
+        ],
+        "itemsLabel": "Available Units",
+        "items": [
+            {
+                "id": "print-unit-1",
+                "name": "[Printer Model 1]",
+                "badge": "Desktop",
+                "summary": "Compact desktop unit for small teams and low-volume printing.",
+                "image": "unit-placeholder-1.png",
+                "specs": [
+                    "[Pages per minute]",
+                    "[Paper capacity]",
+                    "[Connectivity options]"
+                ]
+            },
+            {
+                "id": "print-unit-2",
+                "name": "[Printer Model 2]",
+                "badge": "Office",
+                "summary": "Mid-volume multifunction unit with print, scan, and copy.",
+                "image": "unit-placeholder-2.png",
+                "specs": [
+                    "[Pages per minute]",
+                    "[Paper capacity]",
+                    "[Connectivity options]"
+                ]
+            },
+            {
+                "id": "print-unit-3",
+                "name": "[Printer Model 3]",
+                "badge": "High Volume",
+                "summary": "Floor-standing unit built for sustained high-volume output.",
+                "image": "unit-placeholder-3.png",
+                "specs": [
+                    "[Pages per minute]",
+                    "[Paper capacity]",
+                    "[Finishing options]"
+                ]
+            },
+            {
+                "id": "print-unit-4",
+                "name": "[Printer Model 4]",
+                "badge": "Production",
+                "summary": "Production-grade unit for large-format or commercial print work.",
+                "image": "unit-placeholder-4.png",
+                "specs": [
+                    "[Pages per minute]",
+                    "[Media sizes supported]",
+                    "[Finishing options]"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "residential",
+        "slug": "residential-services",
+        "name": "Residential Services",
+        "tagline": "Home",
+        "category": "Residential",
+        "featured_image": "residential.png",
+        "description": "Home equipment and essential services that improve everyday convenience and efficiency.",
+        "overview": "We supply home equipment from vetted providers and stay involved through consultation, installation, and follow-up — rather than handing over a contact number and disappearing.",
+        "benefitsLabel": "Benefits",
+        "benefits": [
+            "Trusted service providers",
+            "Professional consultation",
+            "Reliable customer support",
+            "Tailored solutions"
+        ],
+        "itemsLabel": "Available Units",
+        "items": [
+            {
+                "id": "res-unit-1",
+                "name": "[Home Unit 1]",
+                "badge": "Home",
+                "summary": "Standard household unit for everyday use.",
+                "image": "unit-placeholder-1.png",
+                "specs": [
+                    "[Key spec]",
+                    "[Installation requirement]",
+                    "[Warranty period]"
+                ]
+            },
+            {
+                "id": "res-unit-2",
+                "name": "[Home Unit 2]",
+                "badge": "Home",
+                "summary": "Upgraded unit with expanded capacity or features.",
+                "image": "unit-placeholder-2.png",
+                "specs": [
+                    "[Key spec]",
+                    "[Installation requirement]",
+                    "[Warranty period]"
+                ]
+            },
+            {
+                "id": "res-unit-3",
+                "name": "[Home Unit 3]",
+                "badge": "Home",
+                "summary": "Premium unit for larger properties or higher demand.",
+                "image": "unit-placeholder-3.png",
+                "specs": [
+                    "[Key spec]",
+                    "[Installation requirement]",
+                    "[Warranty period]"
+                ]
+            },
+            {
+                "id": "res-unit-4",
+                "name": "[Home Unit 4]",
+                "badge": "Add-on",
+                "summary": "Complementary unit or accessory for existing installations.",
+                "image": "unit-placeholder-4.png",
+                "specs": [
+                    "[Key spec]",
+                    "[Compatibility]",
+                    "[Warranty period]"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "business-dev",
+        "slug": "business-development",
+        "name": "Business Development & Lead Generation",
+        "tagline": "Growth",
+        "category": "Business",
+        "featured_image": "business.png",
+        "description": "Targeted lead generation and customer acquisition campaigns that expand your customer base.",
+        "overview": "We operate as an extension of your sales function — building pipeline, running acquisition campaigns, and delivering measurable outcomes on a performance basis rather than a retainer.",
+        "benefitsLabel": "Services Include",
+        "benefits": [
+            "Lead Generation",
+            "Sales Outsourcing",
+            "Customer Acquisition",
+            "Appointment Setting",
+            "Market Expansion",
+            "Revenue Growth Strategies"
+        ],
+        "itemsLabel": "How We Work",
+        "items": [
+            {
+                "id": "biz-leadgen",
+                "name": "Lead Generation",
+                "badge": "Core",
+                "summary": "Qualified prospects delivered to your sales team, filtered against your ideal customer profile.",
+                "specs": [
+                    "Defined qualification criteria",
+                    "Volume scaled to your capacity",
+                    "Performance-based pricing"
+                ]
+            },
+            {
+                "id": "biz-outsourcing",
+                "name": "Sales Outsourcing",
+                "badge": "Core",
+                "summary": "A trained Veritas team representing your brand end to end, from first contact to close.",
+                "specs": [
+                    "Dedicated campaign team",
+                    "Brand-aligned training",
+                    "Regular performance reporting"
+                ]
+            },
+            {
+                "id": "biz-appointments",
+                "name": "Appointment Setting",
+                "badge": "B2B",
+                "summary": "Meetings booked directly into your team's calendar with decision-makers who qualify.",
+                "specs": [
+                    "Decision-maker targeting",
+                    "Calendar integration",
+                    "No-show follow-up handling"
+                ]
+            },
+            {
+                "id": "biz-expansion",
+                "name": "Market Expansion",
+                "badge": "Strategic",
+                "summary": "Entering a new segment or territory with a field team already operating in it.",
+                "specs": [
+                    "Territory research",
+                    "Pilot before scale-up",
+                    "Local market execution"
+                ]
+            }
+        ]
+    }
+]
