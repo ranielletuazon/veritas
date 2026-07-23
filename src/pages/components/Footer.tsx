@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/veritas_landscape_logo.png";
 import { socials } from "../../data/social";
+import { PRODUCT_CATEGORIES } from "../../data/products";
 
 const NAV_LINKS = [
     { label: "Home", href: "/" },
-    { label: "Products", href: "/products" },
     { label: "News", href: "/news" },
     { label: "Careers", href: "/careers" },
-    { label: "About Us", href: "/about" },
+    { label: "About Us", href: "/about-us" },
 ];
 
 export default function Footer() {
     return (
         <footer className="relative w-full overflow-hidden bg-[#07040f] text-white">
-            {/* Galaxy field — on-palette radial glows over near-black */}
             <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
@@ -31,7 +30,6 @@ export default function Footer() {
                 />
             </div>
 
-            {/* Gradient hairline — ties footer to the brand without going loud */}
             <div className="relative h-px w-full bg-gradient-to-r from-transparent via-indigo-500/60 to-transparent" />
 
             <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-10">
@@ -49,7 +47,6 @@ export default function Footer() {
                             services.
                         </p>
 
-                        {/* Socials */}
                         <div className="mt-6 flex items-center gap-3">
                             {socials.map((s) => (
                                 <a
@@ -79,15 +76,46 @@ export default function Footer() {
                             Navigate
                         </h3>
                         <nav className="mt-5 flex flex-col gap-3">
-                            {NAV_LINKS.map(({ label, href }) => (
+                            <a
+                                href="/"
+                                className="w-fit text-sm text-white/70 transition-colors duration-300 hover:text-white"
+                            >
+                                Home
+                            </a>
+
+                            {/* Products + static sub-list */}
+                            <div>
                                 <a
-                                    key={label}
-                                    href={href}
+                                    href="/products"
                                     className="w-fit text-sm text-white/70 transition-colors duration-300 hover:text-white"
                                 >
-                                    {label}
+                                    Products
                                 </a>
-                            ))}
+                                <ul className="mt-2 flex flex-col gap-2 border-l border-white/10 pl-3">
+                                    {PRODUCT_CATEGORIES.map((cat) => (
+                                        <li key={cat.id}>
+                                            <a
+                                                href={`/products/${cat.slug}`}
+                                                className="w-fit text-xs text-white/45 transition-colors duration-300 hover:text-white/80"
+                                            >
+                                                {cat.name}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {NAV_LINKS.filter((l) => l.label !== "Home").map(
+                                ({ label, href }) => (
+                                    <a
+                                        key={label}
+                                        href={href}
+                                        className="w-fit text-sm text-white/70 transition-colors duration-300 hover:text-white"
+                                    >
+                                        {label}
+                                    </a>
+                                ),
+                            )}
                         </nav>
                     </div>
 
@@ -105,7 +133,7 @@ export default function Footer() {
                             </a>
                             <span className="text-white/50">Singapore</span>
                             <Link
-                                to="/contact"
+                                to="/contact-us"
                                 className="mt-1 w-fit border-b border-indigo-400/40 pb-0.5 text-indigo-300 transition-colors duration-300 hover:border-indigo-400 hover:text-indigo-200"
                             >
                                 Send us a message
@@ -114,7 +142,6 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Bottom bar */}
                 <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-xs text-white/40">
                         © {new Date().getFullYear()} Veritas Organisation Pte.
