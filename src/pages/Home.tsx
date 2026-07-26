@@ -22,7 +22,12 @@ import MarqueeStrip from "./components/MarqueeStrip";
 import HeroCarousel from "./components/HeroCarousel";
 import Reveal from "./components/Reveal";
 
-import { TESTIMONIALS, avatarSrc, initialsOf } from "../data/testimonials";
+import {
+    TESTIMONIALS,
+    avatarSrc,
+    photoSrc,
+    initialsOf,
+} from "../data/testimonials";
 
 export default function Home() {
     const reasons = [
@@ -515,6 +520,24 @@ export default function Home() {
                                                         {t.quote}
                                                     </p>
                                                 </blockquote>
+
+                                                {/* Review photo — shows real image once t.photo is set, placeholder until then */}
+                                                <div className="relative mt-4 aspect-[4/3] w-full overflow-hidden rounded-lg bg-gradient-to-br from-slate-100 to-slate-200">
+                                                    {photoSrc(t.photo) ? (
+                                                        <img
+                                                            src={photoSrc(
+                                                                t.photo,
+                                                            )}
+                                                            alt=""
+                                                            loading="lazy"
+                                                            className="absolute inset-0 h-full w-full object-cover"
+                                                        />
+                                                    ) : (
+                                                        <span className="absolute bottom-2 left-3 font-mono text-[9px] font-medium uppercase tracking-widest text-slate-400">
+                                                            Image placeholder
+                                                        </span>
+                                                    )}
+                                                </div>
 
                                                 <figcaption className="mt-6 flex items-center gap-3 border-t border-slate-200 pt-5">
                                                     {src ? (
