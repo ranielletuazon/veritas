@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/veritas_landscape_logo.png";
+// import logo from "../../assets/images/veritas_landscape_logo.png";
+import logo from "../../../public/images/new-veritas-logo.png";
 import { socials } from "../../data/social";
 import { PRODUCT_CATEGORIES } from "../../data/products";
 
@@ -39,7 +40,7 @@ export default function Footer() {
                         <img
                             src={logo}
                             alt="Veritas Organisation"
-                            className="h-12 w-auto object-contain brightness-0 invert"
+                            className="h-24 w-auto object-contain "
                         />
                         <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/50">
                             Performance-driven sales connecting households and

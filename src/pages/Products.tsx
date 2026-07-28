@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import {
     PRODUCT_CATEGORIES,
     productImgSrc,
+    countItems,
     type ProductCategory,
 } from "../data/products";
 
@@ -114,7 +115,7 @@ export default function Products() {
                                                 {cat.description}
                                             </p>
                                             <p className="mt-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-indigo-500">
-                                                {cat.items.length}{" "}
+                                                {countItems(cat)}{" "}
                                                 {cat.itemsLabel} →
                                             </p>
 

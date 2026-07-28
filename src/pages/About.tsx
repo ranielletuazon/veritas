@@ -3,25 +3,28 @@ import Footer from "./components/Footer";
 import { Eye, Target } from "lucide-react";
 import Reveal from "./components/Reveal";
 
+import founder_image from "../../public/images/boss.jpeg";
+
 const CORE_VALUES = [
     {
-        title: "Integrity",
+        title: "Truth",
         description:
-            "We operate with honesty, transparency, and professionalism.",
+            "We tell clients exactly what we are, what we're not, and what to expect — no exceptions, even when the easier answer would sell faster.",
     },
     {
-        title: "Excellence",
-        description: "We strive for outstanding results in every campaign.",
+        title: "Competence",
+        description:
+            "Nobody on our team is handed responsibility they haven't earned. Every closer, every manager, has done the work from the ground up.",
     },
     {
-        title: "Innovation",
+        title: "Fairness",
         description:
-            "We continuously improve our sales processes and market strategies.",
+            "Good deals work for both sides. We're not interested in a win that leaves a client or a teammate worse off than they should be.",
     },
     {
-        title: "Partnership",
+        title: "Responsibility",
         description:
-            "We build long-term relationships based on trust and mutual success.",
+            "We own our results, not our excuses. When something goes wrong, we own up and do our best to fix it.",
     },
 ];
 
@@ -72,14 +75,17 @@ export default function About() {
                         </Reveal>
                         <Reveal delay={160}>
                             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-                                Veritas is a leading sales and business
-                                development company headquartered in Singapore.
-                                Our mission is simple: help our partners grow by
-                                delivering qualified customers, measurable sales
-                                outcomes, and sustainable revenue.
+                                Veritas is Latin for truth. That's not a
+                                branding choice — it's the standard we hold
+                                ourselves to. In sales, it's easy to blur the
+                                line between representing a good product and
+                                pretending to be something you're not. We don't
+                                do that. Every client, every principal, and
+                                every person on our team knows exactly what to
+                                expect from us: always, honesty, in all things.
                             </p>
                         </Reveal>
-                        <Reveal delay={220}>
+                        {/* <Reveal delay={220}>
                             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
                                 We work closely with trusted providers across
                                 multiple industries — offering customers
@@ -88,7 +94,7 @@ export default function About() {
                                 proven sales strategies, dedicated teams, and an
                                 extensive lead database.
                             </p>
-                        </Reveal>
+                        </Reveal> */}
                     </div>
 
                     <div
@@ -101,7 +107,7 @@ export default function About() {
 
                 {/* ── Mission / Vision ─────────────────────────── */}
                 <section className="w-full bg-slate-50">
-                    <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-6 py-16 md:grid-cols-2 md:py-20 lg:px-10">
+                    <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-5 px-6 py-16 md:grid-cols-2 md:py-20 lg:px-10">
                         {[
                             {
                                 icon: (
@@ -112,6 +118,22 @@ export default function About() {
                                 ),
                                 label: "Mission",
                                 text: "To empower businesses with scalable sales solutions, connecting trusted service providers with customers through innovative lead generation and results-driven sales strategies.",
+                                helps: [
+                                    {
+                                        lead: "Help our principal companies sell more",
+                                        rest: "through a team that represents their brand and values honestly and closes with real conviction.",
+                                    },
+                                    {
+                                        lead: "Help our clients get better value",
+                                        rest: "real savings, real service, real support.",
+                                    },
+                                    {
+                                        lead: "Help our team build a stable life",
+                                        rest: "honest work, fair pay, and room to grow.",
+                                    },
+                                ],
+                                closing:
+                                    "We don't see these as competing goals. Done right, honest sales makes all three true at once.",
                             },
                             {
                                 icon: (
@@ -121,7 +143,7 @@ export default function About() {
                                     />
                                 ),
                                 label: "Vision",
-                                text: "To become Southeast Asia's most trusted and effective sales growth partner, delivering measurable business success through integrity, innovation, and performance excellence.",
+                                text: "To become an industry trusted and respected sales and business development group — a company where every person, from an intern to channel director, has a real path to grow into ownership of what they do.",
                             },
                         ].map((item, i) => (
                             <Reveal key={item.label} delay={i * 100}>
@@ -142,6 +164,34 @@ export default function About() {
                                     <p className="mt-5 text-base leading-relaxed text-slate-700 sm:text-lg">
                                         {item.text}
                                     </p>
+
+                                    {/* Mission-only: the "how" behind the statement */}
+                                    {item.helps && (
+                                        <>
+                                            <ul className="mt-6 space-y-4 border-t border-slate-200 pt-6">
+                                                {item.helps.map((h) => (
+                                                    <li
+                                                        key={h.lead}
+                                                        className="flex gap-3"
+                                                    >
+                                                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-indigo-500" />
+                                                        <p className="text-sm leading-relaxed text-slate-600">
+                                                            <span className="font-semibold text-slate-900">
+                                                                {h.lead}
+                                                            </span>
+                                                            {" — "}
+                                                            {h.rest}
+                                                        </p>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                            {item.closing && (
+                                                <p className="mt-6 border-t border-slate-200 pt-6 text-sm font-medium italic leading-relaxed text-indigo-700">
+                                                    {item.closing}
+                                                </p>
+                                            )}
+                                        </>
+                                    )}
                                 </div>
                             </Reveal>
                         ))}
@@ -200,9 +250,11 @@ export default function About() {
                                     }}
                                 />
                                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-200 to-slate-300">
-                                    <span className="absolute bottom-3 left-4 font-mono text-[10px] font-medium uppercase tracking-widest text-slate-400">
-                                        Founder photo placeholder
-                                    </span>
+                                    <img
+                                        src={founder_image}
+                                        alt="Jerome [Lastname], Founder of Veritas Organisation"
+                                        className="h-full w-full object-cover"
+                                    />
                                 </div>
                             </div>
                         </Reveal>
@@ -217,10 +269,10 @@ export default function About() {
 
                                 <blockquote className="mt-6">
                                     <p className="text-xl font-medium leading-relaxed tracking-tight text-slate-900 sm:text-2xl">
-                                        "We started Veritas with nothing but
-                                        conviction — that sales done with
-                                        integrity isn't just possible, it's the
-                                        only way to build something that lasts."
+                                        "In all that you do... do your best, try
+                                        your best, believe that you deserve the
+                                        best and the best result will come
+                                        through for you."
                                     </p>
                                 </blockquote>
 
@@ -231,7 +283,7 @@ export default function About() {
                                     />
                                     <div>
                                         <p className="font-bold tracking-tight text-slate-900">
-                                            FirstName [Lastname]
+                                            Gerald Lee
                                         </p>
                                         <p className="text-sm text-slate-500">
                                             Founder, Veritas Organisation

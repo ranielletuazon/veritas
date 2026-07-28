@@ -10,6 +10,19 @@ export interface ProductItem {
     specs: string[];
 }
 
+export interface ProductSubgroup {
+    id: string;
+    name: string;
+    items: ProductItem[];
+}
+
+export interface ProductGroup {
+    id: string;
+    name: string;
+    items?: ProductItem[];
+    subgroups?: ProductSubgroup[];
+}
+
 export interface ProductCategory {
     id: string;
     slug: string;
@@ -22,7 +35,8 @@ export interface ProductCategory {
     benefitsLabel: string;
     benefits: string[];
     itemsLabel: string;
-    items: ProductItem[];
+    items?: ProductItem[];
+    groups?: ProductGroup[];
 }
 
 export const PRODUCT_CATEGORIES: ProductCategory[] =
@@ -30,6 +44,20 @@ export const PRODUCT_CATEGORIES: ProductCategory[] =
 
 export const findCategoryBySlug = (slug: string): ProductCategory | undefined =>
     PRODUCT_CATEGORIES.find((c) => c.slug === slug);
+
+/** Total leaf-item count regardless of flat vs. nested structure — used by the Products grid. */
+export const countItems = (cat: ProductCategory): number => {
+    if (cat.items) return cat.items.length;
+    if (cat.groups) {
+        return cat.groups.reduce((total, g) => {
+            const groupCount = g.items?.length ?? 0;
+            const subCount =
+                g.subgroups?.reduce((s, sg) => s + sg.items.length, 0) ?? 0;
+            return total + groupCount + subCount;
+        }, 0);
+    }
+    return 0;
+};
 
 const productImages = import.meta.glob("../assets/images/products/*", {
     eager: true,

@@ -6,6 +6,7 @@ export interface Testimonial {
     rating: number; // 1–5
     quote: string;
     avatar?: string; // filename in src/assets/images/testimonials/
+    photo?: string; // review/product photo, filename in src/assets/images/testimonials/
 }
 
 /* PLACEHOLDER CONTENT — replace with real, client-supplied testimonials before launch. */
@@ -36,14 +37,21 @@ export const TESTIMONIALS: Testimonial[] = [
     },
 ];
 
-/* Avatar resolver — same pattern as products/news */
-const avatarImages = import.meta.glob("../assets/images/testimonials/*", {
+/* Image resolver — same pattern as products/news. Serves both avatar and photo. */
+const testimonialImages = import.meta.glob("../assets/images/testimonials/*", {
     eager: true,
     import: "default",
 }) as Record<string, string>;
 
 export const avatarSrc = (file?: string): string | undefined =>
-    file ? avatarImages[`../assets/images/testimonials/${file}`] : undefined;
+    file
+        ? testimonialImages[`../assets/images/testimonials/${file}`]
+        : undefined;
+
+export const photoSrc = (file?: string): string | undefined =>
+    file
+        ? testimonialImages[`../assets/images/testimonials/${file}`]
+        : undefined;
 
 export const initialsOf = (name: string): string =>
     name
