@@ -1,5 +1,5 @@
 // import logo from "../../assets/images/veritas_landscape_logo_white.png";
-import logo from "../../assets/images/new-veritas-logo.png";
+import logo from "../../assets/images/new-veritas-logo-new.png";
 
 interface LoadingPageProps {
     fadingOut: boolean;
