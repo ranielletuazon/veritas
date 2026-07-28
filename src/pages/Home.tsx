@@ -146,7 +146,7 @@ export default function Home() {
                             <Reveal delay={240}>
                                 <div className="flex flex-col sm:flex-row gap-3 mt-1">
                                     <a
-                                        href="#"
+                                        href="/products"
                                         className="px-6 py-3 text-sm font-semibold tracking-wide text-white text-center
                                             rounded-lg bg-purple-600/25 backdrop-blur-md border border-purple-300/40
                                             shadow-[0_8px_32px_-8px_rgba(147,51,234,0.45)]
@@ -156,7 +156,7 @@ export default function Home() {
                                         View Products
                                     </a>
                                     <a
-                                        href="#"
+                                        href="/careers"
                                         className="px-6 py-3 text-sm font-semibold tracking-wide text-center
                                             rounded-lg text-white/85 bg-white/5 backdrop-blur-md border border-white/25
                                             shadow-[0_8px_32px_-12px_rgba(0,0,0,0.5)]

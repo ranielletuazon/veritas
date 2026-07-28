@@ -1,13 +1,13 @@
 [
     {
-        "id": "electricity",
-        "slug": "electricity",
-        "name": "Electricity Solutions",
+        "id": "energy",
+        "slug": "energy-solutions",
+        "name": "Energy Solutions",
         "tagline": "Energy",
-        "category": "Electricity",
+        "category": "Energy",
         "featured_image": "electricity.png",
-        "description": "Energy hardware and supply solutions for homes and businesses through our trusted energy partners.",
-        "overview": "We supply and install energy equipment sourced from vetted manufacturers, sized to your actual load requirements — with installation and after-sales support handled end to end.",
+        "description": "Energy supply, renewable certificates, and solar solutions for homes and businesses through our trusted energy partners.",
+        "overview": "We supply and install energy equipment sourced from vetted manufacturers, sized to your actual requirements — spanning standard energy supply, renewable energy certificate trading, and solar installation.",
         "benefitsLabel": "Benefits",
         "benefits": [
             "Cost savings",
@@ -15,54 +15,92 @@
             "Hassle-free installation",
             "Personalized recommendations"
         ],
-        "itemsLabel": "Available Units",
-        "items": [
+        "itemsLabel": "Available Solutions",
+        "groups": [
             {
-                "id": "elec-unit-1",
-                "name": "[Unit Model 1]",
-                "badge": "Residential",
-                "summary": "Entry-level unit suited to standard household requirements.",
-                "image": "unit-placeholder-1.png",
-                "specs": [
-                    "[Capacity / output spec]",
-                    "[Dimensions or footprint]",
-                    "[Warranty period]"
+                "id": "energy-supply",
+                "name": "Energy Supply",
+                "items": [
+                    {
+                        "id": "energy-supply-res",
+                        "name": "Residential",
+                        "summary": "[Residential energy supply — plan/unit details pending]",
+                        "image": "unit-placeholder-1.png",
+                        "specs": [
+                            "[Capacity / output spec]",
+                            "[Installation requirement]",
+                            "[Warranty period]"
+                        ]
+                    },
+                    {
+                        "id": "energy-supply-com",
+                        "name": "Commercial",
+                        "summary": "[Commercial energy supply — plan/unit details pending]",
+                        "image": "unit-placeholder-2.png",
+                        "specs": [
+                            "[Capacity / output spec]",
+                            "[Multi-site options]",
+                            "[Warranty period]"
+                        ]
+                    }
                 ]
             },
             {
-                "id": "elec-unit-2",
-                "name": "[Unit Model 2]",
-                "badge": "Residential",
-                "summary": "Mid-range unit with higher output for larger households.",
-                "image": "unit-placeholder-2.png",
-                "specs": [
-                    "[Capacity / output spec]",
-                    "[Dimensions or footprint]",
-                    "[Warranty period]"
-                ]
-            },
-            {
-                "id": "elec-unit-3",
-                "name": "[Unit Model 3]",
-                "badge": "Commercial",
-                "summary": "Commercial-grade unit for offices, retail, and light industrial sites.",
-                "image": "unit-placeholder-3.png",
-                "specs": [
-                    "[Capacity / output spec]",
-                    "[Dimensions or footprint]",
-                    "[Warranty period]"
-                ]
-            },
-            {
-                "id": "elec-unit-4",
-                "name": "[Unit Model 4]",
-                "badge": "Commercial",
-                "summary": "High-capacity unit for multi-site or high-demand installations.",
-                "image": "unit-placeholder-4.png",
-                "specs": [
-                    "[Capacity / output spec]",
-                    "[Dimensions or footprint]",
-                    "[Warranty period]"
+                "id": "green-energy",
+                "name": "Green Energy Solutions",
+                "subgroups": [
+                    {
+                        "id": "recs",
+                        "name": "RECs",
+                        "items": [
+                            {
+                                "id": "recs-res",
+                                "name": "Residential",
+                                "summary": "Sell your RECs",
+                                "specs": [
+                                    "[Certificate eligibility criteria]",
+                                    "[Payout / crediting structure]"
+                                ]
+                            },
+                            {
+                                "id": "recs-com",
+                                "name": "Commercial",
+                                "summary": "Buy / Sell your RECs",
+                                "specs": [
+                                    "[Certificate eligibility criteria]",
+                                    "[Trading / crediting structure]"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "solar",
+                        "name": "Solar Energy",
+                        "items": [
+                            {
+                                "id": "solar-res",
+                                "name": "Residential",
+                                "summary": "[Residential solar installation — details pending]",
+                                "image": "unit-placeholder-3.png",
+                                "specs": [
+                                    "[Panel output spec]",
+                                    "[Installation requirement]",
+                                    "[Warranty period]"
+                                ]
+                            },
+                            {
+                                "id": "solar-com",
+                                "name": "Commercial",
+                                "summary": "[Commercial solar installation — details pending]",
+                                "image": "unit-placeholder-4.png",
+                                "specs": [
+                                    "[Panel output spec]",
+                                    "[Multi-site options]",
+                                    "[Warranty period]"
+                                ]
+                            }
+                        ]
+                    }
                 ]
             }
         ]
@@ -70,12 +108,12 @@
     {
         "id": "printer",
         "slug": "printer-solutions",
-        "name": "Printer Solutions",
+        "name": "Copier Solutions",
         "tagline": "Office Equipment",
-        "category": "Printer",
+        "category": "Printer & Copier",
         "featured_image": "printer.png",
-        "description": "Business-grade printing units, leasing, and equipment support via trusted printer partners.",
-        "overview": "From a single desktop unit to a multi-floor fleet, we size the equipment to your actual print volume and handle supply, installation, and the ongoing service relationship on your behalf.",
+        "description": "Business-grade printing and copying units, leasing, and equipment support via trusted partners.",
+        "overview": "From a single desktop unit to a multi-floor fleet, we size the equipment to your actual print and copy volume and handle supply, installation, and the ongoing service relationship on your behalf.",
         "benefitsLabel": "Benefits",
         "benefits": [
             "Business-grade printers",
@@ -91,11 +129,7 @@
                 "badge": "Desktop",
                 "summary": "Compact desktop unit for small teams and low-volume printing.",
                 "image": "unit-placeholder-1.png",
-                "specs": [
-                    "[Pages per minute]",
-                    "[Paper capacity]",
-                    "[Connectivity options]"
-                ]
+                "specs": ["[Pages per minute]", "[Paper capacity]", "[Connectivity options]"]
             },
             {
                 "id": "print-unit-2",
@@ -103,11 +137,7 @@
                 "badge": "Office",
                 "summary": "Mid-volume multifunction unit with print, scan, and copy.",
                 "image": "unit-placeholder-2.png",
-                "specs": [
-                    "[Pages per minute]",
-                    "[Paper capacity]",
-                    "[Connectivity options]"
-                ]
+                "specs": ["[Pages per minute]", "[Paper capacity]", "[Connectivity options]"]
             },
             {
                 "id": "print-unit-3",
@@ -115,11 +145,7 @@
                 "badge": "High Volume",
                 "summary": "Floor-standing unit built for sustained high-volume output.",
                 "image": "unit-placeholder-3.png",
-                "specs": [
-                    "[Pages per minute]",
-                    "[Paper capacity]",
-                    "[Finishing options]"
-                ]
+                "specs": ["[Pages per minute]", "[Paper capacity]", "[Finishing options]"]
             },
             {
                 "id": "print-unit-4",
@@ -127,11 +153,57 @@
                 "badge": "Production",
                 "summary": "Production-grade unit for large-format or commercial print work.",
                 "image": "unit-placeholder-4.png",
-                "specs": [
-                    "[Pages per minute]",
-                    "[Media sizes supported]",
-                    "[Finishing options]"
-                ]
+                "specs": ["[Pages per minute]", "[Media sizes supported]", "[Finishing options]"]
+            }
+        ]
+    },
+    {
+        "id": "business-dev",
+        "slug": "business-development",
+        "name": "Business Development & Lead Generation",
+        "tagline": "Growth",
+        "category": "Business",
+        "featured_image": "business.png",
+        "description": "Targeted lead generation and customer acquisition campaigns that expand your customer base.",
+        "overview": "We operate as an extension of your sales function — building pipeline, running acquisition campaigns, and delivering measurable outcomes on a performance basis rather than a retainer.",
+        "benefitsLabel": "Services Include",
+        "benefits": [
+            "Lead Generation",
+            "Sales Outsourcing",
+            "Customer Acquisition",
+            "Appointment Setting",
+            "Market Expansion",
+            "Revenue Growth Strategies"
+        ],
+        "itemsLabel": "How We Work",
+        "items": [
+            {
+                "id": "biz-leadgen",
+                "name": "Lead Generation",
+                "badge": "Core",
+                "summary": "Qualified prospects delivered to your sales team, filtered against your ideal customer profile.",
+                "specs": ["Defined qualification criteria", "Volume scaled to your capacity", "Performance-based pricing"]
+            },
+            {
+                "id": "biz-outsourcing",
+                "name": "Sales Outsourcing",
+                "badge": "Core",
+                "summary": "A trained Veritas team representing your brand end to end, from first contact to close.",
+                "specs": ["Dedicated campaign team", "Brand-aligned training", "Regular performance reporting"]
+            },
+            {
+                "id": "biz-appointments",
+                "name": "Appointment Setting",
+                "badge": "B2B",
+                "summary": "Meetings booked directly into your team's calendar with decision-makers who qualify.",
+                "specs": ["Decision-maker targeting", "Calendar integration", "No-show follow-up handling"]
+            },
+            {
+                "id": "biz-expansion",
+                "name": "Market Expansion",
+                "badge": "Strategic",
+                "summary": "Entering a new segment or territory with a field team already operating in it.",
+                "specs": ["Territory research", "Pilot before scale-up", "Local market execution"]
             }
         ]
     },
@@ -142,8 +214,8 @@
         "tagline": "Home",
         "category": "Residential",
         "featured_image": "residential.png",
-        "description": "Home equipment and essential services that improve everyday convenience and efficiency.",
-        "overview": "We supply home equipment from vetted providers and stay involved through consultation, installation, and follow-up — rather than handing over a contact number and disappearing.",
+        "description": "Essential home equipment and services that improve everyday convenience and efficiency.",
+        "overview": "We supply home equipment and connect households to vetted service providers — staying involved through consultation and follow-up rather than handing over a contact number and disappearing.",
         "benefitsLabel": "Benefits",
         "benefits": [
             "Trusted service providers",
@@ -204,67 +276,65 @@
         ]
     },
     {
-        "id": "business-dev",
-        "slug": "business-development",
-        "name": "Business Development & Lead Generation",
-        "tagline": "Growth",
-        "category": "Business",
-        "featured_image": "business.png",
-        "description": "Targeted lead generation and customer acquisition campaigns that expand your customer base.",
-        "overview": "We operate as an extension of your sales function — building pipeline, running acquisition campaigns, and delivering measurable outcomes on a performance basis rather than a retainer.",
-        "benefitsLabel": "Services Include",
+        "id": "cleaning",
+        "slug": "cleaning-solutions",
+        "name": "Cleaning Solutions",
+        "tagline": "Cleaning",
+        "category": "Cleaning",
+        "featured_image": "residential.png",
+        "description": "Professional cleaning services for homes and businesses through our trusted cleaning partners.",
+        "overview": "We connect you to vetted cleaning providers matched to your space and schedule — from one-off deep cleans to recurring commercial contracts, with consistent quality you can rely on.",
+        "benefitsLabel": "Benefits",
         "benefits": [
-            "Lead Generation",
-            "Sales Outsourcing",
-            "Customer Acquisition",
-            "Appointment Setting",
-            "Market Expansion",
-            "Revenue Growth Strategies"
+            "Vetted, insured cleaners",
+            "Flexible scheduling",
+            "Consistent quality standards",
+            "Tailored to your space"
         ],
-        "itemsLabel": "How We Work",
+        "itemsLabel": "Available Services",
         "items": [
             {
-                "id": "biz-leadgen",
-                "name": "Lead Generation",
-                "badge": "Core",
-                "summary": "Qualified prospects delivered to your sales team, filtered against your ideal customer profile.",
+                "id": "cleaning-res-standard",
+                "name": "Standard Home Cleaning",
+                "badge": "Residential",
+                "summary": "Routine cleaning covering all main living areas, kept on a schedule that suits you.",
                 "specs": [
-                    "Defined qualification criteria",
-                    "Volume scaled to your capacity",
-                    "Performance-based pricing"
+                    "Weekly, biweekly, or monthly frequency",
+                    "Kitchen, bathrooms, and living areas covered",
+                    "Recurring booking, no lock-in contract"
                 ]
             },
             {
-                "id": "biz-outsourcing",
-                "name": "Sales Outsourcing",
-                "badge": "Core",
-                "summary": "A trained Veritas team representing your brand end to end, from first contact to close.",
+                "id": "cleaning-res-deep",
+                "name": "Deep Cleaning",
+                "badge": "Residential",
+                "summary": "A thorough one-off clean for move-ins, move-outs, or seasonal resets.",
                 "specs": [
-                    "Dedicated campaign team",
-                    "Brand-aligned training",
-                    "Regular performance reporting"
+                    "Includes skirting, fixtures, and appliance exteriors",
+                    "One-time or occasional booking",
+                    "Recommended before or after tenancy changes"
                 ]
             },
             {
-                "id": "biz-appointments",
-                "name": "Appointment Setting",
-                "badge": "B2B",
-                "summary": "Meetings booked directly into your team's calendar with decision-makers who qualify.",
+                "id": "cleaning-com-office",
+                "name": "Office Cleaning",
+                "badge": "Commercial",
+                "summary": "Scheduled cleaning for office spaces, keeping workspaces presentable day to day.",
                 "specs": [
-                    "Decision-maker targeting",
-                    "Calendar integration",
-                    "No-show follow-up handling"
+                    "After-hours or early-morning scheduling",
+                    "Common areas, desks, and washrooms covered",
+                    "Consumables restocking available on request"
                 ]
             },
             {
-                "id": "biz-expansion",
-                "name": "Market Expansion",
-                "badge": "Strategic",
-                "summary": "Entering a new segment or territory with a field team already operating in it.",
+                "id": "cleaning-com-facility",
+                "name": "Facility & Retail Cleaning",
+                "badge": "Commercial",
+                "summary": "Larger-scale cleaning contracts for retail units, facilities, and multi-tenant sites.",
                 "specs": [
-                    "Territory research",
-                    "Pilot before scale-up",
-                    "Local market execution"
+                    "Custom contract scope and frequency",
+                    "Multi-site coordination available",
+                    "Dedicated account contact"
                 ]
             }
         ]

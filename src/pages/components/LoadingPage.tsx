@@ -1,4 +1,5 @@
-import logo from "../../assets/images/veritas_landscape_logo_white.png";
+// import logo from "../../assets/images/veritas_landscape_logo_white.png";
+import logo from "../../../public/images/new-veritas-logo.png";
 
 interface LoadingPageProps {
     fadingOut: boolean;
@@ -15,7 +16,7 @@ export default function LoadingPage({ fadingOut }: LoadingPageProps) {
             <img
                 src={logo}
                 alt=""
-                className="splash-pulse h-10 w-auto object-contain sm:h-12"
+                className="splash-pulse h-30 w-auto object-contain sm:h-24"
             />
         </main>
     );

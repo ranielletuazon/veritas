@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import logo from "../../assets/images/veritas_landscape_logo_white.png";
+// import logo from "../../assets/images/veritas_landscape_logo_white.png";
+import logo from "../../../public/images/new-veritas-logo.png";
 import { PRODUCT_CATEGORIES } from "../../data/products";
 
 const NAV_LINKS = [
@@ -41,7 +42,7 @@ export default function Header() {
                     <img
                         src={logo}
                         alt="Veritas Organisation"
-                        className={`h-11 w-auto object-contain transition-all duration-500 ${
+                        className={`h-14 sm:h-20 w-auto object-contain transition-all duration-500 ${
                             isTransparent
                                 ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
                                 : ""
