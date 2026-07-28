@@ -1,11 +1,11 @@
 // import logo from "../../assets/images/veritas_landscape_logo_white.png";
+import logo from "../../assets/images/new-veritas-logo.png";
 
 interface LoadingPageProps {
     fadingOut: boolean;
 }
 
 export default function LoadingPage({ fadingOut }: LoadingPageProps) {
-    const logo = "/public/images/new-veritas-logo.png";
     return (
         <main
             aria-hidden="true"
