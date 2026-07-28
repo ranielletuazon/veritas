@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 // import logo from "../../assets/images/veritas_landscape_logo.png";
-import logo from "../../../public/images/new-veritas-logo.png";
 import { socials } from "../../data/social";
 import { PRODUCT_CATEGORIES } from "../../data/products";
 
@@ -12,6 +11,7 @@ const NAV_LINKS = [
 ];
 
 export default function Footer() {
+    const logo = "/public/images/new-veritas-logo.png";
     return (
         <footer className="relative w-full overflow-hidden bg-[#07040f] text-white">
             <div
