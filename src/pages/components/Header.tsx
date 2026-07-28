@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 // import logo from "../../assets/images/veritas_landscape_logo_white.png";
-import logo from "../../../public/images/new-veritas-logo.png";
 import { PRODUCT_CATEGORIES } from "../../data/products";
 
 const NAV_LINKS = [
@@ -12,6 +11,7 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
+    const logo = "/public/images/new-veritas-logo.png";
     const { pathname } = useLocation();
     const isHomepage = pathname === "/";
 
