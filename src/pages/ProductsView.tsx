@@ -188,7 +188,7 @@ export default function ProductsView() {
                     />
                 </section>
 
-                {/* ── Benefits strip ──────────────────────────── */}
+                {/* ── Benefits strip ────────────────────────────
                 <section className="w-full bg-slate-50">
                     <div className="mx-auto max-w-7xl px-6 pt-12 lg:px-10">
                         <Reveal>
@@ -212,7 +212,7 @@ export default function ProductsView() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* ── Items — flat OR grouped, depending on the category ─ */}
                 <section className="w-full bg-slate-50 pb-24">
@@ -227,6 +227,29 @@ export default function ProductsView() {
                                 we'll help you work out which fits.
                             </p>
                         </Reveal>
+
+                        <div className="max-w-7xl">
+                            <Reveal>
+                                <h2 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
+                                    {category.benefitsLabel}
+                                </h2>
+                            </Reveal>
+                            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                                {category.benefits.map((b, i) => (
+                                    <Reveal key={b} delay={i * 70}>
+                                        <div className="flex h-full items-start gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4">
+                                            <Check
+                                                className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                                                strokeWidth={2.2}
+                                            />
+                                            <span className="text-sm font-medium text-slate-700">
+                                                {b}
+                                            </span>
+                                        </div>
+                                    </Reveal>
+                                ))}
+                            </div>
+                        </div>
 
                         {/* Flat categories: Printer & Copier, Business Dev, Cleaning */}
                         {category.items && (

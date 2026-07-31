@@ -2,7 +2,7 @@ import { MapPin, Clock } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CAREERS } from "../data/careers";
-import teamBanner from "../assets/images/herobanner.jfif";
+import teamBanner from "../assets/images/teamBanner.jpg";
 import Reveal from "./components/Reveal";
 
 export default function Careers() {

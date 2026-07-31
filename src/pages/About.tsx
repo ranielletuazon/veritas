@@ -3,8 +3,6 @@ import Footer from "./components/Footer";
 import { Eye, Target } from "lucide-react";
 import Reveal from "./components/Reveal";
 
-import founder_image from "../../public/images/boss.jpeg";
-
 const CORE_VALUES = [
     {
         title: "Truth",
@@ -29,6 +27,8 @@ const CORE_VALUES = [
 ];
 
 const GALLERY_SLOTS = [1, 2, 3, 4, 5, 6];
+const founder_image = "/images/boss.jpeg";
+const founder_image2 = "/images/boss2.jpg";
 
 export default function About() {
     return (
@@ -238,9 +238,9 @@ export default function About() {
                 {/* ── Founder ──────────────────────────────────── */}
                 <section className="w-full bg-white">
                     <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 md:py-24 lg:grid-cols-5 lg:gap-16 lg:px-10">
-                        {/* Left — portrait */}
+                        {/* Left — portrait, crossfades to second photo on hover */}
                         <Reveal className="lg:col-span-2">
-                            <div className="relative mx-auto max-w-sm lg:max-w-none">
+                            <div className="group relative mx-auto max-w-sm lg:max-w-none">
                                 <div
                                     aria-hidden="true"
                                     className="absolute -left-4 -top-4 h-full w-full bg-gradient-to-br from-indigo-600 to-fuchsia-600 opacity-20"
@@ -250,10 +250,18 @@ export default function About() {
                                     }}
                                 />
                                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-200 to-slate-300">
+                                    {/* Base photo — always visible */}
                                     <img
                                         src={founder_image}
-                                        alt="Jerome [Lastname], Founder of Veritas Organisation"
+                                        alt="Gerald Lee, Founder of Veritas Organisation"
                                         className="h-full w-full object-cover"
+                                    />
+                                    {/* Second photo — crossfades in on hover */}
+                                    <img
+                                        src={founder_image2}
+                                        alt=""
+                                        aria-hidden="true"
+                                        className="absolute inset-0 h-full w-full scale-105 object-cover opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100"
                                     />
                                 </div>
                             </div>
