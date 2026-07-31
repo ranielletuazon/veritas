@@ -111,7 +111,7 @@
         "name": "Copier Solutions",
         "tagline": "Office Equipment",
         "category": "Printer & Copier",
-        "featured_image": "printer.png",
+        "featured_image": "copier.png",
         "description": "Business-grade printing and copying units, leasing, and equipment support via trusted partners.",
         "overview": "From a single desktop unit to a multi-floor fleet, we size the equipment to your actual print and copy volume and handle supply, installation, and the ongoing service relationship on your behalf.",
         "benefitsLabel": "Benefits",
@@ -163,7 +163,7 @@
         "name": "Business Development & Lead Generation",
         "tagline": "Growth",
         "category": "Business",
-        "featured_image": "business.png",
+        "featured_image": "business.webp",
         "description": "Targeted lead generation and customer acquisition campaigns that expand your customer base.",
         "overview": "We operate as an extension of your sales function — building pipeline, running acquisition campaigns, and delivering measurable outcomes on a performance basis rather than a retainer.",
         "benefitsLabel": "Services Include",
@@ -208,80 +208,12 @@
         ]
     },
     {
-        "id": "residential",
-        "slug": "residential-services",
-        "name": "Residential Services",
-        "tagline": "Home",
-        "category": "Residential",
-        "featured_image": "residential.png",
-        "description": "Essential home equipment and services that improve everyday convenience and efficiency.",
-        "overview": "We supply home equipment and connect households to vetted service providers — staying involved through consultation and follow-up rather than handing over a contact number and disappearing.",
-        "benefitsLabel": "Benefits",
-        "benefits": [
-            "Trusted service providers",
-            "Professional consultation",
-            "Reliable customer support",
-            "Tailored solutions"
-        ],
-        "itemsLabel": "Available Units",
-        "items": [
-            {
-                "id": "res-unit-1",
-                "name": "[Home Unit 1]",
-                "badge": "Home",
-                "summary": "Standard household unit for everyday use.",
-                "image": "unit-placeholder-1.png",
-                "specs": [
-                    "[Key spec]",
-                    "[Installation requirement]",
-                    "[Warranty period]"
-                ]
-            },
-            {
-                "id": "res-unit-2",
-                "name": "[Home Unit 2]",
-                "badge": "Home",
-                "summary": "Upgraded unit with expanded capacity or features.",
-                "image": "unit-placeholder-2.png",
-                "specs": [
-                    "[Key spec]",
-                    "[Installation requirement]",
-                    "[Warranty period]"
-                ]
-            },
-            {
-                "id": "res-unit-3",
-                "name": "[Home Unit 3]",
-                "badge": "Home",
-                "summary": "Premium unit for larger properties or higher demand.",
-                "image": "unit-placeholder-3.png",
-                "specs": [
-                    "[Key spec]",
-                    "[Installation requirement]",
-                    "[Warranty period]"
-                ]
-            },
-            {
-                "id": "res-unit-4",
-                "name": "[Home Unit 4]",
-                "badge": "Add-on",
-                "summary": "Complementary unit or accessory for existing installations.",
-                "image": "unit-placeholder-4.png",
-                "specs": [
-                    "[Key spec]",
-                    "[Compatibility]",
-                    "[Warranty period]"
-                ]
-            }
-        ]
-    },
-    {
         "id": "cleaning",
         "slug": "cleaning-solutions",
         "name": "Cleaning Solutions",
         "tagline": "Cleaning",
         "category": "Cleaning",
-        "featured_image": "residential.png",
+        "featured_image": "clean.webp",
         "description": "Professional cleaning services for homes and businesses through our trusted cleaning partners.",
         "overview": "We connect you to vetted cleaning providers matched to your space and schedule — from one-off deep cleans to recurring commercial contracts, with consistent quality you can rely on.",
         "benefitsLabel": "Benefits",

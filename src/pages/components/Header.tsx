@@ -42,7 +42,7 @@ export default function Header() {
                     <img
                         src={logo}
                         alt="Veritas Organisation"
-                        className={`h-14 sm:h-20 w-auto object-contain transition-all duration-500 ${
+                        className={`h-14 sm:h-14 w-auto object-contain transition-all duration-500 ${
                             isTransparent
                                 ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
                                 : ""

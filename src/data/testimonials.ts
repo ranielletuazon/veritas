@@ -13,11 +13,11 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
     {
         id: "t1",
-        name: "[Client Name]",
-        role: "[Job Title]",
-        company: "[Company Name]",
+        name: "Daryil Ian Rajoo ",
+        role: "Director - Genco Energy Pte Ltd",
+        company: "Genco Energy Pte Ltd",
         rating: 5,
-        quote: "[Awaiting real testimonial from client — placeholder text sized to approximate a two-to-three line quote about working with Veritas.]",
+        quote: "Veritas Organisation has been an absolute game-changer since becoming a Business Partner of Genco Energy. From the very beginning, Veritas entered the partnership with a clear mission: to capture Singapore’s highly competitive and diverse energy market. In a remarkably short period, the team has exceeded every expectation.",
     },
     {
         id: "t2",

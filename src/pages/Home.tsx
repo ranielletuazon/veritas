@@ -13,6 +13,8 @@ import {
     HomeIcon,
     Star,
     Quote,
+    Sparkles,
+    Package,
 } from "lucide-react";
 
 // Components
@@ -29,7 +31,20 @@ import {
     initialsOf,
 } from "../data/testimonials";
 
+import productImage from "../assets/images/products_display.jpg";
+import extensiveLead from "../assets/images/extensive.jpg";
+import senokologo from "../assets/images/senoko.webp";
+
+import { PRODUCT_CATEGORIES, productImgSrc } from "../data/products";
+
 export default function Home() {
+    const CATEGORY_ICONS: Record<string, React.ElementType> = {
+        energy: Zap,
+        residential: HomeIcon,
+        printer: Printer,
+        "business-dev": TrendingUp,
+        cleaning: Sparkles,
+    };
     const reasons = [
         {
             icon: <Network className="h-6 w-6" strokeWidth={1.75} />,
@@ -62,28 +77,6 @@ export default function Home() {
         },
     ];
 
-    const offerings = [
-        {
-            icon: <Zap className="h-5 w-5" strokeWidth={1.75} />,
-            name: "Electricity Solutions",
-            blurb: "Competitive electricity plans through trusted energy partners.",
-        },
-        {
-            icon: <Printer className="h-5 w-5" strokeWidth={1.75} />,
-            name: "Printer Solutions",
-            blurb: "Business-grade printing, leasing, and managed print services.",
-        },
-        {
-            icon: <HomeIcon className="h-5 w-5" strokeWidth={1.75} />,
-            name: "Residential Services",
-            blurb: "Essential home services from vetted, reliable providers.",
-        },
-        {
-            icon: <TrendingUp className="h-5 w-5" strokeWidth={1.75} />,
-            name: "Business Development",
-            blurb: "Lead generation and customer acquisition that scales revenue.",
-        },
-    ];
     return (
         <>
             <Header />
@@ -181,7 +174,7 @@ export default function Home() {
                                     <div className="w-px h-8 bg-white/10 shrink-0" />
                                     <div className="flex flex-col gap-0.5">
                                         <span className="text-white text-xl sm:text-2xl font-bold leading-none text-center">
-                                            10+
+                                            4+
                                         </span>
                                         <span className="text-white/45 text-[11px] uppercase tracking-widest ">
                                             Years Active
@@ -190,10 +183,10 @@ export default function Home() {
                                     <div className="w-px h-8 bg-white/10 shrink-0" />
                                     <div className="flex flex-col gap-0.5">
                                         <span className="text-white text-xl sm:text-2xl font-bold leading-none text-center">
-                                            100k+
+                                            90M+
                                         </span>
                                         <span className="text-white/45 text-[11px] uppercase tracking-widest">
-                                            Products Sold
+                                            Total Sales Generated
                                         </span>
                                     </div>
                                 </div>
@@ -265,9 +258,10 @@ export default function Home() {
 
                                             {i === 0 && (
                                                 <div className="mt-auto pt-8">
-                                                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600">
+                                                    {/* <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600"> */}
+                                                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
                                                         <img
-                                                            src={globe}
+                                                            src={extensiveLead}
                                                             alt=""
                                                             aria-hidden="true"
                                                             className="absolute -bottom-10 left-1/2 w-[140%] max-w-none -translate-x-1/2 opacity-90"
@@ -311,40 +305,48 @@ export default function Home() {
                                 </p>
 
                                 <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-100 to-slate-200">
-                                    <span className="absolute bottom-3 left-4 text-[10px] font-medium uppercase tracking-widest text-slate-400">
-                                        Image placeholder
-                                    </span>
+                                    <img
+                                        src={productImage}
+                                        alt="Product Image User"
+                                        className="w-full h-full object-cover"
+                                    />
                                 </div>
                             </div>
                         </Reveal>
 
                         <div className="flex flex-col justify-center border-t border-slate-200 lg:border-l lg:border-t-0 lg:pl-16">
-                            {offerings.map((item, i) => (
-                                <Reveal key={item.name} delay={i * 90}>
-                                    <a
-                                        href="/products"
-                                        className="group flex items-start gap-5 border-b border-slate-200 py-6 lg:py-7"
-                                    >
-                                        <span className="mt-0.5 font-mono text-[11px] font-semibold tracking-widest text-indigo-400">
-                                            {String(i + 1).padStart(2, "0")}
-                                        </span>
-                                        <span className="text-indigo-600">
-                                            {item.icon}
-                                        </span>
-                                        <div className="flex-1">
-                                            <h3 className="text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-indigo-700">
-                                                {item.name}
-                                            </h3>
-                                            <p className="mt-1 text-sm leading-relaxed text-slate-500">
-                                                {item.blurb}
-                                            </p>
-                                        </div>
-                                        <span className="mt-1 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-indigo-500">
-                                            →
-                                        </span>
-                                    </a>
-                                </Reveal>
-                            ))}
+                            {PRODUCT_CATEGORIES.map((cat, i) => {
+                                const Icon = CATEGORY_ICONS[cat.id] ?? Package;
+                                return (
+                                    <Reveal key={cat.id} delay={i * 90}>
+                                        <a
+                                            href={`/products/${cat.slug}`}
+                                            className="group flex items-start gap-5 border-b border-slate-200 py-6 lg:py-7"
+                                        >
+                                            <span className="mt-0.5 font-mono text-[11px] font-semibold tracking-widest text-indigo-400">
+                                                {String(i + 1).padStart(2, "0")}
+                                            </span>
+                                            <span className="text-indigo-600">
+                                                <Icon
+                                                    className="h-5 w-5"
+                                                    strokeWidth={1.75}
+                                                />
+                                            </span>
+                                            <div className="flex-1">
+                                                <h3 className="text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-indigo-700">
+                                                    {cat.name}
+                                                </h3>
+                                                <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                                                    {cat.description}
+                                                </p>
+                                            </div>
+                                            <span className="mt-1 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-indigo-500">
+                                                →
+                                            </span>
+                                        </a>
+                                    </Reveal>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
@@ -409,13 +411,13 @@ export default function Home() {
                                                 href="/careers"
                                                 className="rounded-lg border border-white bg-white px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-slate-950 transition-colors duration-300 hover:bg-white/90"
                                             >
-                                                View Open Roles
+                                                VIEW OPEN ROLES
                                             </a>
                                             <a
                                                 href="/products"
                                                 className="rounded-lg border border-white/25 bg-white/[0.04] px-7 py-3.5 text-center text-sm font-semibold tracking-wide text-white backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 hover:bg-white/[0.08] hover:border-white/40"
                                             >
-                                                Explore Our Solutions
+                                                EXPLORE OUR SOLUTIONS
                                             </a>
                                         </div>
                                     </div>
@@ -521,7 +523,6 @@ export default function Home() {
                                                     </p>
                                                 </blockquote>
 
-                                                {/* Review photo — shows real image once t.photo is set, placeholder until then */}
                                                 <div className="relative mt-4 aspect-[4/3] w-full overflow-hidden rounded-lg bg-gradient-to-br from-slate-100 to-slate-200">
                                                     {photoSrc(t.photo) ? (
                                                         <img
@@ -560,7 +561,9 @@ export default function Home() {
                                                             {t.name}
                                                         </p>
                                                         <p className="truncate text-xs text-slate-500">
-                                                            {t.role},{" "}
+                                                            {t.role}
+                                                        </p>
+                                                        <p className="truncate text-xs text-slate-500">
                                                             {t.company}
                                                         </p>
                                                     </div>
@@ -571,6 +574,145 @@ export default function Home() {
                                 );
                             })}
                         </div>
+
+                        {/* ── Spotlight testimonial — standalone, below the card grid ── */}
+                        <Reveal delay={280}>
+                            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 p-8 sm:p-10 lg:p-12 mt-6 md:mt-14">
+                                {/* Grain texture — same treatment as the Closing CTA panel */}
+                                <svg
+                                    className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.35] mix-blend-overlay"
+                                    aria-hidden="true"
+                                >
+                                    <filter id="testimonial-grain">
+                                        <feTurbulence
+                                            type="fractalNoise"
+                                            baseFrequency="0.9"
+                                            numOctaves="2"
+                                            stitchTiles="stitch"
+                                        />
+                                        <feColorMatrix
+                                            type="saturate"
+                                            values="0"
+                                        />
+                                    </filter>
+                                    <rect
+                                        width="100%"
+                                        height="100%"
+                                        filter="url(#testimonial-grain)"
+                                    />
+                                </svg>
+
+                                {/* Single restrained light source */}
+                                <div
+                                    aria-hidden="true"
+                                    className="pointer-events-none absolute -left-1/4 -top-1/2 h-[140%] w-[70%]"
+                                    style={{
+                                        background:
+                                            "radial-gradient(closest-side, rgba(129,140,248,0.18), transparent 70%)",
+                                    }}
+                                />
+
+                                <Quote
+                                    className="pointer-events-none absolute -right-4 -top-4 h-28 w-28 text-white/[0.05]"
+                                    fill="currentColor"
+                                    strokeWidth={0}
+                                    aria-hidden="true"
+                                />
+
+                                <div className="relative z-10 grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-12">
+                                    {/* Quote body */}
+                                    <div className="lg:col-span-3">
+                                        <div
+                                            className="h-1 w-12 rounded-full bg-gradient-to-r from-indigo-400 to-fuchsia-400"
+                                            aria-hidden="true"
+                                        />
+                                        <blockquote className="mt-6 space-y-4 text-base leading-relaxed text-white/75 sm:text-lg">
+                                            <p>
+                                                Veritas Organisation has been an
+                                                absolute game-changer since
+                                                becoming a Business Partner of
+                                                Genco Energy. From the very
+                                                beginning, Veritas entered the
+                                                partnership with a clear
+                                                mission: to capture Singapore's
+                                                highly competitive and diverse
+                                                energy market. In a remarkably
+                                                short period, the team has
+                                                exceeded every expectation.
+                                            </p>
+                                            <p>
+                                                Beyond their outstanding
+                                                business expertise, Veritas
+                                                Organisation brings
+                                                professionalism, innovation, and
+                                                a collaborative approach to
+                                                every engagement. The team is
+                                                proactive, solution-oriented,
+                                                and consistently goes above and
+                                                beyond to ensure clients receive
+                                                exceptional value. Veritas
+                                                Organisation has proven to be an
+                                                invaluable partner in our growth
+                                                strategy, and we highly
+                                                recommend them to any
+                                                organization seeking a trusted
+                                                and results-driven business
+                                                partner.
+                                            </p>
+                                        </blockquote>
+                                    </div>
+
+                                    {/* Attribution */}
+                                    <div className="flex flex-col justify-start border-t border-white/10 pt-8 lg:col-span-2 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+                                        {/* <div
+                                            className="flex items-center gap-0.5"
+                                            role="img"
+                                            aria-label="5 out of 5 stars"
+                                        >
+                                            {Array.from({ length: 5 }).map(
+                                                (_, i) => (
+                                                    <Star
+                                                        key={i}
+                                                        className="h-4 w-4 fill-amber-400 text-amber-400"
+                                                        strokeWidth={0}
+                                                        aria-hidden="true"
+                                                    />
+                                                ),
+                                            )}
+                                        </div> */}
+
+                                        <div className="mt-4 flex items-center gap-3">
+                                            <img
+                                                aria-hidden="true"
+                                                src={senokologo}
+                                                alt="Senoko"
+                                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
+                                            />
+                                            <div>
+                                                <p className="text-sm font-bold tracking-tight text-white">
+                                                    Daryil Ian Rajoo
+                                                </p>
+                                                <p className="text-xs text-white/50">
+                                                    Director, Genco Energy Pte
+                                                    Ltd
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-4 flex flex-col gap-1.5 border-t border-white/10 pt-4">
+                                            <span className="w-fit rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-widest text-indigo-200">
+                                                Authorised Senoko Channel
+                                                Partner
+                                            </span>
+                                            <p className="mt-1 text-xs text-white/50">
+                                                Industry: Commercial and
+                                                Residential Energy Sales
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Reveal>
                     </div>
                 </section>
             </div>
