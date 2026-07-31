@@ -1,6 +1,3 @@
-// Images
-import globe from "../assets/images/globe.webp";
-
 // Lucide Icons
 import {
     Network,
@@ -31,11 +28,12 @@ import {
     initialsOf,
 } from "../data/testimonials";
 
+// Images
 import productImage from "../assets/images/products_display.jpg";
 import extensiveLead from "../assets/images/extensive.jpg";
 import senokologo from "../assets/images/senoko.webp";
 
-import { PRODUCT_CATEGORIES, productImgSrc } from "../data/products";
+import { PRODUCT_CATEGORIES } from "../data/products";
 
 export default function Home() {
     const CATEGORY_ICONS: Record<string, React.ElementType> = {
