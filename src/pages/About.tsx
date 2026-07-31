@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Eye, Target } from "lucide-react";
 import Reveal from "./components/Reveal";
+import { EMPLOYEES, employeePhotoSrc, initialsOf } from "../data/employees";
 
 const CORE_VALUES = [
     {
@@ -26,7 +27,6 @@ const CORE_VALUES = [
     },
 ];
 
-const GALLERY_SLOTS = [1, 2, 3, 4, 5, 6];
 const founder_image = "/images/boss.jpeg";
 const founder_image2 = "/images/boss2.jpg";
 
@@ -303,38 +303,99 @@ export default function About() {
                     </div>
                 </section>
 
-                {/* ── Gallery ──────────────────────────────────── */}
+                {/* ── Meet the Team ─────────────────────────────── */}
                 <section className="w-full bg-slate-50">
                     <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-10">
                         <Reveal>
                             <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-700">
                                 <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
-                                Gallery
+                                Meet the Team
                             </span>
                             <h2 className="mt-5 max-w-xl text-2xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-3xl">
-                                LIFE AT{" "}
+                                THE PEOPLE BEHIND{" "}
                                 <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
                                     VERITAS
                                 </span>
                             </h2>
+                            <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-500">
+                                It also oversees the day-to-day business
+                                operations and the implementation of strategies
+                                and policies of the Group, meeting regularly to
+                                review the progress of corporate development
+                                projects and business performance.
+                            </p>
                         </Reveal>
 
-                        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
-                            {GALLERY_SLOTS.map((n, i) => (
-                                <Reveal key={n} delay={i * 70}>
-                                    <div
-                                        className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-indigo-600/80 via-violet-600/80 to-fuchsia-600/80 ${
-                                            i % 3 === 0
-                                                ? "aspect-[4/5]"
-                                                : "aspect-[4/3]"
-                                        }`}
+                        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                            {EMPLOYEES.map((employee, i) => {
+                                const src = employeePhotoSrc(employee.photo);
+                                return (
+                                    <Reveal
+                                        key={employee.id}
+                                        delay={i * 80}
+                                        className={
+                                            employee.featured
+                                                ? "sm:col-span-2 lg:col-span-1"
+                                                : ""
+                                        }
                                     >
-                                        <span className="absolute bottom-3 left-4 font-mono text-[10px] font-medium uppercase tracking-widest text-white/70">
-                                            Photo {n}
-                                        </span>
-                                    </div>
-                                </Reveal>
-                            ))}
+                                        <div
+                                            className={`group relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 via-indigo-950 to-slate-900 ${
+                                                employee.featured
+                                                    ? "aspect-[4/5]"
+                                                    : "aspect-[4/5]"
+                                            }`}
+                                        >
+                                            {src ? (
+                                                <img
+                                                    src={src}
+                                                    alt={employee.name}
+                                                    loading="lazy"
+                                                    className="absolute inset-0 h-full w-full object-cover object-top grayscale-[15%] transition-all duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
+                                                />
+                                            ) : (
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <span
+                                                        aria-hidden="true"
+                                                        className="flex h-20 w-20 items-center justify-center rounded-full bg-white/[0.06] font-mono text-xl font-bold text-white/40"
+                                                    >
+                                                        {initialsOf(
+                                                            employee.name,
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            )}
+
+                                            {/* Gradient scrim — bottom-up, always present regardless of photo */}
+                                            <div
+                                                aria-hidden="true"
+                                                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"
+                                            />
+
+                                            {/* Name + role overlay */}
+                                            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                                                <h3 className="text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
+                                                    {employee.name}
+                                                </h3>
+                                                <p className="mt-1 text-sm font-semibold text-indigo-200">
+                                                    {employee.role}
+                                                </p>
+                                                {employee.department && (
+                                                    <p className="mt-0.5 text-xs text-white/60">
+                                                        {employee.department}
+                                                    </p>
+                                                )}
+                                            </div>
+
+                                            {/* Top accent line on hover — matches the rest of the site's card language */}
+                                            <span
+                                                aria-hidden="true"
+                                                className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-indigo-500 to-fuchsia-500 transition-transform duration-300 ease-out group-hover:scale-x-100"
+                                            />
+                                        </div>
+                                    </Reveal>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
