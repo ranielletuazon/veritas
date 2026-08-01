@@ -31,7 +31,7 @@ import {
 // Images
 import productImage from "../assets/images/products_display.jpg";
 import extensiveLead from "../assets/images/extensive.jpg";
-import senokologo from "../assets/images/senoko.webp";
+import genco from "../assets/images/genco.png";
 
 import { PRODUCT_CATEGORIES } from "../data/products";
 
@@ -682,8 +682,8 @@ export default function Home() {
                                         <div className="mt-4 flex items-center gap-3">
                                             <img
                                                 aria-hidden="true"
-                                                src={senokologo}
-                                                alt="Senoko"
+                                                src={genco}
+                                                alt="Genco"
                                                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
                                             />
                                             <div>

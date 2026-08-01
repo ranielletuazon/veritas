@@ -124,36 +124,197 @@
         "itemsLabel": "Available Units",
         "items": [
             {
-                "id": "print-unit-1",
-                "name": "[Printer Model 1]",
-                "badge": "Desktop",
-                "summary": "Compact desktop unit for small teams and low-volume printing.",
+                "id": "apeos-c7070",
+                "name": "Apeos C7070",
+                "badge": "Flagship",
+                "summary": "The fastest unit in the range — built for high-volume departments and shared floors.",
                 "image": "unit-placeholder-1.png",
-                "specs": ["[Pages per minute]", "[Paper capacity]", "[Connectivity options]"]
+                "specs": ["70 ppm colour & mono", "Up to 6,140 sheet capacity", "1200 × 2400 dpi"],
+                "detail": {
+                    "brand": "FUJIFILM Business Innovation",
+                    "model": "Apeos C7070",
+                    "description": "Our highest-throughput multifunction unit. Suited to organisations where several teams share one device and downtime is costly — it clears large jobs quickly and holds enough paper to run through a working day without a refill.",
+                    "specSheet": [
+                        { "label": "Print / copy speed (A4 LEF)", "value": "70 ppm colour and monochrome" },
+                        { "label": "First copy out — mono", "value": "3.3 seconds" },
+                        { "label": "First copy out — colour", "value": "4.1 seconds" },
+                        { "label": "Print resolution", "value": "1200 × 2400 dpi" },
+                        { "label": "Scan resolution", "value": "600 × 600 dpi" },
+                        { "label": "Scan speed (duplex)", "value": "Up to 270 ppm" },
+                        { "label": "Max paper size", "value": "SRA3 (320 × 450 mm)" },
+                        { "label": "Paper weight", "value": "52 – 300 gsm" },
+                        { "label": "Standard paper capacity", "value": "520 × 4 trays + 90 sheet bypass" },
+                        { "label": "Maximum paper capacity", "value": "6,140 sheets with tandem tray + high capacity feeder" },
+                        { "label": "Memory / storage", "value": "4 GB / 128 GB" },
+                        { "label": "Dimensions (W×D×H)", "value": "658 × 790 × 1169 mm" },
+                        { "label": "Weight", "value": "156 kg" },
+                        { "label": "Power supply", "value": "AC 220–240 V, 50/60 Hz" }
+                    ],
+                    "features": [
+                        "Colour and monochrome copy, print, scan and Super G3 fax",
+                        "Cloud and mobile connectivity for remote print and scan workflows",
+                        "Optional finishing: staple, hole punch, saddle staple, tri-fold and Z-fold",
+                        "User authentication, encrypted storage and audit logging",
+                        "Multi-feed detection and single-pass duplex scanning"
+                    ]
+                }
             },
             {
-                "id": "print-unit-2",
-                "name": "[Printer Model 2]",
-                "badge": "Office",
-                "summary": "Mid-volume multifunction unit with print, scan, and copy.",
-                "image": "unit-placeholder-2.png",
-                "specs": ["[Pages per minute]", "[Paper capacity]", "[Connectivity options]"]
-            },
-            {
-                "id": "print-unit-3",
-                "name": "[Printer Model 3]",
+                "id": "apeos-c6570",
+                "name": "Apeos C6570",
                 "badge": "High Volume",
-                "summary": "Floor-standing unit built for sustained high-volume output.",
-                "image": "unit-placeholder-3.png",
-                "specs": ["[Pages per minute]", "[Paper capacity]", "[Finishing options]"]
+                "summary": "Near-flagship throughput at a lower footprint cost — a common fit for busy mid-size offices.",
+                "image": "unit-placeholder-2.png",
+                "specs": ["65 ppm colour & mono", "3.3s first copy (mono)", "1200 × 2400 dpi"],
+                "detail": {
+                    "brand": "FUJIFILM Business Innovation",
+                    "model": "Apeos C6570",
+                    "description": "Matches the flagship on responsiveness and finishing options while stepping down slightly on sustained speed. A practical choice where print volume is heavy but not continuous.",
+                    "specSheet": [
+                        { "label": "Print / copy speed (A4 LEF)", "value": "65 ppm colour and monochrome" },
+                        { "label": "First copy out — mono", "value": "3.3 seconds" },
+                        { "label": "First copy out — colour", "value": "4.1 seconds" },
+                        { "label": "Print resolution", "value": "1200 × 2400 dpi" },
+                        { "label": "Scan resolution", "value": "600 × 600 dpi" },
+                        { "label": "Scan speed (duplex)", "value": "Up to 270 ppm" },
+                        { "label": "Max paper size", "value": "SRA3 (320 × 450 mm)" },
+                        { "label": "Paper weight", "value": "52 – 300 gsm" },
+                        { "label": "Maximum paper capacity", "value": "6,140 sheets with tandem tray + high capacity feeder" },
+                        { "label": "Memory / storage", "value": "4 GB / 128 GB" },
+                        { "label": "Power supply", "value": "AC 220–240 V, 50/60 Hz" }
+                    ],
+                    "features": [
+                        "Colour and monochrome copy, print, scan and Super G3 fax",
+                        "Cloud and mobile connectivity for remote print and scan workflows",
+                        "Optional finishing: staple, hole punch, saddle staple and folding",
+                        "User authentication, encrypted storage and audit logging"
+                    ]
+                }
             },
             {
-                "id": "print-unit-4",
-                "name": "[Printer Model 4]",
-                "badge": "Production",
-                "summary": "Production-grade unit for large-format or commercial print work.",
+                "id": "apeos-c5570",
+                "name": "Apeos C5570",
+                "badge": "Office",
+                "summary": "Balanced speed and capacity — the middle of the range and the most commonly specified unit.",
+                "image": "unit-placeholder-3.png",
+                "specs": ["55 ppm colour & mono", "SRA3 support", "Optional finishing"],
+                "detail": {
+                    "brand": "FUJIFILM Business Innovation",
+                    "model": "Apeos C5570",
+                    "description": "Sits at the centre of the range. Fast enough that queues rarely form in a normal office, without paying for capacity a single floor won't use.",
+                    "specSheet": [
+                        { "label": "Print / copy speed (A4 LEF)", "value": "55 ppm colour and monochrome" },
+                        { "label": "First copy out — mono", "value": "3.7 seconds" },
+                        { "label": "First copy out — colour", "value": "5.2 seconds" },
+                        { "label": "Print resolution", "value": "1200 × 2400 dpi" },
+                        { "label": "Scan resolution", "value": "600 × 600 dpi" },
+                        { "label": "Max paper size", "value": "SRA3 (320 × 450 mm)" },
+                        { "label": "Paper weight", "value": "52 – 300 gsm" },
+                        { "label": "Standard paper capacity", "value": "520 × 4 trays + 90 sheet bypass" },
+                        { "label": "Memory / storage", "value": "4 GB / 128 GB" },
+                        { "label": "Power supply", "value": "AC 220–240 V, 50/60 Hz" }
+                    ],
+                    "features": [
+                        "Colour and monochrome copy, print, scan and Super G3 fax",
+                        "Cloud and mobile connectivity",
+                        "Optional finishing: staple, hole punch and booklet making",
+                        "User authentication and encrypted storage"
+                    ]
+                }
+            },
+            {
+                "id": "apeos-c4570",
+                "name": "Apeos C4570",
+                "badge": "Office",
+                "summary": "Steady mid-range performer for teams with regular but moderate print demand.",
                 "image": "unit-placeholder-4.png",
-                "specs": ["[Pages per minute]", "[Media sizes supported]", "[Finishing options]"]
+                "specs": ["45 ppm colour & mono", "52 – 300 gsm stock", "Optional finishing"],
+                "detail": {
+                    "brand": "FUJIFILM Business Innovation",
+                    "model": "Apeos C4570",
+                    "description": "A dependable unit for a single team or floor. Handles the same media range as the larger models, so occasional heavier stock or oversize work is still possible.",
+                    "specSheet": [
+                        { "label": "Print / copy speed (A4 LEF)", "value": "45 ppm colour and monochrome" },
+                        { "label": "First copy out — mono", "value": "4.4 seconds" },
+                        { "label": "First copy out — colour", "value": "5.7 seconds" },
+                        { "label": "Print resolution", "value": "1200 × 2400 dpi" },
+                        { "label": "Scan resolution", "value": "600 × 600 dpi" },
+                        { "label": "Max paper size", "value": "SRA3 (320 × 450 mm)" },
+                        { "label": "Paper weight", "value": "52 – 300 gsm" },
+                        { "label": "Memory / storage", "value": "4 GB / 128 GB" },
+                        { "label": "Power supply", "value": "AC 220–240 V, 50/60 Hz" }
+                    ],
+                    "features": [
+                        "Colour and monochrome copy, print, scan and Super G3 fax",
+                        "Cloud and mobile connectivity",
+                        "Optional finishing: staple, hole punch and booklet making",
+                        "User authentication and encrypted storage"
+                    ]
+                }
+            },
+            {
+                "id": "apeos-c3570",
+                "name": "Apeos C3570",
+                "badge": "Compact",
+                "summary": "Smaller footprint and lighter build for teams that print regularly but not heavily.",
+                "image": "unit-placeholder-1.png",
+                "specs": ["35 ppm colour & mono", "124 kg — compact build", "1200 × 2400 dpi"],
+                "detail": {
+                    "brand": "FUJIFILM Business Innovation",
+                    "model": "Apeos C3570",
+                    "description": "Noticeably smaller and lighter than the higher models while keeping the same print resolution and media handling. Suits smaller offices or a secondary device on a busy floor.",
+                    "specSheet": [
+                        { "label": "Print / copy speed (A4 LEF)", "value": "35 ppm colour and monochrome" },
+                        { "label": "First copy out — mono", "value": "4.9 seconds" },
+                        { "label": "First copy out — colour", "value": "6.7 seconds" },
+                        { "label": "Print resolution", "value": "1200 × 2400 dpi" },
+                        { "label": "Scan resolution", "value": "600 × 600 dpi" },
+                        { "label": "Max paper size", "value": "SRA3 (320 × 450 mm)" },
+                        { "label": "Paper weight", "value": "52 – 300 gsm" },
+                        { "label": "Memory / storage", "value": "4 GB / 128 GB" },
+                        { "label": "Dimensions (W×D×H)", "value": "633 × 677 × 1119 mm" },
+                        { "label": "Weight", "value": "124 kg" },
+                        { "label": "Power supply", "value": "AC 220–240 V, 50/60 Hz" }
+                    ],
+                    "features": [
+                        "Colour and monochrome copy, print, scan and Super G3 fax",
+                        "Cloud and mobile connectivity",
+                        "Optional finishing available",
+                        "User authentication and encrypted storage"
+                    ]
+                }
+            },
+            {
+                "id": "apeos-c3070",
+                "name": "Apeos C3070",
+                "badge": "Entry",
+                "summary": "Entry point to the range — same output quality, sized for lower-volume workplaces.",
+                "image": "unit-placeholder-2.png",
+                "specs": ["30 ppm colour & mono", "124 kg — compact build", "1200 × 2400 dpi"],
+                "detail": {
+                    "brand": "FUJIFILM Business Innovation",
+                    "model": "Apeos C3070",
+                    "description": "The most accessible unit in the range. Print quality and media handling match the larger models — the trade-off is throughput, which is rarely a constraint at lower volumes.",
+                    "specSheet": [
+                        { "label": "Print / copy speed (A4 LEF)", "value": "30 ppm colour and monochrome" },
+                        { "label": "First copy out — mono", "value": "4.9 seconds" },
+                        { "label": "First copy out — colour", "value": "6.7 seconds" },
+                        { "label": "Print resolution", "value": "1200 × 2400 dpi" },
+                        { "label": "Scan resolution", "value": "600 × 600 dpi" },
+                        { "label": "Max paper size", "value": "SRA3 (320 × 450 mm)" },
+                        { "label": "Paper weight", "value": "52 – 300 gsm" },
+                        { "label": "Memory / storage", "value": "4 GB / 128 GB" },
+                        { "label": "Dimensions (W×D×H)", "value": "633 × 677 × 1119 mm" },
+                        { "label": "Weight", "value": "124 kg" },
+                        { "label": "Power supply", "value": "AC 220–240 V, 50/60 Hz" }
+                    ],
+                    "features": [
+                        "Colour and monochrome copy, print, scan and Super G3 fax",
+                        "Cloud and mobile connectivity",
+                        "Optional finishing available",
+                        "User authentication and encrypted storage"
+                    ]
+                }
             }
         ]
     },
