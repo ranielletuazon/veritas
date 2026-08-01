@@ -1,5 +1,25 @@
 import productsData from "./products.json";
 
+/** A single label/value row in a product's spec sheet. */
+export interface ProductSpecRow {
+    label: string;
+    value: string;
+}
+
+/** Rich detail shown in the expandable panel. Optional — items without it stay static. */
+export interface ProductDetail {
+    /** Manufacturer name, e.g. "FUJIFILM Business Innovation". */
+    brand?: string;
+    /** Model designation, e.g. "Apeos C3570". */
+    model?: string;
+    /** Original description — never copy manufacturer marketing copy here. */
+    description: string;
+    /** Factual specifications, sourced from the manufacturer datasheet. */
+    specSheet: ProductSpecRow[];
+    /** Capability highlights, written in our own words. */
+    features?: string[];
+}
+
 export interface ProductItem {
     id: string;
     name: string;
@@ -7,7 +27,10 @@ export interface ProductItem {
     summary: string;
     /** Filename in src/assets/images/products/ — omit for non-unit (service) items. */
     image?: string;
+    /** Short bullets shown on the card face. */
     specs: string[];
+    /** Present = card is expandable. Absent = card is display-only. */
+    detail?: ProductDetail;
 }
 
 export interface ProductSubgroup {
@@ -45,7 +68,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] =
 export const findCategoryBySlug = (slug: string): ProductCategory | undefined =>
     PRODUCT_CATEGORIES.find((c) => c.slug === slug);
 
-/** Total leaf-item count regardless of flat vs. nested structure — used by the Products grid. */
+/** Total leaf-item count regardless of flat vs. nested structure. */
 export const countItems = (cat: ProductCategory): number => {
     if (cat.items) return cat.items.length;
     if (cat.groups) {
