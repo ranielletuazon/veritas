@@ -8,7 +8,6 @@ import {
     Zap,
     Printer,
     HomeIcon,
-    Star,
     Quote,
     Sparkles,
     Package,
@@ -21,12 +20,12 @@ import MarqueeStrip from "./components/MarqueeStrip";
 import HeroCarousel from "./components/HeroCarousel";
 import Reveal from "./components/Reveal";
 
-import {
-    TESTIMONIALS,
-    avatarSrc,
-    photoSrc,
-    initialsOf,
-} from "../data/testimonials";
+// import {
+//     TESTIMONIALS,
+//     avatarSrc,
+//     photoSrc,
+//     initialsOf,
+// } from "../data/testimonials";
 
 // Images
 import productImage from "../assets/images/products_display.jpg";
