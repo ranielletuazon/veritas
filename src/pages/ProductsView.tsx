@@ -136,9 +136,11 @@ function ItemCard({
 function ItemDetailPanel({
     item,
     onClose,
+    categorySlug,
 }: {
     item: ProductItem;
     onClose: () => void;
+    categorySlug: string;
 }) {
     const detail = item.detail;
     if (!detail) return null;
@@ -258,7 +260,7 @@ function ItemDetailPanel({
                             of their respective owners.
                         </p>
                         <a
-                            href="/contact-us"
+                            href={`/contact-us?product=${categorySlug}&unit=${item.id}`}
                             className="shrink-0 rounded-lg border border-indigo-600 bg-indigo-600 px-6 py-3 text-center text-sm font-semibold tracking-wide text-white transition-colors duration-300 hover:bg-indigo-700"
                         >
                             Enquire
@@ -274,13 +276,18 @@ function ItemDetailPanel({
    ItemGrid — owns the selection state for one grid of items,
    and scrolls the detail panel into view when one is opened.
    ──────────────────────────────────────────────────────────── */
-function ItemGrid({ items }: { items: ProductItem[] }) {
+function ItemGrid({
+    items,
+    categorySlug,
+}: {
+    items: ProductItem[];
+    categorySlug: string;
+}) {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const panelRef = useRef<HTMLDivElement>(null);
 
     const selected = items.find((i) => i.id === selectedId) ?? null;
 
-    /* Force the panel into view once it renders. */
     useEffect(() => {
         if (selectedId && panelRef.current) {
             panelRef.current.scrollIntoView({
@@ -290,7 +297,6 @@ function ItemGrid({ items }: { items: ProductItem[] }) {
         }
     }, [selectedId]);
 
-    /* Escape closes the panel. */
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             if (e.key === "Escape") setSelectedId(null);
@@ -321,6 +327,7 @@ function ItemGrid({ items }: { items: ProductItem[] }) {
                     <ItemDetailPanel
                         item={selected}
                         onClose={() => setSelectedId(null)}
+                        categorySlug={categorySlug}
                     />
                 )}
             </div>
@@ -490,7 +497,10 @@ export default function ProductsView() {
                         {/* Flat categories */}
                         {category.items && (
                             <div className="mt-12">
-                                <ItemGrid items={category.items} />
+                                <ItemGrid
+                                    items={category.items}
+                                    categorySlug={category.slug}
+                                />
                             </div>
                         )}
 
@@ -507,7 +517,10 @@ export default function ProductsView() {
 
                                         {group.items && (
                                             <div className="mt-6">
-                                                <ItemGrid items={group.items} />
+                                                <ItemGrid
+                                                    items={group.items}
+                                                    categorySlug={category.slug}
+                                                />
                                             </div>
                                         )}
 
@@ -527,6 +540,9 @@ export default function ProductsView() {
                                                                 <ItemGrid
                                                                     items={
                                                                         subgroup.items
+                                                                    }
+                                                                    categorySlug={
+                                                                        category.slug
                                                                     }
                                                                 />
                                                             </div>

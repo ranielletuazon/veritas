@@ -17,14 +17,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         message,
         website,
         productCategory,
-        productUnit, // ← new
+        productUnit,
         currentSetup,
+        decisionMaker, // ← new
         machineAge,
         remainingMonths,
         monthlyRentalFee,
+        finalPayment, // ← new
         monoVolume,
         colorVolume,
-        currentCostPerPrint,
+        costPerPrintMono, // ← replaces currentCostPerPrint
+        costPerPrintColor, // ← new
         quotationType,
     } = req.body;
 
@@ -45,18 +48,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const copierSection =
         productCategory === "Copier Solutions"
             ? `
-                <hr/>
-                <h3>Current Setup</h3>
-                <p><strong>Lease / Owned / Neither:</strong> ${currentSetup ?? "Not specified"}</p>
-                ${machineAge ? `<p><strong>Machine age:</strong> ${machineAge}</p>` : ""}
-                ${remainingMonths ? `<p><strong>Remaining months on contract:</strong> ${remainingMonths}</p>` : ""}
-                ${monthlyRentalFee ? `<p><strong>Current monthly rental fee:</strong> ${monthlyRentalFee}</p>` : ""}
-                ${monoVolume ? `<p><strong>Avg. monthly prints — mono:</strong> ${monoVolume}</p>` : ""}
-                ${colorVolume ? `<p><strong>Avg. monthly prints — colour:</strong> ${colorVolume}</p>` : ""}
-                ${currentCostPerPrint ? `<p><strong>Current cost per print:</strong> ${currentCostPerPrint}</p>` : ""}
-                ${quotationType ? `<p><strong>Preferred quotation type:</strong> ${quotationType}</p>` : ""}
-                
-            `
+            <hr/>
+            <h3>Current Setup</h3>
+            ${decisionMaker ? `<p><strong>Decision maker:</strong> ${decisionMaker}</p>` : ""}
+            <p><strong>Lease / Owned / Neither:</strong> ${currentSetup ?? "Not specified"}</p>
+            ${machineAge ? `<p><strong>Machine age:</strong> ${machineAge}</p>` : ""}
+            ${remainingMonths ? `<p><strong>Remaining months on contract:</strong> ${remainingMonths}</p>` : ""}
+            ${monthlyRentalFee ? `<p><strong>Current monthly rental fee:</strong> ${monthlyRentalFee}</p>` : ""}
+            ${finalPayment ? `<p><strong>Final payment:</strong> ${finalPayment}</p>` : ""}
+            ${monoVolume ? `<p><strong>Avg. monthly prints — mono:</strong> ${monoVolume}</p>` : ""}
+            ${colorVolume ? `<p><strong>Avg. monthly prints — colour:</strong> ${colorVolume}</p>` : ""}
+            ${costPerPrintMono ? `<p><strong>Cost per print — B&W:</strong> ${costPerPrintMono}</p>` : ""}
+            ${costPerPrintColor ? `<p><strong>Cost per print — Colored:</strong> ${costPerPrintColor}</p>` : ""}
+            ${quotationType ? `<p><strong>Preferred quotation type:</strong> ${quotationType}</p>` : ""}
+        `
             : "";
 
     try {
