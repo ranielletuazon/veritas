@@ -2,53 +2,73 @@ export interface Employee {
     id: string;
     name: string;
     role: string;
-    department?: string;
+    department: string;
     /** Filename in src/assets/images/team/ — omit to show the placeholder state. */
     photo?: string;
     /** Marks the top leadership row for slightly larger treatment. */
     featured?: boolean;
 }
 
-/* PLACEHOLDER CONTENT (except entry 1) — replace with the real employee roster before launch. */
 export const EMPLOYEES: Employee[] = [
     {
-        id: "gerald-lee",
-        name: "Gerald Lee",
-        role: "Founder & CEO",
-        photo: "boss.jpeg",
+        id: "jerome",
+        name: "Jerome",
+        role: "Director, Admin and Operations",
+        department: "Admin",
+        photo: "jerome.jpg",
         featured: true,
     },
     {
-        id: "employee-2",
-        name: "[Employee Name]",
-        role: "[Role Title]",
-        department: "[Department]",
+        id: "cza",
+        name: "Cza",
+        role: "Financial Controller",
+        department: "Admin",
     },
     {
-        id: "employee-3",
-        name: "[Employee Name]",
-        role: "[Role Title]",
-        department: "[Department]",
+        id: "jen",
+        name: "Jen",
+        role: "CRM & Data Manager",
+        department: "Admin",
+        photo: "jen.jpg",
     },
     {
-        id: "employee-4",
-        name: "[Employee Name]",
-        role: "[Role Title]",
-        department: "[Department]",
+        id: "erin",
+        name: "Erin",
+        role: "HR & Compliance Manager",
+        department: "Admin",
     },
     {
-        id: "employee-5",
-        name: "[Employee Name]",
-        role: "[Role Title]",
-        department: "[Department]",
+        id: "raejan",
+        name: "Raejan",
+        role: "Admin Executive, Copier/Printer",
+        department: "Admin",
+        photo: "raejan.jpg",
     },
     {
-        id: "employee-6",
-        name: "[Employee Name]",
-        role: "[Role Title]",
-        department: "[Department]",
+        id: "joshua",
+        name: "Joshua",
+        role: "Channel Sales Director, Energy Sales",
+        department: "Energy Sales",
+        photo: "joshua.jpg",
+        featured: true,
+    },
+    {
+        id: "june",
+        name: "June",
+        role: "Channel Sales Director, Copier Sales",
+        department: "Copier/Printer",
     },
 ];
+
+/* Groups employees by department, preserving first-appearance order —
+   same pattern used for the News archive-by-month grouping. */
+export const groupByDepartment = (): Map<string, Employee[]> =>
+    EMPLOYEES.reduce<Map<string, Employee[]>>((map, employee) => {
+        const group = map.get(employee.department);
+        if (group) group.push(employee);
+        else map.set(employee.department, [employee]);
+        return map;
+    }, new Map());
 
 /* Resolve team photo filenames against bundled assets. */
 const teamImages = import.meta.glob("../assets/images/team/*", {

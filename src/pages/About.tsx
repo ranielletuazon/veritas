@@ -2,7 +2,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Eye, Target } from "lucide-react";
 import Reveal from "./components/Reveal";
-import { EMPLOYEES, employeePhotoSrc, initialsOf } from "../data/employees";
+import {
+    groupByDepartment,
+    employeePhotoSrc,
+    initialsOf,
+} from "../data/employees";
 
 const CORE_VALUES = [
     {
@@ -312,90 +316,100 @@ export default function About() {
                                 Meet the Team
                             </span>
                             <h2 className="mt-5 max-w-xl text-2xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-3xl">
-                                THE PEOPLE BEHIND{" "}
+                                THE LEADERSHIP BEHIND{" "}
                                 <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
                                     VERITAS
                                 </span>
                             </h2>
                             <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-500">
-                                It also oversees the day-to-day business
-                                operations and the implementation of strategies
-                                and policies of the Group, meeting regularly to
-                                review the progress of corporate development
-                                projects and business performance.
+                                Our leadership team oversees the Group's
+                                day-to-day operations while driving the
+                                execution of strategic initiatives and corporate
+                                policies. Through regular reviews of business
+                                performance and development projects, they
+                                ensure operational excellence and sustainable
+                                growth.
                             </p>
                         </Reveal>
 
-                        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                            {EMPLOYEES.map((employee, i) => {
-                                const src = employeePhotoSrc(employee.photo);
-                                return (
-                                    <Reveal
-                                        key={employee.id}
-                                        delay={i * 80}
-                                        className={
-                                            employee.featured
-                                                ? "sm:col-span-2 lg:col-span-1"
-                                                : ""
-                                        }
-                                    >
-                                        <div
-                                            className={`group relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 via-indigo-950 to-slate-900 ${
-                                                employee.featured
-                                                    ? "aspect-[4/5]"
-                                                    : "aspect-[4/5]"
-                                            }`}
-                                        >
-                                            {src ? (
-                                                <img
-                                                    src={src}
-                                                    alt={employee.name}
-                                                    loading="lazy"
-                                                    className="absolute inset-0 h-full w-full object-cover object-top grayscale-[15%] transition-all duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
-                                                />
-                                            ) : (
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <span
-                                                        aria-hidden="true"
-                                                        className="flex h-20 w-20 items-center justify-center rounded-full bg-white/[0.06] font-mono text-xl font-bold text-white/40"
+                        <div className="mt-10 flex flex-col gap-14">
+                            {[...groupByDepartment().entries()].map(
+                                ([department, members]) => (
+                                    <div key={department}>
+                                        <Reveal>
+                                            <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
+                                                {department}
+                                            </h3>
+                                        </Reveal>
+
+                                        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                            {members.map((employee, i) => {
+                                                const src = employeePhotoSrc(
+                                                    employee.photo,
+                                                );
+                                                return (
+                                                    <Reveal
+                                                        key={employee.id}
+                                                        delay={i * 80}
+                                                        className={
+                                                            employee.featured
+                                                                ? "sm:col-span-2 lg:col-span-1"
+                                                                : ""
+                                                        }
                                                     >
-                                                        {initialsOf(
-                                                            employee.name,
-                                                        )}
-                                                    </span>
-                                                </div>
-                                            )}
+                                                        <div className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 via-indigo-950 to-slate-900">
+                                                            {src ? (
+                                                                <img
+                                                                    src={src}
+                                                                    alt={
+                                                                        employee.name
+                                                                    }
+                                                                    loading="lazy"
+                                                                    className="absolute inset-0 h-full w-full object-cover object-top grayscale-[15%] transition-all duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
+                                                                />
+                                                            ) : (
+                                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                                    <span
+                                                                        aria-hidden="true"
+                                                                        className="flex h-20 w-20 items-center justify-center rounded-full bg-white/[0.06] font-mono text-xl font-bold text-white/40"
+                                                                    >
+                                                                        {initialsOf(
+                                                                            employee.name,
+                                                                        )}
+                                                                    </span>
+                                                                </div>
+                                                            )}
 
-                                            {/* Gradient scrim — bottom-up, always present regardless of photo */}
-                                            <div
-                                                aria-hidden="true"
-                                                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"
-                                            />
+                                                            <div
+                                                                aria-hidden="true"
+                                                                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"
+                                                            />
 
-                                            {/* Name + role overlay */}
-                                            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                                                <h3 className="text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
-                                                    {employee.name}
-                                                </h3>
-                                                <p className="mt-1 text-sm font-semibold text-indigo-200">
-                                                    {employee.role}
-                                                </p>
-                                                {employee.department && (
-                                                    <p className="mt-0.5 text-xs text-white/60">
-                                                        {employee.department}
-                                                    </p>
-                                                )}
-                                            </div>
+                                                            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                                                                <h4 className="text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
+                                                                    {
+                                                                        employee.name
+                                                                    }
+                                                                </h4>
+                                                                <p className="mt-1 text-sm font-semibold text-indigo-200">
+                                                                    {
+                                                                        employee.role
+                                                                    }
+                                                                </p>
+                                                            </div>
 
-                                            {/* Top accent line on hover — matches the rest of the site's card language */}
-                                            <span
-                                                aria-hidden="true"
-                                                className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-indigo-500 to-fuchsia-500 transition-transform duration-300 ease-out group-hover:scale-x-100"
-                                            />
+                                                            <span
+                                                                aria-hidden="true"
+                                                                className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-indigo-500 to-fuchsia-500 transition-transform duration-300 ease-out group-hover:scale-x-100"
+                                                            />
+                                                        </div>
+                                                    </Reveal>
+                                                );
+                                            })}
                                         </div>
-                                    </Reveal>
-                                );
-                            })}
+                                    </div>
+                                ),
+                            )}
                         </div>
                     </div>
                 </section>
