@@ -8,30 +8,73 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const { inquiry, name, email, phone, company, message, website } = req.body;
+    const {
+        inquiryType,
+        name,
+        email,
+        phone,
+        company,
+        message,
+        website,
+        productCategory,
+        productUnit, // ← new
+        currentSetup,
+        machineAge,
+        remainingMonths,
+        monthlyRentalFee,
+        monoVolume,
+        colorVolume,
+        currentCostPerPrint,
+        quotationType,
+    } = req.body;
 
     if (website) {
         return res.status(200).json({ ok: true });
     }
 
-    if (!name || !email || !message) {
+    if (!name || !email) {
         return res.status(400).json({ error: "Missing required fields" });
     }
+
+    const isProductInquiry = inquiryType === "product";
+    const subject = isProductInquiry
+        ? `Product Inquiry — ${productCategory ?? "Unspecified"} — ${name}`
+        : `New Website Inquiry — ${name}`;
+
+    /* Copier-specific block — only rendered when those fields are actually present. */
+    const copierSection =
+        productCategory === "Copier Solutions"
+            ? `
+                <hr/>
+                <h3>Current Setup</h3>
+                <p><strong>Lease / Owned / Neither:</strong> ${currentSetup ?? "Not specified"}</p>
+                ${machineAge ? `<p><strong>Machine age:</strong> ${machineAge}</p>` : ""}
+                ${remainingMonths ? `<p><strong>Remaining months on contract:</strong> ${remainingMonths}</p>` : ""}
+                ${monthlyRentalFee ? `<p><strong>Current monthly rental fee:</strong> ${monthlyRentalFee}</p>` : ""}
+                ${monoVolume ? `<p><strong>Avg. monthly prints — mono:</strong> ${monoVolume}</p>` : ""}
+                ${colorVolume ? `<p><strong>Avg. monthly prints — colour:</strong> ${colorVolume}</p>` : ""}
+                ${currentCostPerPrint ? `<p><strong>Current cost per print:</strong> ${currentCostPerPrint}</p>` : ""}
+                ${quotationType ? `<p><strong>Preferred quotation type:</strong> ${quotationType}</p>` : ""}
+                
+            `
+            : "";
 
     try {
         const { data, error } = await resend.emails.send({
             from: "Veritas Organisation <onboarding@resend.dev>",
             to: "adrianetuazon18@gmail.com",
             replyTo: email,
-            subject: `New ${inquiry === "business" ? "Business" : "Recruitment"} Inquiry — ${name}`,
+            subject,
             html: `
-                <h2>New ${inquiry === "business" ? "Business" : "Recruitment"} Inquiry</h2>
+                <h2>${isProductInquiry ? "New Product Inquiry" : "New Website Inquiry"}</h2>
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
                 ${company ? `<p><strong>Company:</strong> ${company}</p>` : ""}
-                <p><strong>Message:</strong></p>
-                <p>${String(message).replace(/\n/g, "<br/>")}</p>
+                ${productCategory ? `<p><strong>Product:</strong> ${productCategory}</p>` : ""}
+                ${productUnit ? `<p><strong>Unit:</strong> ${productUnit}</p>` : ""}
+                ${copierSection}
+                ${message ? `<hr/><p><strong>Message:</strong></p><p>${String(message).replace(/\n/g, "<br/>")}</p>` : ""}
             `,
         });
 
