@@ -89,3 +89,19 @@ const productImages = import.meta.glob("../assets/images/products/*", {
 
 export const productImgSrc = (file?: string): string | undefined =>
     file ? productImages[`../assets/images/products/${file}`] : undefined;
+
+/** Returns every leaf item regardless of flat vs. nested structure — mirrors countItems. */
+export const getAllItems = (cat: ProductCategory): ProductItem[] => {
+    if (cat.items) return cat.items;
+    if (cat.groups) {
+        const items: ProductItem[] = [];
+        for (const g of cat.groups) {
+            if (g.items) items.push(...g.items);
+            if (g.subgroups) {
+                for (const sg of g.subgroups) items.push(...sg.items);
+            }
+        }
+        return items;
+    }
+    return [];
+};

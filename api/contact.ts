@@ -19,16 +19,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         productCategory,
         productUnit,
         currentSetup,
-        decisionMaker, // ← new
+        decisionMaker,
         machineAge,
         remainingMonths,
         monthlyRentalFee,
-        finalPayment, // ← new
+        finalPayment,
         monoVolume,
         colorVolume,
-        costPerPrintMono, // ← replaces currentCostPerPrint
-        costPerPrintColor, // ← new
+        costPerPrintMono,
+        costPerPrintColor,
         quotationType,
+        residencyType, // ← new
+        billFileName, // ← new
+        billFileType, // ← new
+        billFileData, // ← new
     } = req.body;
 
     if (website) {
@@ -44,7 +48,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         ? `Product Inquiry — ${productCategory ?? "Unspecified"} — ${name}`
         : `New Website Inquiry — ${name}`;
 
-    /* Copier-specific block — only rendered when those fields are actually present. */
     const copierSection =
         productCategory === "Copier Solutions"
             ? `
@@ -64,12 +67,31 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         `
             : "";
 
+    const energySection =
+        productCategory === "Energy Solutions"
+            ? `
+            <hr/>
+            <h3>Energy Inquiry Details</h3>
+            ${residencyType ? `<p><strong>Customer type:</strong> ${residencyType}</p>` : ""}
+            ${billFileName ? `<p><strong>Bill attached:</strong> ${billFileName}</p>` : "<p><strong>Bill attached:</strong> None</p>"}
+        `
+            : "";
+
     try {
         const { data, error } = await resend.emails.send({
             from: "Veritas Organisation <onboarding@resend.dev>",
             to: "adrianetuazon18@gmail.com",
             replyTo: email,
             subject,
+            attachments: billFileData
+                ? [
+                      {
+                          filename: billFileName || "electricity-bill",
+                          content: billFileData,
+                          contentType: billFileType || "application/pdf",
+                      },
+                  ]
+                : undefined,
             html: `
                 <h2>${isProductInquiry ? "New Product Inquiry" : "New Website Inquiry"}</h2>
                 <p><strong>Name:</strong> ${name}</p>
@@ -79,6 +101,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 ${productCategory ? `<p><strong>Product:</strong> ${productCategory}</p>` : ""}
                 ${productUnit ? `<p><strong>Unit:</strong> ${productUnit}</p>` : ""}
                 ${copierSection}
+                ${energySection}
                 ${message ? `<hr/><p><strong>Message:</strong></p><p>${String(message).replace(/\n/g, "<br/>")}</p>` : ""}
             `,
         });

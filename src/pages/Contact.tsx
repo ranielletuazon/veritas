@@ -4,11 +4,12 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
-import { PRODUCT_CATEGORIES } from "../data/products";
+import { PRODUCT_CATEGORIES, getAllItems } from "../data/products";
 
 type Status = "idle" | "submitting" | "success" | "error";
 type InquiryType = "general" | "product";
 type CurrentSetup = "lease" | "owned" | "none";
+type ResidencyType = "residential" | "commercial";
 
 const inputClass =
     "w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-colors duration-200 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20";
@@ -17,22 +18,42 @@ const labelClass =
     "mb-2 block font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-500";
 
 const COPIER_SLUG = "copier-solutions";
+const ENERGY_SLUG = "energy-solutions";
+const MAX_BILL_BYTES = 5 * 1024 * 1024; // 5MB as requested — see flag re: Vercel's ~4.5MB body cap after base64 inflation
+
+const toBase64 = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            const result = reader.result as string;
+            resolve(result.split(",")[1]);
+        };
+        reader.onerror = () => reject(new Error("Could not read file"));
+        reader.readAsDataURL(file);
+    });
 
 export default function Contact() {
     const [searchParams] = useSearchParams();
 
     const [status, setStatus] = useState<Status>("idle");
+    const [errorMsg, setErrorMsg] = useState<string>("");
     const [inquiryType, setInquiryType] = useState<InquiryType>("general");
     const [productSlug, setProductSlug] = useState<string>("");
     const [unitId, setUnitId] = useState<string>("");
     const [currentSetup, setCurrentSetup] = useState<CurrentSetup>("none");
+    const [residencyType, setResidencyType] =
+        useState<ResidencyType>("residential");
 
     const selectedCategory = PRODUCT_CATEGORIES.find(
         (c) => c.slug === productSlug,
     );
     const isCopierInquiry =
         inquiryType === "product" && productSlug === COPIER_SLUG;
-    const availableUnits = selectedCategory?.items ?? [];
+    const isEnergyInquiry =
+        inquiryType === "product" && productSlug === ENERGY_SLUG;
+    const availableUnits = selectedCategory
+        ? getAllItems(selectedCategory)
+        : [];
 
     useEffect(() => {
         const productParam = searchParams.get("product");
@@ -48,7 +69,7 @@ export default function Contact() {
         setProductSlug(productParam);
 
         if (unitParam) {
-            const matchedUnit = matchedCategory.items?.find(
+            const matchedUnit = getAllItems(matchedCategory).find(
                 (i) => i.id === unitParam,
             );
             setUnitId(matchedUnit ? matchedUnit.id : "not-sure");
@@ -68,8 +89,40 @@ export default function Contact() {
 
         if (data.get("website")) return;
 
+        /* Energy bill upload — validate before touching the network */
+        let billFileName: string | undefined;
+        let billFileType: string | undefined;
+        let billFileData: string | undefined;
+
+        if (isEnergyInquiry) {
+            const billFile = data.get("billFile") as File | null;
+            if (!billFile || billFile.size === 0) {
+                setErrorMsg(
+                    "Please attach your latest 3 months electricity bill.",
+                );
+                setStatus("error");
+                return;
+            }
+            if (billFile.size > MAX_BILL_BYTES) {
+                setErrorMsg(
+                    "Your file is larger than 5MB. Please upload a smaller file.",
+                );
+                setStatus("error");
+                return;
+            }
+            billFileName = billFile.name;
+            billFileType = billFile.type;
+        }
+
         setStatus("submitting");
+        setErrorMsg("");
+
         try {
+            if (isEnergyInquiry) {
+                const billFile = data.get("billFile") as File;
+                billFileData = await toBase64(billFile);
+            }
+
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -93,6 +146,7 @@ export default function Contact() {
                                 : availableUnits.find((i) => i.id === unitId)
                                       ?.name
                             : undefined,
+                    // Copier-specific
                     currentSetup: isCopierInquiry ? currentSetup : undefined,
                     decisionMaker: isCopierInquiry
                         ? data.get("decisionMaker")
@@ -124,14 +178,30 @@ export default function Contact() {
                     quotationType: isCopierInquiry
                         ? data.get("quotationType")
                         : undefined,
+                    // Energy-specific
+                    residencyType: isEnergyInquiry ? residencyType : undefined,
+                    billFileName: isEnergyInquiry ? billFileName : undefined,
+                    billFileType: isEnergyInquiry ? billFileType : undefined,
+                    billFileData: isEnergyInquiry ? billFileData : undefined,
                 }),
             });
-            if (!res.ok) throw new Error("Request failed");
+
+            if (!res.ok) {
+                const body = await res.json().catch(() => ({}));
+                throw new Error(body.error || "Request failed");
+            }
+
             setStatus("success");
             form.reset();
             setCurrentSetup("none");
+            setResidencyType("residential");
             setUnitId("");
-        } catch {
+        } catch (err) {
+            setErrorMsg(
+                err instanceof Error
+                    ? err.message
+                    : "Something went wrong. Please try again.",
+            );
             setStatus("error");
         }
     };
@@ -307,7 +377,7 @@ export default function Contact() {
                                                     htmlFor="unitId"
                                                     className={labelClass}
                                                 >
-                                                    Which unit are you asking
+                                                    Which one are you asking
                                                     about? *
                                                 </label>
                                                 <select
@@ -322,7 +392,7 @@ export default function Contact() {
                                                     className={inputClass}
                                                 >
                                                     <option value="" disabled>
-                                                        Select a unit
+                                                        Select an option
                                                     </option>
                                                     {availableUnits.map(
                                                         (item) => (
@@ -357,7 +427,12 @@ export default function Contact() {
                                                     htmlFor="name"
                                                     className={labelClass}
                                                 >
-                                                    Name *
+                                                    {isEnergyInquiry
+                                                        ? residencyType ===
+                                                          "residential"
+                                                            ? "Name (Residential) *"
+                                                            : "Person In Charge (Commercial) *"
+                                                        : "Name *"}
                                                 </label>
                                                 <input
                                                     id="name"
@@ -373,7 +448,9 @@ export default function Contact() {
                                                     htmlFor="email"
                                                     className={labelClass}
                                                 >
-                                                    Email *
+                                                    {isEnergyInquiry
+                                                        ? "Email Address *"
+                                                        : "Email *"}
                                                 </label>
                                                 <input
                                                     id="email"
@@ -392,12 +469,15 @@ export default function Contact() {
                                                     htmlFor="phone"
                                                     className={labelClass}
                                                 >
-                                                    Phone (optional)
+                                                    {isEnergyInquiry
+                                                        ? "Contact Number *"
+                                                        : "Phone (optional)"}
                                                 </label>
                                                 <input
                                                     id="phone"
                                                     name="phone"
                                                     type="tel"
+                                                    required={isEnergyInquiry}
                                                     placeholder="+65 0000 0000"
                                                     className={inputClass}
                                                 />
@@ -419,6 +499,85 @@ export default function Contact() {
                                             </div>
                                         </div>
 
+                                        {/* ── Energy Solutions — unique fields ────────── */}
+                                        {isEnergyInquiry && (
+                                            <div className="mt-6 rounded-xl border border-indigo-100 bg-indigo-50/40 p-5">
+                                                <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-700">
+                                                    Energy Inquiry Details
+                                                </p>
+
+                                                <div className="mt-4">
+                                                    <label
+                                                        className={labelClass}
+                                                    >
+                                                        Are you a Residential or
+                                                        Commercial customer? *
+                                                    </label>
+                                                    <div
+                                                        className="grid grid-cols-2 gap-2"
+                                                        role="radiogroup"
+                                                        aria-label="Residency type"
+                                                    >
+                                                        {(
+                                                            [
+                                                                {
+                                                                    key: "residential",
+                                                                    label: "Residential",
+                                                                },
+                                                                {
+                                                                    key: "commercial",
+                                                                    label: "Commercial",
+                                                                },
+                                                            ] as const
+                                                        ).map((option) => (
+                                                            <button
+                                                                key={option.key}
+                                                                type="button"
+                                                                role="radio"
+                                                                aria-checked={
+                                                                    residencyType ===
+                                                                    option.key
+                                                                }
+                                                                onClick={() =>
+                                                                    setResidencyType(
+                                                                        option.key,
+                                                                    )
+                                                                }
+                                                                className={`rounded-lg border px-3 py-2.5 text-xs font-semibold transition-colors duration-200 cursor-pointer ${
+                                                                    residencyType ===
+                                                                    option.key
+                                                                        ? "border-indigo-600 bg-indigo-600 text-white"
+                                                                        : "border-slate-200 bg-white text-slate-600 hover:border-indigo-300"
+                                                                }`}
+                                                            >
+                                                                {option.label}
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                </div>
+
+                                                <div className="mt-4">
+                                                    <label
+                                                        htmlFor="billFile"
+                                                        className={labelClass}
+                                                    >
+                                                        Latest 3 months
+                                                        electricity bill * (PDF
+                                                        or image, max 5MB)
+                                                    </label>
+                                                    <input
+                                                        id="billFile"
+                                                        name="billFile"
+                                                        type="file"
+                                                        required
+                                                        accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                                                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600 file:mr-3 file:rounded-md file:border-0 file:bg-indigo-50 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-indigo-700 hover:file:bg-indigo-100"
+                                                    />
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* ── Copier Solutions — unique fields ────────── */}
                                         {isCopierInquiry && (
                                             <div className="mt-6 rounded-xl border border-indigo-100 bg-indigo-50/40 p-5">
                                                 <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-700">
@@ -711,14 +870,18 @@ export default function Contact() {
                                                 htmlFor="message"
                                                 className={labelClass}
                                             >
-                                                {isCopierInquiry
+                                                {isCopierInquiry ||
+                                                isEnergyInquiry
                                                     ? "Anything else we should know? (optional)"
                                                     : "Message *"}
                                             </label>
                                             <textarea
                                                 id="message"
                                                 name="message"
-                                                required={!isCopierInquiry}
+                                                required={
+                                                    !isCopierInquiry &&
+                                                    !isEnergyInquiry
+                                                }
                                                 rows={4}
                                                 placeholder={
                                                     inquiryType === "product"
@@ -731,9 +894,8 @@ export default function Contact() {
 
                                         {status === "error" && (
                                             <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-                                                Something went wrong sending
-                                                your message. Please try again,
-                                                or email us directly.
+                                                {errorMsg ||
+                                                    "Something went wrong sending your message. Please try again, or email us directly."}
                                             </p>
                                         )}
 

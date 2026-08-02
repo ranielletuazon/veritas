@@ -345,48 +345,84 @@
                 "name": "Standard Home Cleaning",
                 "badge": "Residential",
                 "summary": "Routine cleaning covering all main living areas, kept on a schedule that suits you.",
-                "specs": [
-                    "Weekly, biweekly, or monthly frequency",
-                    "Kitchen, bathrooms, and living areas covered",
-                    "Recurring booking, no lock-in contract"
-                ],
-                "image":"standard-cleaning.png"
+                "specs": ["Weekly, biweekly, or monthly frequency", "Kitchen, bathrooms, and living areas covered", "Recurring booking, no lock-in contract"],
+                "image": "standard-cleaning.png",
+                "detail": {
+                    "description": "Recurring cleaning covering the areas of your home that see daily use — kitchen, bathrooms, and living spaces. Choose a frequency that fits your household, with no long-term contract locking you in.",
+                    "specSheet": [
+                        { "label": "Frequency options", "value": "Weekly, biweekly, or monthly" },
+                        { "label": "Areas covered", "value": "Kitchen, bathrooms, living areas" },
+                        { "label": "Contract", "value": "No lock-in — recurring booking only" }
+                    ],
+                    "features": [
+                        "Flexible scheduling around your routine",
+                        "Consistent cleaner where possible for familiarity",
+                        "No long-term contract required"
+                    ]
+                }
             },
             {
                 "id": "cleaning-res-deep",
                 "name": "Deep Cleaning",
                 "badge": "Residential",
                 "summary": "A thorough one-off clean for move-ins, move-outs, or seasonal resets.",
-                "specs": [
-                    "Includes skirting, fixtures, and appliance exteriors",
-                    "One-time or occasional booking",
-                    "Recommended before or after tenancy changes"
-                ],
-                "image":"deep-cleaning.png"
+                "specs": ["Includes skirting, fixtures, and appliance exteriors", "One-time or occasional booking", "Recommended before or after tenancy changes"],
+                "image": "deep-cleaning.png",
+                "detail": {
+                    "description": "A more thorough clean than routine service — covering skirting boards, fixtures, and appliance exteriors in addition to standard areas. Commonly booked around a move, tenancy change, or seasonal reset.",
+                    "specSheet": [
+                        { "label": "Scope", "value": "Includes skirting, fixtures, appliance exteriors" },
+                        { "label": "Booking type", "value": "One-time or occasional" },
+                        { "label": "Common use case", "value": "Move-in, move-out, or seasonal reset" }
+                    ],
+                    "features": [
+                        "More thorough than routine cleaning",
+                        "Well suited to tenancy changes",
+                        "Booked as a one-off, no ongoing commitment"
+                    ]
+                }
             },
             {
                 "id": "cleaning-com-office",
                 "name": "Office Cleaning",
                 "badge": "Commercial",
                 "summary": "Scheduled cleaning for office spaces, keeping workspaces presentable day to day.",
-                "specs": [
-                    "After-hours or early-morning scheduling",
-                    "Common areas, desks, and washrooms covered",
-                    "Consumables restocking available on request"
-                ],
-                "image":"office-cleaning.png"
+                "specs": ["After-hours or early-morning scheduling", "Common areas, desks, and washrooms covered", "Consumables restocking available on request"],
+                "image": "office-cleaning.png",
+                "detail": {
+                    "description": "Scheduled cleaning timed around your working hours — typically after-hours or early morning — so it never disrupts the workday. Covers common areas, desks, and washrooms, with consumable restocking available if needed.",
+                    "specSheet": [
+                        { "label": "Scheduling", "value": "After-hours or early-morning" },
+                        { "label": "Areas covered", "value": "Common areas, desks, washrooms" },
+                        { "label": "Consumables", "value": "Restocking available on request" }
+                    ],
+                    "features": [
+                        "Scheduled around your business hours",
+                        "Consistent standard for day-to-day presentability",
+                        "Optional consumables restocking"
+                    ]
+                }
             },
             {
                 "id": "cleaning-com-facility",
                 "name": "Facility & Retail Cleaning",
                 "badge": "Commercial",
                 "summary": "Larger-scale cleaning contracts for retail units, facilities, and multi-tenant sites.",
-                "specs": [
-                    "Custom contract scope and frequency",
-                    "Multi-site coordination available",
-                    "Dedicated account contact"
-                ],
-                "image":"facility-cleaning.png"
+                "specs": ["Custom contract scope and frequency", "Multi-site coordination available", "Dedicated account contact"],
+                "image": "facility-cleaning.png",
+                "detail": {
+                    "description": "Contract cleaning scaled to larger sites — retail units, facilities, or multi-tenant properties. Scope and frequency are built around your site's actual needs, with one dedicated contact managing the account rather than a rotating point of contact.",
+                    "specSheet": [
+                        { "label": "Contract scope", "value": "Custom, built around the site" },
+                        { "label": "Multi-site coordination", "value": "Available" },
+                        { "label": "Account management", "value": "Dedicated contact" }
+                    ],
+                    "features": [
+                        "Scoped to larger commercial sites",
+                        "Multi-site accounts coordinated centrally",
+                        "One dedicated account contact"
+                    ]
+                }
             }
         ]
     },
@@ -416,7 +452,20 @@
                 "badge": "Core",
                 "summary": "Qualified prospects delivered to your sales team, filtered against your ideal customer profile.",
                 "specs": ["Defined qualification criteria", "Volume scaled to your capacity", "Performance-based pricing"],
-                "image": "lead-generation.png"
+                "image": "lead-generation.png",
+                "detail": {
+                    "description": "We identify and qualify prospects that match your ideal customer profile before handing them to your sales team — so your reps spend their time closing, not searching. Volume scales with your capacity, and pricing is tied to results rather than a flat retainer.",
+                    "specSheet": [
+                        { "label": "Qualification criteria", "value": "Defined per campaign, agreed with you upfront" },
+                        { "label": "Delivery format", "value": "Contact details plus qualification notes" },
+                        { "label": "Pricing model", "value": "Performance-based" }
+                    ],
+                    "features": [
+                        "Prospects filtered against your ideal customer profile",
+                        "Volume scaled to your team's actual capacity",
+                        "No retainer — pay for results"
+                    ]
+                }
             },
             {
                 "id": "biz-outsourcing",
@@ -424,7 +473,20 @@
                 "badge": "Core",
                 "summary": "A trained Veritas team representing your brand end to end, from first contact to close.",
                 "specs": ["Dedicated campaign team", "Brand-aligned training", "Regular performance reporting"],
-                "image": "sales-outsourcing.png"
+                "image": "sales-outsourcing.png",
+                "detail": {
+                    "description": "A dedicated Veritas team trained specifically on your brand, product, and values represents you through the full sales cycle — first contact through close. You get regular reporting without carrying the overhead of an in-house team.",
+                    "specSheet": [
+                        { "label": "Team structure", "value": "Dedicated campaign team, not shared across clients" },
+                        { "label": "Training", "value": "Brand-aligned onboarding before launch" },
+                        { "label": "Reporting", "value": "Regular performance updates" }
+                    ],
+                    "features": [
+                        "Team dedicated to your campaign specifically",
+                        "Full sales cycle coverage, not just lead handoff",
+                        "Regular, transparent performance reporting"
+                    ]
+                }
             },
             {
                 "id": "biz-appointments",
@@ -432,7 +494,20 @@
                 "badge": "B2B",
                 "summary": "Meetings booked directly into your team's calendar with decision-makers who qualify.",
                 "specs": ["Decision-maker targeting", "Calendar integration", "No-show follow-up handling"],
-                "image": "appointment-setting.png"
+                "image": "appointment-setting.png",
+                "detail": {
+                    "description": "We target and reach actual decision-makers, then book qualified meetings directly into your team's calendar — so your reps show up to conversations, not cold leads. No-shows are followed up and rebooked without extra work on your end.",
+                    "specSheet": [
+                        { "label": "Targeting", "value": "Decision-makers, not general staff" },
+                        { "label": "Booking", "value": "Direct calendar integration" },
+                        { "label": "No-show handling", "value": "Follow-up and rebooking included" }
+                    ],
+                    "features": [
+                        "Meetings booked with genuine decision-makers",
+                        "Direct calendar integration, no manual scheduling",
+                        "No-shows followed up automatically"
+                    ]
+                }
             },
             {
                 "id": "biz-expansion",
@@ -440,7 +515,20 @@
                 "badge": "Strategic",
                 "summary": "Entering a new segment or territory with a field team already operating in it.",
                 "specs": ["Territory research", "Pilot before scale-up", "Local market execution"],
-                "image": "market-expansion.png"
+                "image": "market-expansion.png",
+                "detail": {
+                    "description": "Entering a new market segment or territory is de-risked by starting with a pilot rather than a full rollout. Our field team, already operating in the target area, executes the pilot and reports back before you commit to scaling.",
+                    "specSheet": [
+                        { "label": "Approach", "value": "Pilot before full-scale commitment" },
+                        { "label": "Execution", "value": "Local field team already active in the territory" },
+                        { "label": "Research", "value": "Territory and segment research included" }
+                    ],
+                    "features": [
+                        "Pilot-first approach reduces upfront risk",
+                        "Local execution team, not a cold start",
+                        "Clear go/no-go decision point before scaling"
+                    ]
+                }
             }
         ]
     }
