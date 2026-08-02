@@ -415,28 +415,32 @@
                 "name": "Lead Generation",
                 "badge": "Core",
                 "summary": "Qualified prospects delivered to your sales team, filtered against your ideal customer profile.",
-                "specs": ["Defined qualification criteria", "Volume scaled to your capacity", "Performance-based pricing"]
+                "specs": ["Defined qualification criteria", "Volume scaled to your capacity", "Performance-based pricing"],
+                "image": "lead-generation.png"
             },
             {
                 "id": "biz-outsourcing",
                 "name": "Sales Outsourcing",
                 "badge": "Core",
                 "summary": "A trained Veritas team representing your brand end to end, from first contact to close.",
-                "specs": ["Dedicated campaign team", "Brand-aligned training", "Regular performance reporting"]
+                "specs": ["Dedicated campaign team", "Brand-aligned training", "Regular performance reporting"],
+                "image": "sales-outsourcing.png"
             },
             {
                 "id": "biz-appointments",
                 "name": "Appointment Setting",
                 "badge": "B2B",
                 "summary": "Meetings booked directly into your team's calendar with decision-makers who qualify.",
-                "specs": ["Decision-maker targeting", "Calendar integration", "No-show follow-up handling"]
+                "specs": ["Decision-maker targeting", "Calendar integration", "No-show follow-up handling"],
+                "image": "appointment-setting.png"
             },
             {
                 "id": "biz-expansion",
                 "name": "Market Expansion",
                 "badge": "Strategic",
                 "summary": "Entering a new segment or territory with a field team already operating in it.",
-                "specs": ["Territory research", "Pilot before scale-up", "Local market execution"]
+                "specs": ["Territory research", "Pilot before scale-up", "Local market execution"],
+                "image": "market-expansion.png"
             }
         ]
     }
