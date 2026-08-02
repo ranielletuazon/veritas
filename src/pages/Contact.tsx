@@ -262,10 +262,10 @@ export default function Contact() {
                                                 strokeWidth={1.8}
                                             />
                                             <a
-                                                href="mailto:owner@veritasorganisation.com"
+                                                href="mailto:raejan@veritasorganisation.com"
                                                 className="transition-colors hover:text-indigo-700"
                                             >
-                                                owner@veritasorganisation.com
+                                                raejan@veritasorganisation.com
                                             </a>
                                         </li>
                                         <li className="flex items-start gap-3">
@@ -277,7 +277,7 @@ export default function Contact() {
                                                 href="tel:89220932"
                                                 className="transition-colors hover:text-indigo-700"
                                             >
-                                                +65 8922 0932
+                                                +65 8203 7719
                                             </a>
                                         </li>
                                         <li className="flex items-start gap-3">

@@ -478,7 +478,7 @@ export default function Home() {
                             </div>
                         </Reveal>
 
-                        <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {/* <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {TESTIMONIALS.map((t, i) => {
                                 const src = avatarSrc(t.avatar);
                                 return (
@@ -571,7 +571,7 @@ export default function Home() {
                                     </Reveal>
                                 );
                             })}
-                        </div>
+                        </div> */}
 
                         {/* ── Spotlight testimonial — standalone, below the card grid ── */}
                         <Reveal delay={280}>
@@ -684,7 +684,7 @@ export default function Home() {
                                                 aria-hidden="true"
                                                 src={genco}
                                                 alt="Genco"
-                                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
+                                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full object-cover"
                                             />
                                             <div>
                                                 <p className="text-sm font-bold tracking-tight text-white">

@@ -5,99 +5,109 @@
         "name": "Energy Solutions",
         "tagline": "Energy",
         "category": "Energy",
-        "featured_image": "electricity.png",
-        "description": "Energy supply, renewable certificates, and solar solutions for homes and businesses through our trusted energy partners.",
-        "overview": "We supply and install energy equipment sourced from vetted manufacturers, sized to your actual requirements — spanning standard energy supply, renewable energy certificate trading, and solar installation.",
+        "featured_image": "energy.png",
+        "description": "Electricity plans, renewable energy certificates, and solar installation for homes and businesses through our licensed retail partners.",
+        "overview": "Singapore's Open Electricity Market lets you choose who supplies your electricity. We help you compare what's actually available across our retail partners, explain how each plan structure behaves, and handle the switch — your supply and grid connection never change.",
         "benefitsLabel": "Benefits",
         "benefits": [
-            "Cost savings",
-            "Reliable providers",
-            "Hassle-free installation",
-            "Personalized recommendations"
+            "Plans compared across our retail partners",
+            "No disruption to your supply",
+            "Switching paperwork handled for you",
+            "Guidance matched to your usage pattern"
         ],
         "itemsLabel": "Available Solutions",
         "groups": [
             {
                 "id": "energy-supply",
                 "name": "Energy Supply",
-                "items": [
-                    {
-                        "id": "energy-supply-res",
-                        "name": "Residential",
-                        "summary": "[Residential energy supply — plan/unit details pending]",
-                        "image": "unit-placeholder-1.png",
-                        "specs": [
-                            "[Capacity / output spec]",
-                            "[Installation requirement]",
-                            "[Warranty period]"
-                        ]
-                    },
-                    {
-                        "id": "energy-supply-com",
-                        "name": "Commercial",
-                        "summary": "[Commercial energy supply — plan/unit details pending]",
-                        "image": "unit-placeholder-2.png",
-                        "specs": [
-                            "[Capacity / output spec]",
-                            "[Multi-site options]",
-                            "[Warranty period]"
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "green-energy",
-                "name": "Green Energy Solutions",
                 "subgroups": [
                     {
-                        "id": "recs",
-                        "name": "RECs",
+                        "id": "supply-residential",
+                        "name": "Offers",
                         "items": [
                             {
-                                "id": "recs-res",
-                                "name": "Residential",
-                                "summary": "Sell your RECs",
+                                "id": "res-fixed",
+                                "name": "Residential Plan",
+                                "badge": "Residential",
+                                "summary": "A locked rate for the whole contract term, so your unit price doesn't move when the tariff does.",
                                 "specs": [
-                                    "[Certificate eligibility criteria]",
-                                    "[Payout / crediting structure]"
-                                ]
+                                    "Rate fixed for the contract term",
+                                    "Shielded from quarterly tariff rises",
+                                    "Predictable monthly billing"
+                                ],
+                                "detail": {
+                                    "description": "Your price per kWh is agreed upfront and stays the same for the length of the contract, regardless of how the regulated tariff moves. This is the plan most households choose when they want certainty over chasing the lowest possible rate — if the tariff rises during your term, you're insulated; if it falls, you stay at your agreed rate.",
+                                    "specSheet": [
+                                        { "label": "Rate structure", "value": "Fixed cents per kWh for the full term" },
+                                        { "label": "Typical contract terms", "value": "[Confirm available terms with partner]" },
+                                        { "label": "Best suited to", "value": "Households wanting predictable bills" },
+                                        { "label": "Early termination", "value": "[Confirm fee structure with partner]" },
+                                        { "label": "Security deposit", "value": "[Confirm with partner — may apply]" },
+                                        { "label": "Supply provider", "value": "SP Group national grid (unchanged)" }
+                                    ],
+                                    "features": [
+                                        "Rate agreed before you sign — no surprises mid-term",
+                                        "Full Fact Sheet and Consumer Advisory provided before signup",
+                                        "We handle the switch application end to end",
+                                        "No interruption to your electricity supply"
+                                    ]
+                                }
                             },
                             {
-                                "id": "recs-com",
-                                "name": "Commercial",
-                                "summary": "Buy / Sell your RECs",
+                                "id": "res-dot",
+                                "name": "Commercial Plan",
+                                "badge": "Commercial",
+                                "summary": "A guaranteed percentage or fixed amount below the regulated tariff, moving as the tariff moves.",
                                 "specs": [
-                                    "[Certificate eligibility criteria]",
-                                    "[Trading / crediting structure]"
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "id": "solar",
-                        "name": "Solar Energy",
-                        "items": [
-                            {
-                                "id": "solar-res",
-                                "name": "Residential",
-                                "summary": "[Residential solar installation — details pending]",
-                                "image": "unit-placeholder-3.png",
-                                "specs": [
-                                    "[Panel output spec]",
-                                    "[Installation requirement]",
-                                    "[Warranty period]"
-                                ]
+                                    "Always priced below the tariff",
+                                    "Rate adjusts each quarter",
+                                    "No fixed-rate lock-in"
+                                ],
+                                "detail": {
+                                    "description": "Instead of a fixed number, you pay a set discount against the regulated tariff. Because the tariff is reviewed quarterly, your rate moves with it — down when the tariff falls, up when it rises — but always below what you'd pay on the tariff itself. Suits households comfortable with some variability in exchange for always tracking the market.",
+                                    "specSheet": [
+                                        { "label": "Rate structure", "value": "Set discount off the prevailing regulated tariff" },
+                                        { "label": "Tariff review frequency", "value": "Quarterly, set by the regulator" },
+                                        { "label": "Typical contract terms", "value": "[Confirm available terms with partner]" },
+                                        { "label": "Best suited to", "value": "Households comfortable with quarterly rate movement" },
+                                        { "label": "Early termination", "value": "[Confirm fee structure with partner]" },
+                                        { "label": "Supply provider", "value": "SP Group national grid (unchanged)" }
+                                    ],
+                                    "features": [
+                                        "Guaranteed to stay below the regulated tariff",
+                                        "Benefit automatically when tariffs fall",
+                                        "Full Fact Sheet and Consumer Advisory provided before signup",
+                                        "No interruption to your electricity supply"
+                                    ]
+                                }
                             },
                             {
-                                "id": "solar-com",
-                                "name": "Commercial",
-                                "summary": "[Commercial solar installation — details pending]",
-                                "image": "unit-placeholder-4.png",
+                                "id": "res-peak",
+                                "name": "Green Energy Solutions",
+                                "badge": "Green Energy",
+                                "summary": "Two different rates depending on the time of day — cheaper overnight, higher during peak hours.",
                                 "specs": [
-                                    "[Panel output spec]",
-                                    "[Multi-site options]",
-                                    "[Warranty period]"
-                                ]
+                                    "Lower off-peak rate",
+                                    "Higher peak-hour rate",
+                                    "Rewards shifted usage"
+                                ],
+                                "detail": {
+                                    "description": "You're charged one rate during defined peak hours and a lower rate outside them. This only works in your favour if a meaningful share of your consumption genuinely happens off-peak — households that run laundry, charging, or air-conditioning overnight. If your usage is concentrated in the evening, a fixed or discount plan will usually work out better, and we'll tell you so.",
+                                    "specSheet": [
+                                        { "label": "Rate structure", "value": "Separate peak and off-peak rates per kWh" },
+                                        { "label": "Peak window", "value": "[Confirm hours with partner]" },
+                                        { "label": "Typical contract terms", "value": "[Confirm available terms with partner]" },
+                                        { "label": "Best suited to", "value": "Households with substantial overnight usage" },
+                                        { "label": "Meter requirement", "value": "[Confirm whether an advanced meter is required]" },
+                                        { "label": "Supply provider", "value": "SP Group national grid (unchanged)" }
+                                    ],
+                                    "features": [
+                                        "Meaningful savings if your usage is genuinely off-peak weighted",
+                                        "We review your consumption pattern before recommending it",
+                                        "Full Fact Sheet and Consumer Advisory provided before signup",
+                                        "No interruption to your electricity supply"
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -319,62 +329,12 @@
         ]
     },
     {
-        "id": "business-dev",
-        "slug": "business-development",
-        "name": "Business Development & Lead Generation",
-        "tagline": "Growth",
-        "category": "Business",
-        "featured_image": "business.webp",
-        "description": "Targeted lead generation and customer acquisition campaigns that expand your customer base.",
-        "overview": "We operate as an extension of your sales function — building pipeline, running acquisition campaigns, and delivering measurable outcomes on a performance basis rather than a retainer.",
-        "benefitsLabel": "Services Include",
-        "benefits": [
-            "Lead Generation",
-            "Sales Outsourcing",
-            "Customer Acquisition",
-            "Appointment Setting",
-            "Market Expansion",
-            "Revenue Growth Strategies"
-        ],
-        "itemsLabel": "How We Work",
-        "items": [
-            {
-                "id": "biz-leadgen",
-                "name": "Lead Generation",
-                "badge": "Core",
-                "summary": "Qualified prospects delivered to your sales team, filtered against your ideal customer profile.",
-                "specs": ["Defined qualification criteria", "Volume scaled to your capacity", "Performance-based pricing"]
-            },
-            {
-                "id": "biz-outsourcing",
-                "name": "Sales Outsourcing",
-                "badge": "Core",
-                "summary": "A trained Veritas team representing your brand end to end, from first contact to close.",
-                "specs": ["Dedicated campaign team", "Brand-aligned training", "Regular performance reporting"]
-            },
-            {
-                "id": "biz-appointments",
-                "name": "Appointment Setting",
-                "badge": "B2B",
-                "summary": "Meetings booked directly into your team's calendar with decision-makers who qualify.",
-                "specs": ["Decision-maker targeting", "Calendar integration", "No-show follow-up handling"]
-            },
-            {
-                "id": "biz-expansion",
-                "name": "Market Expansion",
-                "badge": "Strategic",
-                "summary": "Entering a new segment or territory with a field team already operating in it.",
-                "specs": ["Territory research", "Pilot before scale-up", "Local market execution"]
-            }
-        ]
-    },
-    {
         "id": "cleaning",
         "slug": "cleaning-solutions",
         "name": "Cleaning Solutions",
         "tagline": "Cleaning",
         "category": "Cleaning",
-        "featured_image": "clean.webp",
+        "featured_image": "cleaning.png",
         "description": "Professional cleaning services for homes and businesses through our trusted cleaning partners.",
         "overview": "We connect you to vetted cleaning providers matched to your space and schedule — from one-off deep cleans to recurring commercial contracts, with consistent quality you can rely on.",
         "benefitsLabel": "Benefits",
@@ -429,6 +389,56 @@
                     "Multi-site coordination available",
                     "Dedicated account contact"
                 ]
+            }
+        ]
+    },
+    {
+        "id": "business-dev",
+        "slug": "business-development",
+        "name": "Business Development & Lead Generation",
+        "tagline": "Growth",
+        "category": "Business",
+        "featured_image": "business.png",
+        "description": "Targeted lead generation and customer acquisition campaigns that expand your customer base.",
+        "overview": "We operate as an extension of your sales function — building pipeline, running acquisition campaigns, and delivering measurable outcomes on a performance basis rather than a retainer.",
+        "benefitsLabel": "Services Include",
+        "benefits": [
+            "Lead Generation",
+            "Sales Outsourcing",
+            "Customer Acquisition",
+            "Appointment Setting",
+            "Market Expansion",
+            "Revenue Growth Strategies"
+        ],
+        "itemsLabel": "How We Work",
+        "items": [
+            {
+                "id": "biz-leadgen",
+                "name": "Lead Generation",
+                "badge": "Core",
+                "summary": "Qualified prospects delivered to your sales team, filtered against your ideal customer profile.",
+                "specs": ["Defined qualification criteria", "Volume scaled to your capacity", "Performance-based pricing"]
+            },
+            {
+                "id": "biz-outsourcing",
+                "name": "Sales Outsourcing",
+                "badge": "Core",
+                "summary": "A trained Veritas team representing your brand end to end, from first contact to close.",
+                "specs": ["Dedicated campaign team", "Brand-aligned training", "Regular performance reporting"]
+            },
+            {
+                "id": "biz-appointments",
+                "name": "Appointment Setting",
+                "badge": "B2B",
+                "summary": "Meetings booked directly into your team's calendar with decision-makers who qualify.",
+                "specs": ["Decision-maker targeting", "Calendar integration", "No-show follow-up handling"]
+            },
+            {
+                "id": "biz-expansion",
+                "name": "Market Expansion",
+                "badge": "Strategic",
+                "summary": "Entering a new segment or territory with a field team already operating in it.",
+                "specs": ["Territory research", "Pilot before scale-up", "Local market execution"]
             }
         ]
     }

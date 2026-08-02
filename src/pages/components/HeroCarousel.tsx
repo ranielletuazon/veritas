@@ -65,8 +65,9 @@ export default function HeroCarousel() {
                     const src = productImgSrc(slide.featured_image);
                     const isActive = offset === 0;
                     return (
-                        <div
+                        <a
                             key={slide.id}
+                            href={`/products/${slide.slug}`}
                             aria-hidden={!isActive}
                             className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out ${slideClasses(offset)}`}
                         >
@@ -83,7 +84,7 @@ export default function HeroCarousel() {
                                     </span>
                                 </div>
                             )}
-                        </div>
+                        </a>
                     );
                 })}
 
