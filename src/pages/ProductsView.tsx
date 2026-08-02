@@ -61,7 +61,9 @@ function ItemCard({
             <div className="relative flex flex-1 flex-col p-6 text-left">
                 <span
                     className={`absolute left-0 top-0 h-full w-[3px] bg-indigo-600 transition-transform duration-300 ease-out ${
-                        isSelected ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
+                        isSelected
+                            ? "scale-y-100"
+                            : "scale-y-0 group-hover:scale-y-100"
                     }`}
                 />
 
@@ -251,15 +253,15 @@ function ItemDetailPanel({
 
                     <div className="mt-8 flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
                         <p className="text-xs leading-relaxed text-slate-400">
-                            Specifications per manufacturer datasheet and subject to
-                            change. All trademarks are the property of their respective
-                            owners.
+                            Specifications per manufacturer datasheet and
+                            subject to change. All trademarks are the property
+                            of their respective owners.
                         </p>
                         <a
                             href="/contact-us"
                             className="shrink-0 rounded-lg border border-indigo-600 bg-indigo-600 px-6 py-3 text-center text-sm font-semibold tracking-wide text-white transition-colors duration-300 hover:bg-indigo-700"
                         >
-                            Enquire About This Unit
+                            Enquire
                         </a>
                     </div>
                 </div>
@@ -367,14 +369,23 @@ export default function ProductsView() {
             <main className="w-full">
                 {/* ── Banner ──────────────────────────────────── */}
                 <section className="relative w-full overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 pt-32 md:pt-40">
-                    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                    <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0"
+                    >
                         <div
                             className="absolute -right-20 top-10 h-72 w-72 bg-indigo-600/20"
-                            style={{ clipPath: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)" }}
+                            style={{
+                                clipPath:
+                                    "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
+                            }}
                         />
                         <div
                             className="absolute -left-16 bottom-0 h-56 w-56 bg-fuchsia-600/15"
-                            style={{ clipPath: "polygon(25% 0%, 100% 20%, 75% 100%, 0% 80%)" }}
+                            style={{
+                                clipPath:
+                                    "polygon(25% 0%, 100% 20%, 75% 100%, 0% 80%)",
+                            }}
                         />
                     </div>
 
@@ -432,7 +443,9 @@ export default function ProductsView() {
 
                     <div
                         className="h-16 w-full bg-slate-50"
-                        style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0)" }}
+                        style={{
+                            clipPath: "polygon(0 100%, 100% 100%, 100% 0)",
+                        }}
                     />
                 </section>
 
@@ -444,8 +457,9 @@ export default function ProductsView() {
                                 {category.itemsLabel.toUpperCase()}
                             </h2>
                             <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-500">
-                                What's available under {category.name.toLowerCase()} —
-                                select a unit to see full specifications.
+                                What's available under{" "}
+                                {category.name.toLowerCase()} — select a unit to
+                                see full specifications.
                             </p>
                         </Reveal>
 
@@ -499,18 +513,26 @@ export default function ProductsView() {
 
                                         {group.subgroups && (
                                             <div className="mt-6 flex flex-col gap-10">
-                                                {group.subgroups.map((subgroup) => (
-                                                    <div key={subgroup.id}>
-                                                        <Reveal>
-                                                            <h4 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
-                                                                {subgroup.name}
-                                                            </h4>
-                                                        </Reveal>
-                                                        <div className="mt-4">
-                                                            <ItemGrid items={subgroup.items} />
+                                                {group.subgroups.map(
+                                                    (subgroup) => (
+                                                        <div key={subgroup.id}>
+                                                            <Reveal>
+                                                                <h4 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
+                                                                    {
+                                                                        subgroup.name
+                                                                    }
+                                                                </h4>
+                                                            </Reveal>
+                                                            <div className="mt-4">
+                                                                <ItemGrid
+                                                                    items={
+                                                                        subgroup.items
+                                                                    }
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                ))}
+                                                    ),
+                                                )}
                                             </div>
                                         )}
                                     </div>
@@ -529,8 +551,9 @@ export default function ProductsView() {
                                     NOT SURE WHICH OPTION FITS?
                                 </h2>
                                 <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/60 sm:text-base">
-                                    Tell us what you're working with and we'll match you to
-                                    the right partner — no obligation.
+                                    Tell us what you're working with and we'll
+                                    match you to the right partner — no
+                                    obligation.
                                 </p>
                                 <a
                                     href="/contact-us"

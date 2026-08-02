@@ -130,15 +130,15 @@ export default function Footer() {
                                 href="tel:89220932"
                                 className="w-fit transition-colors duration-300 hover:text-white"
                             >
-                                +65 8922 0932
+                                +65 8203 7719
                             </a>
                             <span className="text-white/50">Singapore</span>
-                            <Link
-                                to="/contact-us"
+                            <a
+                                href="/contact-us"
                                 className="mt-1 w-fit border-b border-indigo-400/40 pb-0.5 text-indigo-300 transition-colors duration-300 hover:border-indigo-400 hover:text-indigo-200"
                             >
                                 Send us a message
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>
