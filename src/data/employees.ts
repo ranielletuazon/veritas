@@ -38,10 +38,17 @@ export const EMPLOYEES: Employee[] = [
         department: "Admin",
     },
     {
+        id: "june",
+        name: "June",
+        role: "Channel Sales Director, Copier Sales",
+        department: "Copier/Printer",
+        featured: true,
+    },
+    {
         id: "raejan",
         name: "Raejan",
-        role: "Admin Executive, Copier/Printer",
-        department: "Admin",
+        role: "Administrative Manager - Copier Team",
+        department: "Copier/Printer",
         photo: "raejan.jpg",
     },
     {
@@ -51,12 +58,6 @@ export const EMPLOYEES: Employee[] = [
         department: "Energy Sales",
         photo: "joshua.jpg",
         featured: true,
-    },
-    {
-        id: "june",
-        name: "June",
-        role: "Channel Sales Director, Copier Sales",
-        department: "Copier/Printer",
     },
 ];
 
