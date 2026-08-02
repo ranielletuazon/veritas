@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -18,20 +19,66 @@ const labelClass =
 const COPIER_SLUG = "printer-solutions";
 
 export default function Contact() {
+    const [searchParams] = useSearchParams();
+
     const [status, setStatus] = useState<Status>("idle");
     const [inquiryType, setInquiryType] = useState<InquiryType>("general");
     const [productSlug, setProductSlug] = useState<string>("");
     const [unitId, setUnitId] = useState<string>("");
     const [currentSetup, setCurrentSetup] = useState<CurrentSetup>("none");
+
     const selectedCategory = PRODUCT_CATEGORIES.find(
         (c) => c.slug === productSlug,
     );
     const isCopierInquiry =
         inquiryType === "product" && productSlug === COPIER_SLUG;
-    /* Flat categories (Copier Solutions, Cleaning, Business Dev) expose `items` directly.
-    Energy Solutions is nested under groups/subgroups and has no flat `items` — 
-    the unit dropdown only appears when a flat list actually exists. */
     const availableUnits = selectedCategory?.items ?? [];
+
+    /* ── Pre-fill from a deep link, e.g. /contact-us?product=printer-solutions&unit=apeos-c5570 ──
+       Runs once on mount. If this block never fires, check the browser URL actually contains
+       ?product=... after clicking Enquire — if it doesn't, the bug is on the ProductsView side,
+       not here. */
+    useEffect(() => {
+        const productParam = searchParams.get("product");
+        const unitParam = searchParams.get("unit");
+
+        console.log(
+            "[Contact prefill] product param:",
+            productParam,
+            "unit param:",
+            unitParam,
+        );
+
+        if (!productParam) return;
+
+        const matchedCategory = PRODUCT_CATEGORIES.find(
+            (c) => c.slug === productParam,
+        );
+        if (!matchedCategory) {
+            console.warn(
+                "[Contact prefill] no category matched slug:",
+                productParam,
+            );
+            return;
+        }
+
+        setInquiryType("product");
+        setProductSlug(productParam);
+
+        if (unitParam) {
+            const matchedUnit = matchedCategory.items?.find(
+                (i) => i.id === unitParam,
+            );
+            setUnitId(matchedUnit ? matchedUnit.id : "not-sure");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const handleCategoryChange = (slug: string) => {
+        setProductSlug(slug);
+        setUnitId("");
+    };
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -51,8 +98,6 @@ export default function Contact() {
                     phone: data.get("phone"),
                     company: data.get("company"),
                     message: data.get("message"),
-
-                    // Product inquiry fields — undefined/empty when not applicable
                     productCategory:
                         inquiryType === "product"
                             ? PRODUCT_CATEGORIES.find(
@@ -66,8 +111,10 @@ export default function Contact() {
                                 : availableUnits.find((i) => i.id === unitId)
                                       ?.name
                             : undefined,
-                    // Copier-specific fields
                     currentSetup: isCopierInquiry ? currentSetup : undefined,
+                    decisionMaker: isCopierInquiry
+                        ? data.get("decisionMaker")
+                        : undefined,
                     machineAge: isCopierInquiry
                         ? data.get("machineAge")
                         : undefined,
@@ -77,14 +124,20 @@ export default function Contact() {
                     monthlyRentalFee: isCopierInquiry
                         ? data.get("monthlyRentalFee")
                         : undefined,
+                    finalPayment: isCopierInquiry
+                        ? data.get("finalPayment")
+                        : undefined,
                     monoVolume: isCopierInquiry
                         ? data.get("monoVolume")
                         : undefined,
                     colorVolume: isCopierInquiry
                         ? data.get("colorVolume")
                         : undefined,
-                    currentCostPerPrint: isCopierInquiry
-                        ? data.get("currentCostPerPrint")
+                    costPerPrintMono: isCopierInquiry
+                        ? data.get("costPerPrintMono")
+                        : undefined,
+                    costPerPrintColor: isCopierInquiry
+                        ? data.get("costPerPrintColor")
                         : undefined,
                     quotationType: isCopierInquiry
                         ? data.get("quotationType")
@@ -99,10 +152,6 @@ export default function Contact() {
         } catch {
             setStatus("error");
         }
-    };
-    const handleCategoryChange = (slug: string) => {
-        setProductSlug(slug);
-        setUnitId(""); // clear any unit picked under a different category
     };
 
     return (
@@ -237,7 +286,7 @@ export default function Contact() {
                                             ))}
                                         </div>
 
-                                        {/* Product category — only shown for product inquiries */}
+                                        {/* Product category */}
                                         {inquiryType === "product" && (
                                             <div className="mt-5">
                                                 <label
@@ -340,7 +389,7 @@ export default function Contact() {
                                                     name="name"
                                                     type="text"
                                                     required
-                                                    placeholder="Your full name"
+                                                    placeholder="Full name"
                                                     className={inputClass}
                                                 />
                                             </div>
@@ -402,7 +451,23 @@ export default function Contact() {
                                                     About Your Current Setup
                                                 </p>
 
-                                                {/* Current setup: lease / owned / none */}
+                                                <div className="mt-4">
+                                                    <label
+                                                        htmlFor="decisionMaker"
+                                                        className={labelClass}
+                                                    >
+                                                        Decision maker's name *
+                                                    </label>
+                                                    <input
+                                                        id="decisionMaker"
+                                                        name="decisionMaker"
+                                                        type="text"
+                                                        required
+                                                        placeholder="Who approves this purchase?"
+                                                        className={inputClass}
+                                                    />
+                                                </div>
+
                                                 <div className="mt-4">
                                                     <label
                                                         className={labelClass}
@@ -444,7 +509,7 @@ export default function Contact() {
                                                                         option.key,
                                                                     )
                                                                 }
-                                                                className={`rounded-lg border px-3 py-2.5 text-xs font-semibold transition-colors duration-200 ${
+                                                                className={`rounded-lg border px-3 py-2.5 text-xs font-semibold transition-colors duration-200 cursor-pointer ${
                                                                     currentSetup ===
                                                                     option.key
                                                                         ? "border-indigo-600 bg-indigo-600 text-white"
@@ -457,7 +522,6 @@ export default function Contact() {
                                                     </div>
                                                 </div>
 
-                                                {/* Owned — machine age */}
                                                 {currentSetup === "owned" && (
                                                     <div className="mt-4">
                                                         <label
@@ -481,7 +545,6 @@ export default function Contact() {
                                                     </div>
                                                 )}
 
-                                                {/* Leased — remaining term + rental fee */}
                                                 {currentSetup === "lease" && (
                                                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
                                                         <div>
@@ -518,7 +581,28 @@ export default function Contact() {
                                                                 id="monthlyRentalFee"
                                                                 name="monthlyRentalFee"
                                                                 type="text"
-                                                                placeholder="e.g. $250/month"
+                                                                placeholder="e.g. $0.00/month"
+                                                                className={
+                                                                    inputClass
+                                                                }
+                                                            />
+                                                        </div>
+                                                        <div className="sm:col-span-2">
+                                                            <label
+                                                                htmlFor="finalPayment"
+                                                                className={
+                                                                    labelClass
+                                                                }
+                                                            >
+                                                                Final payment
+                                                                amount, if
+                                                                applicable
+                                                            </label>
+                                                            <input
+                                                                id="finalPayment"
+                                                                name="finalPayment"
+                                                                type="text"
+                                                                placeholder="e.g. $0 buyout at end of term"
                                                                 className={
                                                                     inputClass
                                                                 }
@@ -527,7 +611,6 @@ export default function Contact() {
                                                     </div>
                                                 )}
 
-                                                {/* Print volume — relevant regardless of current setup */}
                                                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                                                     <div>
                                                         <label
@@ -571,24 +654,49 @@ export default function Contact() {
                                                     </div>
                                                 </div>
 
-                                                <div className="mt-4">
-                                                    <label
-                                                        htmlFor="currentCostPerPrint"
-                                                        className={labelClass}
-                                                    >
-                                                        Current cost per print,
-                                                        if known (optional)
-                                                    </label>
-                                                    <input
-                                                        id="currentCostPerPrint"
-                                                        name="currentCostPerPrint"
-                                                        type="text"
-                                                        placeholder="e.g. $0.00 mono / $0.00 colour"
-                                                        className={inputClass}
-                                                    />
+                                                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                                                    <div>
+                                                        <label
+                                                            htmlFor="costPerPrintMono"
+                                                            className={
+                                                                labelClass
+                                                            }
+                                                        >
+                                                            Current cost per
+                                                            print — B&W
+                                                        </label>
+                                                        <input
+                                                            id="costPerPrintMono"
+                                                            name="costPerPrintMono"
+                                                            type="text"
+                                                            placeholder="e.g. $0.00"
+                                                            className={
+                                                                inputClass
+                                                            }
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <label
+                                                            htmlFor="costPerPrintColor"
+                                                            className={
+                                                                labelClass
+                                                            }
+                                                        >
+                                                            Current cost per
+                                                            print — Colored
+                                                        </label>
+                                                        <input
+                                                            id="costPerPrintColor"
+                                                            name="costPerPrintColor"
+                                                            type="text"
+                                                            placeholder="e.g. $0.00"
+                                                            className={
+                                                                inputClass
+                                                            }
+                                                        />
+                                                    </div>
                                                 </div>
 
-                                                {/* Quotation preference */}
                                                 <div className="mt-4">
                                                     <label
                                                         className={labelClass}
@@ -670,7 +778,7 @@ export default function Contact() {
                             </div>
                         </Reveal>
 
-                        {/* Info panel — unchanged */}
+                        {/* Info panel */}
                         <aside className="flex flex-col gap-5 lg:col-span-2">
                             <Reveal delay={100}>
                                 <div className="rounded-2xl border border-slate-200 bg-white p-7">
@@ -684,10 +792,10 @@ export default function Contact() {
                                                 strokeWidth={1.8}
                                             />
                                             <a
-                                                href="mailto:raejan@veritasorganisation.com"
+                                                href="mailto:enquiry@veritasorganisation.com"
                                                 className="transition-colors hover:text-indigo-700"
                                             >
-                                                raejan@veritasorganisation.com
+                                                enquiry@veritasorganisation.com
                                             </a>
                                         </li>
                                         <li className="flex items-start gap-3">
