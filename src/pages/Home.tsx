@@ -679,12 +679,13 @@ export default function Home() {
                                         </div> */}
 
                                         <div className="mt-4 flex items-center gap-3">
-                                            <img
-                                                aria-hidden="true"
-                                                src={genco}
-                                                alt="Genco"
-                                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full object-cover"
-                                            />
+                                            <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-black">
+                                                <img
+                                                    src={genco}
+                                                    alt="Genco Energy"
+                                                    className="h-full w-full object-contain p-1"
+                                                />
+                                            </span>
                                             <div>
                                                 <p className="text-sm font-bold tracking-tight text-white">
                                                     Daryil Ian Rajoo

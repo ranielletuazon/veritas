@@ -583,7 +583,7 @@ export default function Contact() {
                                                         id="currentCostPerPrint"
                                                         name="currentCostPerPrint"
                                                         type="text"
-                                                        placeholder="e.g. $0.02 mono / $0.10 colour"
+                                                        placeholder="e.g. $0.00 mono / $0.00 colour"
                                                         className={inputClass}
                                                     />
                                                 </div>
