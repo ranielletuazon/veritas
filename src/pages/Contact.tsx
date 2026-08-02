@@ -16,7 +16,7 @@ const inputClass =
 const labelClass =
     "mb-2 block font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-500";
 
-const COPIER_SLUG = "printer-solutions";
+const COPIER_SLUG = "copier-solutions";
 
 export default function Contact() {
     const [searchParams] = useSearchParams();
@@ -34,33 +34,15 @@ export default function Contact() {
         inquiryType === "product" && productSlug === COPIER_SLUG;
     const availableUnits = selectedCategory?.items ?? [];
 
-    /* ── Pre-fill from a deep link, e.g. /contact-us?product=printer-solutions&unit=apeos-c5570 ──
-       Runs once on mount. If this block never fires, check the browser URL actually contains
-       ?product=... after clicking Enquire — if it doesn't, the bug is on the ProductsView side,
-       not here. */
     useEffect(() => {
         const productParam = searchParams.get("product");
         const unitParam = searchParams.get("unit");
-
-        console.log(
-            "[Contact prefill] product param:",
-            productParam,
-            "unit param:",
-            unitParam,
-        );
-
         if (!productParam) return;
 
         const matchedCategory = PRODUCT_CATEGORIES.find(
             (c) => c.slug === productParam,
         );
-        if (!matchedCategory) {
-            console.warn(
-                "[Contact prefill] no category matched slug:",
-                productParam,
-            );
-            return;
-        }
+        if (!matchedCategory) return;
 
         setInquiryType("product");
         setProductSlug(productParam);
@@ -158,7 +140,6 @@ export default function Contact() {
         <>
             <Header />
             <main className="w-full">
-                {/* ── Page header ─────────────────────────────── */}
                 <section className="relative w-full overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 pt-32 md:pt-40">
                     <div
                         aria-hidden="true"
@@ -212,10 +193,8 @@ export default function Contact() {
                     />
                 </section>
 
-                {/* ── Form + Info ─────────────────────────────── */}
                 <section className="w-full bg-slate-50 pb-24">
                     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-12 lg:grid-cols-5 lg:gap-14 lg:px-10">
-                        {/* Form */}
                         <Reveal className="lg:col-span-3">
                             <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 lg:p-10">
                                 {status === "success" ? (
@@ -243,7 +222,6 @@ export default function Contact() {
                                             Send a message
                                         </p>
 
-                                        {/* Inquiry type toggle */}
                                         <div
                                             className="mt-5 grid grid-cols-2 gap-2"
                                             role="radiogroup"
@@ -286,7 +264,6 @@ export default function Contact() {
                                             ))}
                                         </div>
 
-                                        {/* Product category */}
                                         {inquiryType === "product" && (
                                             <div className="mt-5">
                                                 <label
@@ -365,7 +342,6 @@ export default function Contact() {
                                             </div>
                                         )}
 
-                                        {/* Honeypot */}
                                         <input
                                             type="text"
                                             name="website"
@@ -375,7 +351,6 @@ export default function Contact() {
                                             className="absolute left-[-9999px] h-0 w-0 opacity-0"
                                         />
 
-                                        {/* Standard contact fields */}
                                         <div className="mt-6 grid gap-5 sm:grid-cols-2">
                                             <div>
                                                 <label
@@ -444,7 +419,6 @@ export default function Contact() {
                                             </div>
                                         </div>
 
-                                        {/* ── Copier Solutions — unique fields ────────── */}
                                         {isCopierInquiry && (
                                             <div className="mt-6 rounded-xl border border-indigo-100 bg-indigo-50/40 p-5">
                                                 <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-700">
@@ -732,7 +706,6 @@ export default function Contact() {
                                             </div>
                                         )}
 
-                                        {/* Message */}
                                         <div className="mt-5">
                                             <label
                                                 htmlFor="message"
@@ -778,7 +751,6 @@ export default function Contact() {
                             </div>
                         </Reveal>
 
-                        {/* Info panel */}
                         <aside className="flex flex-col gap-5 lg:col-span-2">
                             <Reveal delay={100}>
                                 <div className="rounded-2xl border border-slate-200 bg-white p-7">
