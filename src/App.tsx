@@ -16,6 +16,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Careers = lazy(() => import("./pages/Careers"));
 const CareersView = lazy(() => import("./pages/CareersView"));
 const ProductsView = lazy(() => import("./pages/ProductsView"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
 NProgress.configure({ showSpinner: false });
 
@@ -90,6 +91,7 @@ function App() {
                                 element={<ProductsView />}
                             />
                             <Route path="*" element={<NotFound />} />
+                            <Route path="/privacy" element={<Privacy />} />
                         </Routes>
                     </FadeIn>
                 </Suspense>

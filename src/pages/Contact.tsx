@@ -34,7 +34,7 @@ const toBase64 = (file: File): Promise<string> =>
 
 export default function Contact() {
     const [searchParams] = useSearchParams();
-
+    const [privacyAccepted, setPrivacyAccepted] = useState(false);
     const [status, setStatus] = useState<Status>("idle");
     const [errorMsg, setErrorMsg] = useState<string>("");
     const [inquiryType, setInquiryType] = useState<InquiryType>("general");
@@ -89,6 +89,14 @@ export default function Contact() {
 
         if (data.get("website")) return;
 
+        if (!privacyAccepted) {
+            setErrorMsg(
+                "Please confirm you've read the Privacy Policy before submitting.",
+            );
+            setStatus("error");
+            return;
+        }
+
         /* Energy bill upload — validate before touching the network */
         let billFileName: string | undefined;
         let billFileType: string | undefined;
@@ -98,7 +106,7 @@ export default function Contact() {
             const billFile = data.get("billFile") as File | null;
             if (!billFile || billFile.size === 0) {
                 setErrorMsg(
-                    "Please attach your latest 3 months electricity bill.",
+                    "Please attach your latest 1 month electricity bill.",
                 );
                 setStatus("error");
                 return;
@@ -196,6 +204,7 @@ export default function Contact() {
             setCurrentSetup("none");
             setResidencyType("residential");
             setUnitId("");
+            setPrivacyAccepted(false);
         } catch (err) {
             setErrorMsg(
                 err instanceof Error
@@ -281,14 +290,14 @@ export default function Contact() {
                                         </p>
                                         <button
                                             onClick={() => setStatus("idle")}
-                                            className="mt-8 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-indigo-400 hover:text-indigo-700"
+                                            className="mt-8 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:border-indigo-400 hover:text-indigo-700 cursor-pointer"
                                         >
                                             Send Another Message
                                         </button>
                                     </div>
                                 ) : (
                                     <form onSubmit={handleSubmit}>
-                                        <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
+                                        <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500 cursor-pointer">
                                             Send a message
                                         </p>
 
@@ -892,6 +901,36 @@ export default function Contact() {
                                             />
                                         </div>
 
+                                        {/* Privacy Acceptance */}
+                                        <div className="mt-6 flex items-start gap-3">
+                                            <input
+                                                id="privacyAccepted"
+                                                type="checkbox"
+                                                checked={privacyAccepted}
+                                                onChange={(e) =>
+                                                    setPrivacyAccepted(
+                                                        e.target.checked,
+                                                    )
+                                                }
+                                                className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-slate-300 text-indigo-600 focus:ring-2 focus:ring-indigo-500/20"
+                                            />
+                                            <label
+                                                htmlFor="privacyAccepted"
+                                                className="text-sm leading-relaxed text-slate-600"
+                                            >
+                                                I have read and agree to the{" "}
+                                                <a
+                                                    href="/privacy"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="font-semibold text-indigo-600 underline decoration-indigo-300 underline-offset-2 hover:text-indigo-700"
+                                                >
+                                                    Privacy Policy
+                                                </a>
+                                                . *
+                                            </label>
+                                        </div>
+
                                         {status === "error" && (
                                             <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
                                                 {errorMsg ||
@@ -901,7 +940,10 @@ export default function Contact() {
 
                                         <button
                                             type="submit"
-                                            disabled={status === "submitting"}
+                                            disabled={
+                                                status === "submitting" ||
+                                                !privacyAccepted
+                                            }
                                             className="mt-7 w-full rounded-lg border border-indigo-600 bg-indigo-600 px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-colors duration-300 hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                                         >
                                             {status === "submitting"
@@ -919,39 +961,78 @@ export default function Contact() {
                                     <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-500">
                                         Reach us directly
                                     </p>
-                                    <ul className="mt-5 space-y-4 text-sm text-slate-600">
-                                        <li className="flex items-start gap-3">
+                                    <div className="mt-5">
+                                        <a
+                                            href="mailto:enquiry@veritasorganisation.com"
+                                            className="flex items-center gap-3 text-sm text-slate-600 transition-colors hover:text-indigo-700"
+                                        >
                                             <Mail
-                                                className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                                                className="h-4 w-4 shrink-0 text-indigo-600"
                                                 strokeWidth={1.8}
                                             />
-                                            <a
-                                                href="mailto:enquiry@veritasorganisation.com"
-                                                className="transition-colors hover:text-indigo-700"
-                                            >
-                                                enquiry@veritasorganisation.com
-                                            </a>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <Phone
-                                                className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
-                                                strokeWidth={1.8}
-                                            />
-                                            <a
-                                                href="tel:+6582037719"
-                                                className="transition-colors hover:text-indigo-700"
-                                            >
-                                                +65 8203 7719
-                                            </a>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <MapPin
-                                                className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
-                                                strokeWidth={1.8}
-                                            />
-                                            Singapore
-                                        </li>
-                                    </ul>
+                                            enquiry@veritasorganisation.com
+                                        </a>
+                                    </div>
+
+                                    {/* Offices */}
+                                    <div className="mt-6 flex flex-col gap-6 border-t border-slate-200 pt-6">
+                                        {[
+                                            {
+                                                location: "Singapore",
+                                                phone: "+65 8203 7719",
+                                                tel: "+6582037719",
+                                                address: [
+                                                    "7030 Ang Mo Kio Ave 5, #08-98",
+                                                    "Singapore 569880",
+                                                ],
+                                            },
+                                            {
+                                                location: "Philippines",
+                                                phone: "+63 962 167 8061",
+                                                tel: "+639621678061",
+                                                address: [
+                                                    "San Fernando",
+                                                    "Pampanga, Philippines",
+                                                ],
+                                            },
+                                        ].map((office) => (
+                                            <div key={office.location}>
+                                                <p className="font-mono text-[10px] font-semibold uppercase tracking-widest text-indigo-400">
+                                                    {office.location}
+                                                </p>
+                                                <div className="mt-3 flex flex-col gap-2.5 text-sm text-slate-600">
+                                                    <a
+                                                        href={`tel:${office.tel}`}
+                                                        className="flex items-center gap-3 transition-colors hover:text-indigo-700"
+                                                    >
+                                                        <Phone
+                                                            className="h-4 w-4 shrink-0 text-indigo-600"
+                                                            strokeWidth={1.8}
+                                                        />
+                                                        {office.phone}
+                                                    </a>
+                                                    <div className="flex items-start gap-3">
+                                                        <MapPin
+                                                            className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600"
+                                                            strokeWidth={1.8}
+                                                        />
+                                                        <span>
+                                                            {office.address.map(
+                                                                (line, i) => (
+                                                                    <span
+                                                                        key={i}
+                                                                        className="block"
+                                                                    >
+                                                                        {line}
+                                                                    </span>
+                                                                ),
+                                                            )}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </Reveal>
 
