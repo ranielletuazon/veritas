@@ -80,7 +80,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
         const { data, error } = await resend.emails.send({
             from: "Veritas Website Inquiry <noreply@veritasorganisation.com>",
-            to: "adrianetuazon18@gmail.com",
+            to: [
+                "enquiry@veritasorganisation.com",
+                "adrianetuazon18@gmail.com",
+            ],
             replyTo: email,
             subject,
             attachments: billFileData
