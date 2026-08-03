@@ -22,6 +22,28 @@ const COPIER_SLUG = "copier-solutions";
 const ENERGY_SLUG = "energy-solutions";
 const MAX_BILL_BYTES = 5 * 1024 * 1024; // 5MB as requested — see flag re: Vercel's ~4.5MB body cap after base64 inflation
 
+/**
+ * Formats a raw currency input into a "$"-prefixed value.
+ * Strips everything except digits and a single decimal point,
+ * then prepends "$" so both the visible input and the submitted
+ * FormData value always carry the currency sign.
+ */
+const formatCurrencyInput = (raw: string): string => {
+    // Strip anything that isn't a digit or a dot
+    let cleaned = raw.replace(/[^0-9.]/g, "");
+
+    // Collapse multiple dots down to the first one
+    const firstDotIndex = cleaned.indexOf(".");
+    if (firstDotIndex !== -1) {
+        cleaned =
+            cleaned.slice(0, firstDotIndex + 1) +
+            cleaned.slice(firstDotIndex + 1).replace(/\./g, "");
+    }
+
+    if (!cleaned) return "";
+    return `$${cleaned}`;
+};
+
 const toBase64 = (file: File): Promise<string> =>
     new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -44,6 +66,12 @@ export default function Contact() {
     const [currentSetup, setCurrentSetup] = useState<CurrentSetup>("none");
     const [residencyType, setResidencyType] =
         useState<ResidencyType>("residential");
+
+    // Currency fields — controlled so we can force a leading "$" on every keystroke
+    const [monthlyRentalFee, setMonthlyRentalFee] = useState("");
+    const [finalPayment, setFinalPayment] = useState("");
+    const [costPerPrintMono, setCostPerPrintMono] = useState("");
+    const [costPerPrintColor, setCostPerPrintColor] = useState("");
 
     const selectedCategory = PRODUCT_CATEGORIES.find(
         (c) => c.slug === productSlug,
@@ -206,6 +234,10 @@ export default function Contact() {
             setResidencyType("residential");
             setUnitId("");
             setPrivacyAccepted(false);
+            setMonthlyRentalFee("");
+            setFinalPayment("");
+            setCostPerPrintMono("");
+            setCostPerPrintColor("");
         } catch (err) {
             setErrorMsg(
                 err instanceof Error
@@ -488,13 +520,13 @@ export default function Contact() {
                                                 >
                                                     {isEnergyInquiry
                                                         ? "Contact Number *"
-                                                        : "Phone (optional)"}
+                                                        : "Phone Number *"}
                                                 </label>
                                                 <input
                                                     id="phone"
                                                     name="phone"
                                                     type="tel"
-                                                    required={isEnergyInquiry}
+                                                    required={!isEnergyInquiry}
                                                     placeholder="+65 0000 0000"
                                                     className={inputClass}
                                                 />
@@ -578,9 +610,9 @@ export default function Contact() {
                                                         htmlFor="billFile"
                                                         className={labelClass}
                                                     >
-                                                        Latest 3 months
-                                                        electricity bill * (PDF
-                                                        or image, max 5MB)
+                                                        Latest electricity bill
+                                                        * (PDF or image, max
+                                                        5MB)
                                                     </label>
                                                     <input
                                                         id="billFile"
@@ -715,6 +747,7 @@ export default function Contact() {
                                                                 className={
                                                                     inputClass
                                                                 }
+                                                                required
                                                             />
                                                         </div>
                                                         <div>
@@ -731,9 +764,23 @@ export default function Contact() {
                                                                 id="monthlyRentalFee"
                                                                 name="monthlyRentalFee"
                                                                 type="text"
+                                                                inputMode="decimal"
                                                                 placeholder="e.g. $0.00/month"
                                                                 className={
                                                                     inputClass
+                                                                }
+                                                                required
+                                                                value={
+                                                                    monthlyRentalFee
+                                                                }
+                                                                onChange={(e) =>
+                                                                    setMonthlyRentalFee(
+                                                                        formatCurrencyInput(
+                                                                            e
+                                                                                .target
+                                                                                .value,
+                                                                        ),
+                                                                    )
                                                                 }
                                                             />
                                                         </div>
@@ -745,16 +792,29 @@ export default function Contact() {
                                                                 }
                                                             >
                                                                 Final payment
-                                                                amount, if
-                                                                applicable
+                                                                amount
+                                                                (Optional)
                                                             </label>
                                                             <input
                                                                 id="finalPayment"
                                                                 name="finalPayment"
                                                                 type="text"
+                                                                inputMode="decimal"
                                                                 placeholder="e.g. $0 buyout at end of term"
                                                                 className={
                                                                     inputClass
+                                                                }
+                                                                value={
+                                                                    finalPayment
+                                                                }
+                                                                onChange={(e) =>
+                                                                    setFinalPayment(
+                                                                        formatCurrencyInput(
+                                                                            e
+                                                                                .target
+                                                                                .value,
+                                                                        ),
+                                                                    )
                                                                 }
                                                             />
                                                         </div>
@@ -780,6 +840,7 @@ export default function Contact() {
                                                             className={
                                                                 inputClass
                                                             }
+                                                            required
                                                         />
                                                     </div>
                                                     <div>
@@ -800,6 +861,7 @@ export default function Contact() {
                                                             className={
                                                                 inputClass
                                                             }
+                                                            required
                                                         />
                                                     </div>
                                                 </div>
@@ -819,9 +881,22 @@ export default function Contact() {
                                                             id="costPerPrintMono"
                                                             name="costPerPrintMono"
                                                             type="text"
+                                                            inputMode="decimal"
                                                             placeholder="e.g. $0.00"
                                                             className={
                                                                 inputClass
+                                                            }
+                                                            required
+                                                            value={
+                                                                costPerPrintMono
+                                                            }
+                                                            onChange={(e) =>
+                                                                setCostPerPrintMono(
+                                                                    formatCurrencyInput(
+                                                                        e.target
+                                                                            .value,
+                                                                    ),
+                                                                )
                                                             }
                                                         />
                                                     </div>
@@ -839,9 +914,22 @@ export default function Contact() {
                                                             id="costPerPrintColor"
                                                             name="costPerPrintColor"
                                                             type="text"
+                                                            inputMode="decimal"
                                                             placeholder="e.g. $0.00"
                                                             className={
                                                                 inputClass
+                                                            }
+                                                            required
+                                                            value={
+                                                                costPerPrintColor
+                                                            }
+                                                            onChange={(e) =>
+                                                                setCostPerPrintColor(
+                                                                    formatCurrencyInput(
+                                                                        e.target
+                                                                            .value,
+                                                                    ),
+                                                                )
                                                             }
                                                         />
                                                     </div>
@@ -873,6 +961,7 @@ export default function Contact() {
                                                                         option
                                                                     }
                                                                     className="sr-only"
+                                                                    required
                                                                 />
                                                                 {option}
                                                             </label>
