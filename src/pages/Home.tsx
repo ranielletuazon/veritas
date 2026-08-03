@@ -162,7 +162,7 @@ export default function Home() {
                                 <div className="mt-5 pt-5 border-t border-white/10 flex flex-row items-center gap-6 sm:gap-8">
                                     <div className="flex flex-col gap-0.5">
                                         <span className="text-white text-xl sm:text-2xl font-bold leading-none text-center">
-                                            10K+
+                                            500+
                                         </span>
                                         <span className="text-white/45 text-[11px] uppercase tracking-widest">
                                             Clients Served
@@ -180,7 +180,7 @@ export default function Home() {
                                     <div className="w-px h-8 bg-white/10 shrink-0" />
                                     <div className="flex flex-col gap-0.5">
                                         <span className="text-white text-xl sm:text-2xl font-bold leading-none text-center">
-                                            90M+
+                                            50M+
                                         </span>
                                         <span className="text-white/45 text-[11px] uppercase tracking-widest">
                                             Total Sales Generated

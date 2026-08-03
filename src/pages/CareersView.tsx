@@ -42,6 +42,7 @@ export default function CareersView() {
 
     const [status, setStatus] = useState<Status>("idle");
     const [errorMsg, setErrorMsg] = useState<string>("");
+    const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -49,6 +50,14 @@ export default function CareersView() {
         const data = new FormData(form);
 
         if (data.get("website")) return;
+
+        if (!privacyAccepted) {
+            setErrorMsg(
+                "Please confirm you've read the Privacy Policy before submitting.",
+            );
+            setStatus("error");
+            return;
+        }
 
         const resume = data.get("resume") as File | null;
         if (!resume || resume.size === 0) {
@@ -93,6 +102,7 @@ export default function CareersView() {
 
             setStatus("success");
             form.reset();
+            setPrivacyAccepted(false);
         } catch (err) {
             setErrorMsg(
                 err instanceof Error
@@ -477,6 +487,35 @@ export default function CareersView() {
                                                 </div>
                                             </div>
 
+                                            <div className="mt-6 flex items-start gap-3">
+                                                <input
+                                                    id="privacyAccepted"
+                                                    type="checkbox"
+                                                    checked={privacyAccepted}
+                                                    onChange={(e) =>
+                                                        setPrivacyAccepted(
+                                                            e.target.checked,
+                                                        )
+                                                    }
+                                                    className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-slate-300 text-indigo-600 focus:ring-2 focus:ring-indigo-500/20"
+                                                />
+                                                <label
+                                                    htmlFor="privacyAccepted"
+                                                    className="text-sm leading-relaxed text-slate-600"
+                                                >
+                                                    I have read and agree to the{" "}
+                                                    <a
+                                                        href="/privacy"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="font-semibold text-indigo-600 underline decoration-indigo-300 underline-offset-2 hover:text-indigo-700"
+                                                    >
+                                                        Privacy Policy
+                                                    </a>
+                                                    . *
+                                                </label>
+                                            </div>
+
                                             {status === "error" && (
                                                 <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
                                                     {errorMsg ||
@@ -487,7 +526,8 @@ export default function CareersView() {
                                             <button
                                                 type="submit"
                                                 disabled={
-                                                    status === "submitting"
+                                                    status === "submitting" ||
+                                                    !privacyAccepted
                                                 }
                                                 className="mt-6 w-full rounded-lg border border-indigo-600 bg-indigo-600 px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-colors duration-300 hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
                                             >

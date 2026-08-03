@@ -149,18 +149,12 @@ export default function Footer() {
                         Ltd. All rights reserved.
                     </p>
                     <div className="flex gap-6 text-xs text-white/40">
-                        <Link
-                            to="/privacy"
+                        <a
+                            href="/privacy"
                             className="transition-colors hover:text-white/70"
                         >
                             Privacy Policy
-                        </Link>
-                        <Link
-                            to="/terms"
-                            className="transition-colors hover:text-white/70"
-                        >
-                            Terms &amp; Conditions
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>

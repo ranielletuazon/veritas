@@ -124,7 +124,7 @@
         "name": "Copier Solutions",
         "tagline": "Office Equipment",
         "category": "Printer & Copier",
-        "featured_image": "copier.png",
+        "featured_image": "apc5570.png",
         "description": "Business-grade printing and copying units, leasing, and equipment support via trusted partners.",
         "overview": "From a single desktop unit to a multi-floor fleet, we size the equipment to your actual print and copy volume and handle supply, installation, and the ongoing service relationship on your behalf.",
         "benefitsLabel": "Benefits",
@@ -166,14 +166,15 @@
                     "Optional finishing available",
                     "User authentication and encrypted storage"
                 ]
-            }
+            },
+            "image": "apc3570.png"
         },
         {
             "id": "apc5570-xerox",
             "name": "Fuji Xerox ApC5570",
             "badge": "Fuji Xerox",
             "summary": "Balanced speed and capacity — a commonly specified mid-range unit.",
-            "image": "unit-placeholder-2.png",
+            "image": "apc5570.png",
             "specs": ["55 ppm colour & mono", "SRA3 support", "Optional finishing"],
             "detail": {
                 "brand": "Fuji Xerox (legacy branding — now FUJIFILM Business Innovation)",
@@ -204,7 +205,7 @@
             "name": "FUJIFILM AC3570",
             "badge": "Fujifilm",
             "summary": "Compact, lighter-build unit for teams that print regularly but not heavily.",
-            "image": "unit-placeholder-1.png",
+            "image": "apc3570.png",
             "specs": ["35 ppm colour & mono", "124 kg — compact build", "1200 × 2400 dpi"],
             "detail": {
                 "brand": "FUJIFILM Business Innovation",
@@ -236,7 +237,7 @@
             "name": "FUJIFILM AC5570",
             "badge": "Fujifilm",
             "summary": "Balanced speed and capacity — a commonly specified mid-range unit.",
-            "image": "unit-placeholder-2.png",
+            "image": "apc5570.png",
             "specs": ["55 ppm colour & mono", "SRA3 support", "Optional finishing"],
             "detail": {
                 "brand": "FUJIFILM Business Innovation",
@@ -267,7 +268,7 @@
             "name": "FUJIFILM AC3567",
             "badge": "Fujifilm",
             "summary": "Compact A3 colour multifunction unit — current-generation successor to the C3570 series.",
-            "image": "unit-placeholder-3.png",
+            "image": "ac3567.png",
             "specs": ["Up to 35 ppm colour & mono", "1200 × 2400 dpi", "10.1\" touch panel"],
             "detail": {
                 "brand": "FUJIFILM Business Innovation",
@@ -298,7 +299,7 @@
             "name": "FUJIFILM AC5571",
             "badge": "Fujifilm",
             "summary": "Current-generation successor to the C5570 — same speed tier, faster scanning.",
-            "image": "unit-placeholder-4.png",
+            "image": "ac5571.png",
             "specs": ["55 ppm colour & mono", "160 ppm duplex scanning", "Current-gen successor"],
             "detail": {
                 "brand": "FUJIFILM Business Innovation",
