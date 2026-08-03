@@ -4,83 +4,31 @@
         "slug": "sales-executive",
         "title": "Sales Executive",
         "type": "Full-Time Work From Home",
-        "location": "Singapore",
+        "location": "Philippines",
         "team": "Direct Sales",
         "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required — full training provided.",
         "duties": [
-            "Engage prospective customers through face-to-face and outbound campaigns",
-            "Present partner products and services with clarity and integrity",
-            "Meet and exceed weekly performance targets",
-            "Maintain accurate records of leads and outcomes",
-            "Participate in daily coaching and team huddles"
+            "Make 100 outbound calls daily",
+            "Introduce our products and services to potential customers",
+            "Qualify leads and book appointments for the Sales Team",
+            "Update customer information accurately in the CRM"
         ],
         "requirements": [
-            "Strong communication skills in English",
-            "Self-motivated and target-driven mindset",
-            "Willingness to learn — no sales experience required",
-            "Eligible to work in Singapore"
+            "Previous telemarketing, sales, customer service, or call center experience is an advantage",
+            "Excellent English communication skills",
+            "Confident and professional phone etiquette",
+            "Reliable internet connection and a quiet WFH setup",
+            "Laptop or desktop computer with a headset",
+            "Self-motivated and able to meet daily targets"
         ],
         "perks": [
             "Uncapped performance-based commissions",
             "Structured training and mentorship",
             "Clear promotion pathway",
             "Team incentives and retreats"
-        ]
-    },
-    {
-        "id": 3,
-        "slug": "corporate-sales-consultant",
-        "title": "Corporate Sales Consultant",
-        "type": "Full-Time Work From Home",
-        "location": "Singapore",
-        "team": "B2B Partnerships",
-        "summary": "Manage B2B relationships — helping businesses adopt our partners' electricity, printing, and service solutions.",
-        "duties": [
-            "Prospect and qualify B2B leads across assigned industries",
-            "Conduct consultative meetings with business decision-makers",
-            "Prepare proposals and close corporate accounts",
-            "Coordinate handover with partner providers",
-            "Maintain long-term client relationships for repeat business"
         ],
-        "requirements": [
-            "2+ years in B2B sales or account management",
-            "Comfortable presenting to business owners and managers",
-            "Organized pipeline and follow-up discipline",
-            "Eligible to work in Singapore"
-        ],
-        "perks": [
-            "Higher-value commission tiers on corporate accounts",
-            "Autonomy over your own pipeline",
-            "Professional development budget",
-            "Team incentives and retreats"
-        ]
-    },
-    {
-        "id": 4,
-        "slug": "marketing-associate",
-        "title": "Marketing Associate",
-        "type": "Full-Time Work From Home",
-        "location": "Singapore",
-        "team": "Marketing",
-        "summary": "Support campaign marketing — content, social media, and lead-generation assets that fuel the sales teams.",
-        "duties": [
-            "Create content for social media and recruitment campaigns",
-            "Support lead-generation asset production",
-            "Track and report campaign engagement metrics",
-            "Coordinate with sales teams on campaign materials",
-            "Assist with events and team-building documentation"
-        ],
-        "requirements": [
-            "Portfolio of content or social media work (student projects welcome)",
-            "Working knowledge of Canva, CapCut, or similar tools",
-            "Strong written English",
-            "Eligible to work in Singapore"
-        ],
-        "perks": [
-            "Creative ownership from day one",
-            "Cross-team exposure to sales operations",
-            "Growth path into brand management",
-            "Team incentives and retreats"
+        "work_details": [
+            "Monday–Friday | 9:00 AM – 5:00 PM (Singapore Time)"
         ]
     }
 ]

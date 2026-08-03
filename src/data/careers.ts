@@ -11,6 +11,7 @@ export interface Career {
     duties: string[];
     requirements: string[];
     perks: string[];
+    work_details: string[];
 }
 
 export const CAREERS: Career[] = careersData as Career[];

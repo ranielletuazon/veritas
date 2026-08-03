@@ -65,7 +65,7 @@
                                     "specSheet": [
                                         { "label": "Rate structure", "value": "Set discount off the prevailing regulated tariff" },
                                         { "label": "Tariff review frequency", "value": "Quarterly, set by the regulator" },
-                                        { "label": "Best suited to", "value": "Households comfortable with quarterly rate movement" }
+                                        { "label": "Best suited to", "value": "Corporate/Business buildings enterprises" }
                                     ],
                                     "features": [
                                         "Guaranteed to stay below the regulated tariff",

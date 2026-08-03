@@ -223,6 +223,10 @@ export default function CareersView() {
                                         heading: "What You Get",
                                         items: job.perks,
                                     },
+                                    {
+                                        heading: "Schedule",
+                                        items: job.work_details,
+                                    },
                                 ] as const
                             ).map((block, bi) => (
                                 <Reveal key={block.heading} delay={bi * 80}>
@@ -539,7 +543,7 @@ export default function CareersView() {
                                                     status === "submitting" ||
                                                     !privacyAccepted
                                                 }
-                                                className="mt-6 w-full rounded-lg border border-indigo-600 bg-indigo-600 px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-colors duration-300 hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
+                                                className="mt-6 w-full rounded-lg border border-indigo-600 bg-indigo-600 px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-colors duration-300 hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
                                             >
                                                 {status === "submitting"
                                                     ? "Submitting…"
