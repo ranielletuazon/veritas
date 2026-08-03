@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 // import logo from "../../assets/images/veritas_landscape_logo.png";
 import logo from "../../assets/images/new-veritas-logo-new.png";
 import { socials } from "../../data/social";

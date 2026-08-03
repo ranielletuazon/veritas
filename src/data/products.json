@@ -141,7 +141,7 @@
             "name": "Fuji Xerox ApC3570",
             "badge": "Fuji Xerox",
             "summary": "Compact, lighter-build unit for teams that print regularly but not heavily.",
-            "image": "unit-placeholder-1.png",
+            "image": "apc3570.png",
             "specs": ["35 ppm colour & mono", "124 kg — compact build", "1200 × 2400 dpi"],
             "detail": {
                 "brand": "Fuji Xerox (legacy branding — now FUJIFILM Business Innovation)",
@@ -167,7 +167,6 @@
                     "User authentication and encrypted storage"
                 ]
             },
-            "image": "apc3570.png"
         },
         {
             "id": "apc5570-xerox",
