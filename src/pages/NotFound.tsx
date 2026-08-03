@@ -1,10 +1,15 @@
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Helmet } from "react-helmet-async";
 
 export default function NotFound() {
     return (
         <>
+            <Helmet>
+                <title>Page Not Found</title>
+                <meta name="robots" content="noindex" />
+            </Helmet>
             <Header />
             <section className="flex min-h-screen w-full items-center justify-center bg-slate-50 px-6">
                 <div className="flex max-w-md flex-col items-center text-center">

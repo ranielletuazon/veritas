@@ -2,6 +2,7 @@ import { Shield, Mail, FileText, Lock, Globe, Clock } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
+import { Helmet } from "react-helmet-async";
 
 const SECTIONS = [
     {
@@ -196,6 +197,13 @@ const SECTIONS = [
 export default function Privacy() {
     return (
         <>
+            <Helmet>
+                <title>Privacy Policy - Veritas Organisation</title>
+                <meta
+                    name="description"
+                    content="How Veritas Organisation collects, uses, and protects your personal information."
+                />
+            </Helmet>
             <Header />
             <main className="w-full">
                 {/* ── Banner ──────────────────────────────────── */}

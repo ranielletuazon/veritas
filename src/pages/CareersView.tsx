@@ -13,6 +13,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
 import { findCareerBySlug } from "../data/careers";
+import { Helmet } from "react-helmet-async";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -141,6 +142,15 @@ export default function CareersView() {
 
     return (
         <>
+            <Helmet>
+                <title>{`${job.title} - Veritas Organisation`}</title>
+                <meta name="description" content={job.summary} />
+                <meta
+                    property="og:title"
+                    content={`${job.title} — Veritas Organisation`}
+                />
+                <meta property="og:description" content={job.summary} />
+            </Helmet>
             <Header />
             <main className="w-full bg-slate-50">
                 {/* ── Role header ─────────────────────────────── */}

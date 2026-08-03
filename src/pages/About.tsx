@@ -7,6 +7,7 @@ import {
     employeePhotoSrc,
     initialsOf,
 } from "../data/employees";
+import { Helmet } from "react-helmet-async";
 
 const CORE_VALUES = [
     {
@@ -37,6 +38,13 @@ const founder_image2 = "/images/boss2.jpg";
 export default function About() {
     return (
         <>
+            <Helmet>
+                <title>About Us - Veritas Organisation</title>
+                <meta
+                    name="description"
+                    content="Veritas is a sales and business development company headquartered in Singapore — built on integrity, competence, fairness, and responsibility."
+                />
+            </Helmet>
             <Header />
 
             <main className="w-full">
