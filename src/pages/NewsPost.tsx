@@ -11,6 +11,8 @@ import {
     fullDateLabel,
 } from "../data/news";
 import NotFound from "./NotFound";
+import { Helmet } from "react-helmet-async";
+import { getExcerpt } from "../data/news";
 
 export default function NewsPost() {
     const { slug } = useParams<{ slug: string }>();
@@ -30,7 +32,7 @@ export default function NewsPost() {
     const index = posts.findIndex((p) => p.id === post.id);
     const newer = index > 0 ? posts[index - 1] : undefined;
     const older = index < posts.length - 1 ? posts[index + 1] : undefined;
-
+    const excerpt = getExcerpt(post);
     const paragraphs = post.description
         .split("\n")
         .map((p) => p.trim())
@@ -41,6 +43,13 @@ export default function NewsPost() {
 
     return (
         <>
+            <Helmet>
+                <title>{`${post.title.trim()} - Veritas Organisation`}</title>
+                <meta name="description" content={excerpt} />
+                <meta property="og:title" content={post.title.trim()} />
+                <meta property="og:description" content={excerpt} />
+                {activeSrc && <meta property="og:image" content={activeSrc} />}
+            </Helmet>
             <Header />
 
             <main className="w-full">

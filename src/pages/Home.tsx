@@ -34,6 +34,8 @@ import genco from "../assets/images/genco.png";
 
 import { PRODUCT_CATEGORIES } from "../data/products";
 
+import { Helmet } from "react-helmet-async";
+
 export default function Home() {
     const CATEGORY_ICONS: Record<string, React.ElementType> = {
         energy: Zap,
@@ -76,6 +78,18 @@ export default function Home() {
 
     return (
         <>
+            <Helmet>
+                <title>Veritas Organisation</title>
+                <meta
+                    name="description"
+                    content="Veritas connects households and businesses to trusted partners across energy, printing, cleaning, and business development — performance-driven, results-first."
+                />
+                <meta property="og:title" content="Veritas Organisation" />
+                <meta
+                    property="og:description"
+                    content="Performance-driven sales partner connecting you to trusted partners across essential services."
+                />
+            </Helmet>
             <Header />
 
             <div className="w-full flex flex-col">

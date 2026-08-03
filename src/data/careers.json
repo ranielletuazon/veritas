@@ -28,34 +28,6 @@
         ]
     },
     {
-        "id": 2,
-        "slug": "team-leader",
-        "title": "Sales Team Leader",
-        "type": "Full-Time Work From Home",
-        "location": "Singapore",
-        "team": "Direct Sales",
-        "summary": "Lead a team of sales executives — coaching daily performance, running campaigns, and developing the next generation of leaders.",
-        "duties": [
-            "Lead, coach, and motivate a team of 4–8 sales executives",
-            "Run morning huddles and daily field coaching",
-            "Track team KPIs and report performance to management",
-            "Support recruitment and onboarding of new team members",
-            "Own campaign execution for assigned partner accounts"
-        ],
-        "requirements": [
-            "1+ year of direct sales or team leadership experience",
-            "Proven track record of hitting performance targets",
-            "Strong people-development instincts",
-            "Eligible to work in Singapore"
-        ],
-        "perks": [
-            "Leadership bonus structure on top of commissions",
-            "Direct mentorship from senior management",
-            "Fast-tracked growth into campaign management",
-            "Team incentives and retreats"
-        ]
-    },
-    {
         "id": 3,
         "slug": "corporate-sales-consultant",
         "title": "Corporate Sales Consultant",

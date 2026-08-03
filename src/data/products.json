@@ -39,11 +39,7 @@
                                     "description": "Your price per kWh is agreed upfront and stays the same for the length of the contract, regardless of how the regulated tariff moves. This is the plan most households choose when they want certainty over chasing the lowest possible rate — if the tariff rises during your term, you're insulated; if it falls, you stay at your agreed rate.",
                                     "specSheet": [
                                         { "label": "Rate structure", "value": "Fixed cents per kWh for the full term" },
-                                        { "label": "Typical contract terms", "value": "[Confirm available terms with partner]" },
-                                        { "label": "Best suited to", "value": "Households wanting predictable bills" },
-                                        { "label": "Early termination", "value": "[Confirm fee structure with partner]" },
-                                        { "label": "Security deposit", "value": "[Confirm with partner — may apply]" },
-                                        { "label": "Supply provider", "value": "SP Group national grid (unchanged)" }
+                                        { "label": "Best suited to", "value": "Households wanting predictable bills" }
                                     ],
                                     "features": [
                                         "Rate agreed before you sign — no surprises mid-term",
@@ -69,10 +65,7 @@
                                     "specSheet": [
                                         { "label": "Rate structure", "value": "Set discount off the prevailing regulated tariff" },
                                         { "label": "Tariff review frequency", "value": "Quarterly, set by the regulator" },
-                                        { "label": "Typical contract terms", "value": "[Confirm available terms with partner]" },
-                                        { "label": "Best suited to", "value": "Households comfortable with quarterly rate movement" },
-                                        { "label": "Early termination", "value": "[Confirm fee structure with partner]" },
-                                        { "label": "Supply provider", "value": "SP Group national grid (unchanged)" }
+                                        { "label": "Best suited to", "value": "Households comfortable with quarterly rate movement" }
                                     ],
                                     "features": [
                                         "Guaranteed to stay below the regulated tariff",
@@ -97,11 +90,7 @@
                                     "description": "You're charged one rate during defined peak hours and a lower rate outside them. This only works in your favour if a meaningful share of your consumption genuinely happens off-peak — households that run laundry, charging, or air-conditioning overnight. If your usage is concentrated in the evening, a fixed or discount plan will usually work out better, and we'll tell you so.",
                                     "specSheet": [
                                         { "label": "Rate structure", "value": "Separate peak and off-peak rates per kWh" },
-                                        { "label": "Peak window", "value": "[Confirm hours with partner]" },
-                                        { "label": "Typical contract terms", "value": "[Confirm available terms with partner]" },
-                                        { "label": "Best suited to", "value": "Households with substantial overnight usage" },
-                                        { "label": "Meter requirement", "value": "[Confirm whether an advanced meter is required]" },
-                                        { "label": "Supply provider", "value": "SP Group national grid (unchanged)" }
+                                        { "label": "Best suited to", "value": "Households with substantial overnight usage" }
                                     ],
                                     "features": [
                                         "Meaningful savings if your usage is genuinely off-peak weighted",

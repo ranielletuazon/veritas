@@ -9,9 +9,18 @@ import {
 
 import Reveal from "./components/Reveal";
 
+import { Helmet } from "react-helmet-async";
+
 export default function Products() {
     return (
         <>
+            <Helmet>
+                <title>Products - Veritas Organisation</title>
+                <meta
+                    name="description"
+                    content="Browse our four solution categories — energy, copier equipment, cleaning, and business development — matched to what you actually need."
+                />
+            </Helmet>
             <Header />
 
             <main className="w-full">

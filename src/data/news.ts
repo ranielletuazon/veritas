@@ -9,6 +9,7 @@ export interface NewsPost {
     published_at: string;
     created_at: string;
     images: string[];
+    excerpt?: string;
 }
 
 /* Resolve image filenames against bundled assets. */
@@ -44,3 +45,19 @@ export const publishedPosts = (): NewsPost[] =>
 
 export const findPostBySlug = (slug: string): NewsPost | undefined =>
     publishedPosts().find((p) => p.slug === slug);
+
+/* Returns a clean excerpt for meta descriptions and card previews.
+   Uses the manually-set excerpt field if present; otherwise derives one
+   from the first paragraph of the description, capped to a safe length
+   for search engine / social preview truncation. */
+export const getExcerpt = (post: NewsPost, maxLength = 155): string => {
+    if (post.excerpt) return post.excerpt;
+
+    const firstParagraph = post.description.split("\n")[0].trim();
+    if (firstParagraph.length <= maxLength) return firstParagraph;
+
+    // Trim to the last whole word within maxLength, avoid cutting mid-word
+    const truncated = firstParagraph.slice(0, maxLength);
+    const lastSpace = truncated.lastIndexOf(" ");
+    return `${truncated.slice(0, lastSpace > 0 ? lastSpace : maxLength)}…`;
+};
