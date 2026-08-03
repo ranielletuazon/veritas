@@ -79,7 +79,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         const { data, error } = await resend.emails.send({
-            from: "Veritas Organisation <onboarding@resend.dev>",
+            from: "Veritas Organisation <noreply@veritasorganisation.com>",
             to: "adrianetuazon18@gmail.com",
             replyTo: email,
             subject,
