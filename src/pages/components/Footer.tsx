@@ -124,14 +124,40 @@ export default function Footer() {
                         <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-white/40">
                             Get in Touch
                         </h3>
-                        <div className="mt-5 flex flex-col gap-3 text-sm text-white/70">
-                            <a
-                                href="tel:89220932"
-                                className="w-fit transition-colors duration-300 hover:text-white"
-                            >
-                                +65 8203 7719
-                            </a>
-                            <span className="text-white/50">Singapore</span>
+                        <div className="mt-5 flex flex-col gap-5 text-sm text-white/70">
+                            {/* Singapore office */}
+                            <div className="flex flex-col gap-1.5">
+                                <span className="text-xs font-semibold uppercase tracking-wide text-white/40">
+                                    Singapore
+                                </span>
+                                <a
+                                    href="tel:+6582037719"
+                                    className="w-fit transition-colors duration-300 hover:text-white"
+                                >
+                                    +65 8203 7719
+                                </a>
+                                <span className="text-white/50">
+                                    7030 Ang Mo Kio Ave 5, #08-98, Singapore
+                                    569880
+                                </span>
+                            </div>
+
+                            {/* Philippines office */}
+                            <div className="flex flex-col gap-1.5">
+                                <span className="text-xs font-semibold uppercase tracking-wide text-white/40">
+                                    Philippines
+                                </span>
+                                <a
+                                    href="tel:+639621678061"
+                                    className="w-fit transition-colors duration-300 hover:text-white"
+                                >
+                                    +63 962 167 8061
+                                </a>
+                                <span className="text-white/50">
+                                    San Fernando, Pampanga, Philippines
+                                </span>
+                            </div>
+
                             <a
                                 href="/contact-us"
                                 className="mt-1 w-fit border-b border-indigo-400/40 pb-0.5 text-indigo-300 transition-colors duration-300 hover:border-indigo-400 hover:text-indigo-200"
