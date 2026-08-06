@@ -40,11 +40,9 @@ const toBase64 = (file: File): Promise<string> =>
 export default function CareersView() {
     const { slug } = useParams<{ slug: string }>();
     const job = slug ? findCareerBySlug(slug) : undefined;
-
     const [status, setStatus] = useState<Status>("idle");
     const [errorMsg, setErrorMsg] = useState<string>("");
     const [privacyAccepted, setPrivacyAccepted] = useState(false);
-
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -139,6 +137,10 @@ export default function CareersView() {
             </>
         );
     }
+
+    // Phone Number
+    const phonePlaceholder =
+        job.location === "Singapore" ? "+65 0000 0000" : "+63 000 000 0000";
 
     return (
         <>
@@ -434,7 +436,9 @@ export default function CareersView() {
                                                         name="phone"
                                                         type="tel"
                                                         required
-                                                        placeholder="+63 000 000 0000"
+                                                        placeholder={
+                                                            phonePlaceholder
+                                                        }
                                                         className={inputClass}
                                                     />
                                                 </div>
