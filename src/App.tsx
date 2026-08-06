@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import NProgress from "nprogress";
 import LoadingPage from "./pages/components/LoadingPage";
 import { AppReadyContext } from "./context/appReady";
+import { Analytics } from "@vercel/analytics/react";
 
 const Home = lazy(() => import("./pages/Home"));
 const Products = lazy(() => import("./pages/Products"));
@@ -95,6 +96,8 @@ function App() {
                         </Routes>
                     </FadeIn>
                 </Suspense>
+                {/* Analytics */}
+                <Analytics />
             </BrowserRouter>
         </AppReadyContext.Provider>
     );
