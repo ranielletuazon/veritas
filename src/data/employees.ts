@@ -23,6 +23,7 @@ export const EMPLOYEES: Employee[] = [
         name: "Cza",
         role: "Financial Controller",
         department: "Admin",
+        photo: "cza.jpg",
     },
     {
         id: "jen",
@@ -35,6 +36,7 @@ export const EMPLOYEES: Employee[] = [
         id: "erin",
         name: "Erin",
         role: "HR & Compliance Manager",
+        photo: "erin.jpeg",
         department: "Admin",
     },
     {
@@ -43,6 +45,7 @@ export const EMPLOYEES: Employee[] = [
         role: "Channel Sales Director, Copier Sales",
         department: "Copier/Printer",
         featured: true,
+        photo: "june.jpeg",
     },
     {
         id: "raejan",
