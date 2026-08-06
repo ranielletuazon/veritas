@@ -6,7 +6,39 @@
         "type": "Full-Time Work From Home",
         "location": "Philippines",
         "team": "Direct Sales",
-        "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required — full training provided.",
+        "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required and full training is provided.",
+        "duties": [
+            "Make 100 outbound calls daily",
+            "Introduce our products and services to potential customers",
+            "Qualify leads and book appointments for the Sales Team",
+            "Update customer information accurately in the CRM"
+        ],
+        "requirements": [
+            "Previous telemarketing, sales, customer service, or call center experience is an advantage",
+            "Excellent English communication skills",
+            "Confident and professional phone etiquette",
+            "Reliable internet connection and a quiet WFH setup",
+            "Laptop or desktop computer with a headset",
+            "Self-motivated and able to meet daily targets"
+        ],
+        "perks": [
+            "Uncapped performance-based commissions",
+            "Structured training and mentorship",
+            "Clear promotion pathway",
+            "Team incentives and retreats"
+        ],
+        "work_details": [
+            "Monday–Friday | 9:00 AM – 5:00 PM (Singapore Time)"
+        ]
+    },
+    {
+        "id": 2,
+        "slug": "sales-executive-singapore",
+        "title": "Sales Executive (Singapore)",
+        "type": "Full-Time Hybrid",
+        "location": "Singapore",
+        "team": "Direct Sales",
+        "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required and full training is provided.",
         "duties": [
             "Make 100 outbound calls daily",
             "Introduce our products and services to potential customers",
