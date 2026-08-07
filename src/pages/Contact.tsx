@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
 import { PRODUCT_CATEGORIES, getAllItems } from "../data/products";
-import { Helmet } from "react-helmet-async";
+import Seo from "./components/Seo";
 
 type Status = "idle" | "submitting" | "success" | "error";
 type InquiryType = "general" | "product";
@@ -250,13 +250,11 @@ export default function Contact() {
 
     return (
         <>
-            <Helmet>
-                <title>Contact Us - Veritas Organisation</title>
-                <meta
-                    name="description"
-                    content="Questions about our solutions or a specific product? Send us a message and the right team will get back to you."
-                />
-            </Helmet>
+            <Seo
+                title="Contact Us - Veritas Organisation"
+                description="Questions about our solutions or a specific product? Send us a message and the right team will get back to you."
+                path="/contact-us"
+            />
             <Header />
             <main className="w-full">
                 <section className="relative w-full overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950 pt-32 md:pt-40">

@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import newsData from "../data/news.json";
 import Reveal from "./components/Reveal";
 
-import { Helmet } from "react-helmet-async";
+import Seo from "./components/Seo";
 
 export interface NewsPost {
     id: number;
@@ -63,13 +63,11 @@ export default function News() {
 
     return (
         <>
-            <Helmet>
-                <title>News - Veritas Organisation</title>
-                <meta
-                    name="description"
-                    content="Milestones, team stories, and updates from across the organisation."
-                />
-            </Helmet>
+            <Seo
+                title="News - Veritas Organisation"
+                description="Milestones, team stories, and updates from across the organisation."
+                path="/news"
+            />
             <Header />
 
             <main className="w-full">

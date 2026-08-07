@@ -9,18 +9,16 @@ import {
 
 import Reveal from "./components/Reveal";
 
-import { Helmet } from "react-helmet-async";
+import Seo from "./components/Seo";
 
 export default function Products() {
     return (
         <>
-            <Helmet>
-                <title>Products - Veritas Organisation</title>
-                <meta
-                    name="description"
-                    content="Browse our four solution categories — energy, copier equipment, cleaning, and business development — matched to what you actually need."
-                />
-            </Helmet>
+            <Seo
+                title="Products - Veritas Organisation"
+                description="Browse our four solution categories — energy, copier equipment, cleaning, and business development — matched to what you actually need."
+                path="/products"
+            />
             <Header />
 
             <main className="w-full">
