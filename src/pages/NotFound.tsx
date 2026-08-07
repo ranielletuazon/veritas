@@ -1,15 +1,17 @@
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Helmet } from "react-helmet-async";
+import Seo from "./components/Seo";
 
 export default function NotFound() {
     return (
         <>
-            <Helmet>
-                <title>Page Not Found</title>
-                <meta name="robots" content="noindex" />
-            </Helmet>
+            <Seo
+                title="Page Not Found - Veritas Organisation"
+                description="The page you're looking for doesn't exist, may have moved, or is no longer available."
+                path="/404"
+                noindex
+            />
             <Header />
             <section className="flex min-h-screen w-full items-center justify-center bg-slate-50 px-6">
                 <div className="flex max-w-md flex-col items-center text-center">

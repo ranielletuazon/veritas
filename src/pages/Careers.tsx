@@ -4,18 +4,16 @@ import Footer from "./components/Footer";
 import { CAREERS } from "../data/careers";
 import teamBanner from "../assets/images/teamBanner.jpg";
 import Reveal from "./components/Reveal";
-import { Helmet } from "react-helmet-async";
+import Seo from "./components/Seo";
 
 export default function Careers() {
     return (
         <>
-            <Helmet>
-                <title>Careers - Veritas Organisation</title>
-                <meta
-                    name="description"
-                    content="Open roles at Veritas Organisation — join a performance-driven sales team with real growth opportunities."
-                />
-            </Helmet>
+            <Seo
+                title="Careers - Veritas Organisation"
+                description="Open roles at Veritas Organisation — join a performance-driven sales team with real growth opportunities."
+                path="/careers"
+            />
             <Header />
             <main className="w-full bg-slate-50">
                 {/* ── Hero — light, photo-led ─────────────────── */}

@@ -13,7 +13,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
 import { findCareerBySlug } from "../data/careers";
-import { Helmet } from "react-helmet-async";
+import Seo from "./components/Seo";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -115,6 +115,12 @@ export default function CareersView() {
     if (!job) {
         return (
             <>
+                <Seo
+                    title="404 - Veritas Organisation"
+                    description="This position doesn't exist or has been filled."
+                    path={`/careers/${slug ?? ""}`}
+                    noindex
+                />
                 <Header />
                 <main className="flex min-h-[60vh] w-full items-center justify-center bg-slate-50 px-6 pt-20">
                     <div className="text-center">
@@ -144,15 +150,11 @@ export default function CareersView() {
 
     return (
         <>
-            <Helmet>
-                <title>{`${job.title} - Veritas Organisation`}</title>
-                <meta name="description" content={job.summary} />
-                <meta
-                    property="og:title"
-                    content={`${job.title} — Veritas Organisation`}
-                />
-                <meta property="og:description" content={job.summary} />
-            </Helmet>
+            <Seo
+                title={`${job.title} - Veritas Organisation`}
+                description={job.summary}
+                path={`/careers/${job.slug}`}
+            />
             <Header />
             <main className="w-full bg-slate-50">
                 {/* ── Role header ─────────────────────────────── */}

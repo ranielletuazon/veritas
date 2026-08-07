@@ -9,7 +9,7 @@ import {
     productImgSrc,
     type ProductItem,
 } from "../data/products";
-import { Helmet } from "react-helmet-async";
+import Seo, { absoluteUrl } from "./components/Seo";
 /* ────────────────────────────────────────────────────────────
    ItemCard — a single unit tile. Becomes a button when the item
    has `detail`, so only expandable cards are interactive.
@@ -344,14 +344,12 @@ export default function ProductsView() {
     if (!category) {
         return (
             <>
-                <Helmet>
-                    <title>404 - Veritas Organisation</title>
-                    <meta
-                        name="description"
-                        content="This solution doesn't exist or has been removed."
-                    />
-                </Helmet>
-                <Header />
+                <Seo
+                    title="404 - Veritas Organisation"
+                    description="This solution doesn't exist or has been removed."
+                    path={`/products/${slug ?? ""}`}
+                    noindex
+                />
                 <Header />
                 <main className="flex min-h-[60vh] w-full items-center justify-center bg-slate-50 px-6 pt-20">
                     <div className="text-center">
@@ -379,15 +377,12 @@ export default function ProductsView() {
 
     return (
         <>
-            <Helmet>
-                <title>{`${category.name} - Veritas Organisation`}</title>
-                <meta name="description" content={category.description} />
-                <meta property="og:title" content={category.name} />
-                <meta
-                    property="og:description"
-                    content={category.description}
-                />
-            </Helmet>
+            <Seo
+                title={`${category.name} - Veritas Organisation`}
+                description={category.description}
+                path={`/products/${category.slug}`}
+                image={absoluteUrl(heroSrc)}
+            />
             <Header />
             <main className="w-full">
                 {/* ── Banner ──────────────────────────────────── */}

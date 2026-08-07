@@ -11,7 +11,7 @@ import {
     fullDateLabel,
 } from "../data/news";
 import NotFound from "./NotFound";
-import { Helmet } from "react-helmet-async";
+import Seo, { absoluteUrl } from "./components/Seo";
 import { getExcerpt } from "../data/news";
 
 export default function NewsPost() {
@@ -43,13 +43,13 @@ export default function NewsPost() {
 
     return (
         <>
-            <Helmet>
-                <title>{`${post.title.trim()} - Veritas Organisation`}</title>
-                <meta name="description" content={excerpt} />
-                <meta property="og:title" content={post.title.trim()} />
-                <meta property="og:description" content={excerpt} />
-                {activeSrc && <meta property="og:image" content={activeSrc} />}
-            </Helmet>
+            <Seo
+                title={`${post.title.trim()} - Veritas Organisation`}
+                description={excerpt}
+                path={`/news/${post.slug}`}
+                image={absoluteUrl(activeSrc)}
+                type="article"
+            />
             <Header />
 
             <main className="w-full">

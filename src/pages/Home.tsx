@@ -34,7 +34,7 @@ import genco from "../assets/images/genco.png";
 
 import { PRODUCT_CATEGORIES } from "../data/products";
 
-import { Helmet } from "react-helmet-async";
+import Seo from "./components/Seo";
 
 export default function Home() {
     const CATEGORY_ICONS: Record<string, React.ElementType> = {
@@ -78,18 +78,11 @@ export default function Home() {
 
     return (
         <>
-            <Helmet>
-                <title>Veritas Organisation</title>
-                <meta
-                    name="description"
-                    content="Veritas connects households and businesses to trusted partners across energy, printing, cleaning, and business development — performance-driven, results-first."
-                />
-                <meta property="og:title" content="Veritas Organisation" />
-                <meta
-                    property="og:description"
-                    content="Performance-driven sales partner connecting you to trusted partners across essential services."
-                />
-            </Helmet>
+            <Seo
+                title="Veritas Organisation | Performance-Driven Sales Partner, Singapore"
+                description="Veritas connects households and businesses to trusted partners across energy, printing, cleaning, and business development — performance-driven, results-first."
+                path="/"
+            />
             <Header />
 
             <div className="w-full flex flex-col">
@@ -318,7 +311,7 @@ export default function Home() {
                                 <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-100 to-slate-200">
                                     <img
                                         src={productImage}
-                                        alt="Product Image User"
+                                        alt="Veritas product and service solutions across energy, cleaning, and business development"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
