@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 export const SITE_URL = "https://veritasorganisation.com";
 export const SITE_NAME = "Veritas Organisation";
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/new-veritas-logo-new.png`;
 
 /** Resolves a bundler-emitted asset path (e.g. "/assets/foo.hash.jpg") into an absolute URL for OG/Twitter cards. */
 export const absoluteUrl = (src?: string): string =>
