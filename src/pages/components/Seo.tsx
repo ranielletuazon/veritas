@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-export const SITE_URL = "https://veritasorganisation.com";
+export const SITE_URL = "https://www.veritasorganisation.com";
 export const SITE_NAME = "Veritas Organisation";
 const DEFAULT_IMAGE = `${SITE_URL}/new-veritas-logo-new.png`;
 
