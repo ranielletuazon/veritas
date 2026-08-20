@@ -107,5 +107,51 @@
         "Salary: SGD 500/month",
         "100% Work From Home"
     ]
+},
+{
+  "id": 4,
+  "slug": "Finance Manager",
+  "title": "Finance Manager",
+  "type": "Full-Time Work From Home",
+  "location": "Philippines",
+  "team": "Finance",
+  "summary": "We are looking for a Finance Manager who is organised, detail-oriented, responsible, and capable of managing finance operations independently.",
+  "duties": [
+    "Manage daily financial records and transactions",
+    "Maintain and update finance trackers",
+    "Handle payroll preparation, payslips, and employee-related financial records",
+    "Monitor expenses, reimbursements, accounts payable, and receivable",
+    "Prepare financial reports and summaries for management",
+    "Monitor company cash flow and expenses",
+    "Ensure financial records and supporting documents are accurate and organised",
+    "Identify and resolve discrepancies in financial records",
+    "Coordinate with HR and management on payroll and finance matters",
+    "Maintain strict confidentiality of financial information",
+    "Improve existing finance processes and reporting systems",
+    "Perform other finance-related duties as required"
+  ],
+  "requirements": [
+    "Previous experience in finance, accounting, bookkeeping, or a related role",
+    "Strong knowledge of Excel and Google Sheets",
+    "Good understanding of financial and accounting processes",
+    "Excellent attention to detail",
+    "Strong organisational and time-management skills",
+    "Ability to work independently with minimal supervision",
+    "Good communication and problem-solving skills",
+    "Payroll experience is an advantage",
+    "Experience working with Singapore-based companies is a plus"
+  ],
+  "perks": [
+    "Morning shift",
+    "Growth opportunities",
+    "No time tracker",
+    "Direct management communication",
+    "No micromanagement"
+  ],
+  "work_details": [
+    "Monday–Friday | 9:00 AM – 5:00 PM (Philippines Time)",
+    "Salary: SGD 500/month",
+    "100% Work From Home"
+  ]
 }
 ]
