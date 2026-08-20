@@ -62,5 +62,50 @@
         "work_details": [
             "Monday–Friday | 9:00 AM – 5:00 PM (Singapore Time)"
         ]
-    }
+    },
+{
+    "id": 3,
+    "slug": "App Developer",
+    "title": "App Developer",
+    "type": "Full-Time Work From Home",
+    "location": "Philippines",
+    "team": "Developer",
+    "summary": "We are looking for an App Developer who can develop and maintain reliable, user-friendly mobile and web applications while working closely with management on technical solutions and development projects.",
+    "duties": [
+        "Develop and maintain mobile and web applications",
+        "Build reliable and user-friendly applications",
+        "Translate business requirements into functional technical solutions",
+        "Integrate APIs, databases, and third-party services",
+        "Test applications and troubleshoot technical issues",
+        "Fix bugs and improve application performance",
+        "Maintain and improve existing applications",
+        "Assist with application deployment and updates",
+        "Research new technologies and recommend suitable solutions",
+        "Work closely with management on application requirements and development projects",
+        "Take ownership of assigned projects from development through completion"
+    ],
+    "requirements": [
+        "Previous experience in app or software development",
+        "Experience with one or more technologies such as Flutter, React Native, Java, Kotlin, Swift, JavaScript, or similar",
+        "Knowledge of APIs and database integration",
+        "Familiarity with Git/GitHub or other version-control systems",
+        "Strong troubleshooting and problem-solving skills",
+        "Ability to work independently with minimal supervision",
+        "Good communication skills",
+        "Strong attention to detail",
+        "Portfolio, GitHub profile, or previous projects are highly preferred"
+    ],
+    "perks": [
+        "Morning shift",
+        "Growth opportunities",
+        "No time tracker",
+        "Direct management communication",
+        "No micromanagement"
+    ],
+    "work_details": [
+        "Monday–Friday | 9:00 AM – 5:00 PM (Philippines Time)",
+        "Salary: SGD 500/month",
+        "100% Work From Home"
+    ]
+}
 ]
