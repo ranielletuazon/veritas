@@ -1,157 +1,112 @@
 [
-    {
-        "id": 1,
-        "slug": "sales-executive",
-        "title": "Sales Executive",
-        "type": "Full-Time Work From Home",
-        "location": "Philippines",
-        "team": "Direct Sales",
-        "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required and full training is provided.",
-        "duties": [
-            "Make 100 outbound calls daily",
-            "Introduce our products and services to potential customers",
-            "Qualify leads and book appointments for the Sales Team",
-            "Update customer information accurately in the CRM"
-        ],
-        "requirements": [
-            "Previous telemarketing, sales, customer service, or call center experience is an advantage",
-            "Excellent English communication skills",
-            "Confident and professional phone etiquette",
-            "Reliable internet connection and a quiet WFH setup",
-            "Laptop or desktop computer with a headset",
-            "Self-motivated and able to meet daily targets"
-        ],
-        "perks": [
-            "Uncapped performance-based commissions",
-            "Structured training and mentorship",
-            "Clear promotion pathway",
-            "Team incentives and retreats"
-        ],
-        "work_details": [
-            "Monday–Friday | 9:00 AM – 5:00 PM (Singapore Time)"
-        ]
-    },
-    {
-        "id": 2,
-        "slug": "sales-executive-singapore",
-        "title": "Sales Executive (Singapore)",
-        "type": "Full-Time Hybrid",
-        "location": "Singapore",
-        "team": "Direct Sales",
-        "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required and full training is provided.",
-        "duties": [
-            "Make 100 outbound calls daily",
-            "Introduce our products and services to potential customers",
-            "Qualify leads and book appointments for the Sales Team",
-            "Update customer information accurately in the CRM"
-        ],
-        "requirements": [
-            "Previous telemarketing, sales, customer service, or call center experience is an advantage",
-            "Excellent English communication skills",
-            "Confident and professional phone etiquette",
-            "Reliable internet connection and a quiet WFH setup",
-            "Laptop or desktop computer with a headset",
-            "Self-motivated and able to meet daily targets"
-        ],
-        "perks": [
-            "Uncapped performance-based commissions",
-            "Structured training and mentorship",
-            "Clear promotion pathway",
-            "Team incentives and retreats"
-        ],
-        "work_details": [
-            "Monday–Friday | 9:00 AM – 5:00 PM (Singapore Time)"
-        ]
-    },
-{
-    "id": 3,
-    "slug": "App Developer",
-    "title": "App Developer",
+  {
+    "id": 1,
+    "slug": "sales-executive",
+    "title": "Sales Executive",
     "type": "Full-Time Work From Home",
     "location": "Philippines",
-    "team": "Developer",
-    "summary": "We are looking for an App Developer who can develop and maintain reliable, user-friendly mobile and web applications while working closely with management on technical solutions and development projects.",
+    "team": "Direct Sales",
+    "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required and full training is provided.",
     "duties": [
-        "Develop and maintain mobile and web applications",
-        "Build reliable and user-friendly applications",
-        "Translate business requirements into functional technical solutions",
-        "Integrate APIs, databases, and third-party services",
-        "Test applications and troubleshoot technical issues",
-        "Fix bugs and improve application performance",
-        "Maintain and improve existing applications",
-        "Assist with application deployment and updates",
-        "Research new technologies and recommend suitable solutions",
-        "Work closely with management on application requirements and development projects",
-        "Take ownership of assigned projects from development through completion"
+      "Make 100 outbound calls daily",
+      "Introduce our products and services to potential customers",
+      "Qualify leads and book appointments for the Sales Team",
+      "Update customer information accurately in the CRM"
     ],
     "requirements": [
-        "Previous experience in app or software development",
-        "Experience with one or more technologies such as Flutter, React Native, Java, Kotlin, Swift, JavaScript, or similar",
-        "Knowledge of APIs and database integration",
-        "Familiarity with Git/GitHub or other version-control systems",
-        "Strong troubleshooting and problem-solving skills",
-        "Ability to work independently with minimal supervision",
-        "Good communication skills",
-        "Strong attention to detail",
-        "Portfolio, GitHub profile, or previous projects are highly preferred"
+      "Previous telemarketing, sales, customer service, or call center experience is an advantage",
+      "Excellent English communication skills",
+      "Confident and professional phone etiquette",
+      "Reliable internet connection and a quiet WFH setup",
+      "Laptop or desktop computer with a headset",
+      "Self-motivated and able to meet daily targets"
     ],
     "perks": [
-        "Morning shift",
-        "Growth opportunities",
-        "No time tracker",
-        "Direct management communication",
-        "No micromanagement"
+      "Uncapped performance-based commissions",
+      "Structured training and mentorship",
+      "Clear promotion pathway",
+      "Team incentives and retreats"
     ],
     "work_details": [
-        "Monday–Friday | 9:00 AM – 5:00 PM (Philippines Time)",
-        "Salary: SGD 500/month",
-        "100% Work From Home"
+      "Monday–Friday | 9:00 AM – 5:00 PM (Singapore Time)"
     ]
-},
-{
-  "id": 4,
-  "slug": "Finance Manager",
-  "title": "Finance Manager",
-  "type": "Full-Time Work From Home",
-  "location": "Philippines",
-  "team": "Finance",
-  "summary": "We are looking for a Finance Manager who is organised, detail-oriented, responsible, and capable of managing finance operations independently.",
-  "duties": [
-    "Manage daily financial records and transactions",
-    "Maintain and update finance trackers",
-    "Handle payroll preparation, payslips, and employee-related financial records",
-    "Monitor expenses, reimbursements, accounts payable, and receivable",
-    "Prepare financial reports and summaries for management",
-    "Monitor company cash flow and expenses",
-    "Ensure financial records and supporting documents are accurate and organised",
-    "Identify and resolve discrepancies in financial records",
-    "Coordinate with HR and management on payroll and finance matters",
-    "Maintain strict confidentiality of financial information",
-    "Improve existing finance processes and reporting systems",
-    "Perform other finance-related duties as required"
-  ],
-  "requirements": [
-    "Previous experience in finance, accounting, bookkeeping, or a related role",
-    "Strong knowledge of Excel and Google Sheets",
-    "Good understanding of financial and accounting processes",
-    "Excellent attention to detail",
-    "Strong organisational and time-management skills",
-    "Ability to work independently with minimal supervision",
-    "Good communication and problem-solving skills",
-    "Payroll experience is an advantage",
-    "Experience working with Singapore-based companies is a plus"
-  ],
-  "perks": [
-    "Morning shift",
-    "Growth opportunities",
-    "No time tracker",
-    "Direct management communication",
-    "No micromanagement"
-  ],
-  "work_details": [
-    "Monday–Friday | 9:00 AM – 5:00 PM (Philippines Time)",
-    "Salary: SGD 500/month",
-    "100% Work From Home"
-  ]
-}
+  },
+  {
+    "id": 2,
+    "slug": "sales-executive-singapore",
+    "title": "Sales Executive (Singapore)",
+    "type": "Full-Time Hybrid",
+    "location": "Singapore",
+    "team": "Direct Sales",
+    "summary": "Front-line sales role representing our partner brands to B2B and B2C customers. No prior experience required and full training is provided.",
+    "duties": [
+      "Make 100 outbound calls daily",
+      "Introduce our products and services to potential customers",
+      "Qualify leads and book appointments for the Sales Team",
+      "Update customer information accurately in the CRM"
+    ],
+    "requirements": [
+      "Previous telemarketing, sales, customer service, or call center experience is an advantage",
+      "Excellent English communication skills",
+      "Confident and professional phone etiquette",
+      "Reliable internet connection and a quiet WFH setup",
+      "Laptop or desktop computer with a headset",
+      "Self-motivated and able to meet daily targets"
+    ],
+    "perks": [
+      "Uncapped performance-based commissions",
+      "Structured training and mentorship",
+      "Clear promotion pathway",
+      "Team incentives and retreats"
+    ],
+    "work_details": [
+      "Monday–Friday | 9:00 AM – 5:00 PM (Singapore Time)"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "finance-manager",
+    "title": "Finance Manager",
+    "type": "Full-Time Work From Home",
+    "location": "Philippines",
+    "team": "Finance",
+    "summary": "We are looking for a Finance Manager who is organised, detail-oriented, responsible, and capable of managing finance operations independently.",
+    "duties": [
+      "Manage daily financial records and transactions",
+      "Maintain and update finance trackers",
+      "Handle payroll preparation, payslips, and employee-related financial records",
+      "Monitor expenses, reimbursements, accounts payable, and receivable",
+      "Prepare financial reports and summaries for management",
+      "Monitor company cash flow and expenses",
+      "Ensure financial records and supporting documents are accurate and organised",
+      "Identify and resolve discrepancies in financial records",
+      "Coordinate with HR and management on payroll and finance matters",
+      "Maintain strict confidentiality of financial information",
+      "Improve existing finance processes and reporting systems",
+      "Perform other finance-related duties as required"
+    ],
+    "requirements": [
+      "Previous experience in finance, accounting, bookkeeping, or a related role",
+      "Strong knowledge of Excel and Google Sheets",
+      "Good understanding of financial and accounting processes",
+      "Excellent attention to detail",
+      "Strong organisational and time-management skills",
+      "Ability to work independently with minimal supervision",
+      "Good communication and problem-solving skills",
+      "Payroll experience is an advantage",
+      "Experience working with Singapore-based companies is a plus"
+    ],
+    "perks": [
+      "Morning shift",
+      "Growth opportunities",
+      "No time tracker",
+      "Direct management communication",
+      "No micromanagement"
+    ],
+    "work_details": [
+      "Monday–Friday | 9:00 AM – 5:00 PM (Philippines Time)",
+      "Salary: SGD 500/month",
+      "100% Work From Home"
+    ]
+  }
 ]
