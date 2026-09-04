@@ -43,6 +43,7 @@ export default function About() {
                 description="Veritas is a sales and business development company headquartered in Singapore — built on integrity, competence, fairness, and responsibility."
                 path="/about-us"
             />
+
             <Header />
 
             <main className="w-full">
@@ -59,6 +60,7 @@ export default function About() {
                                     "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
                             }}
                         />
+
                         <div
                             className="absolute -left-16 bottom-0 h-56 w-56 bg-fuchsia-600/15"
                             style={{
@@ -75,6 +77,7 @@ export default function About() {
                                 About Us
                             </span>
                         </Reveal>
+
                         <Reveal delay={80}>
                             <h1 className="mt-5 max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem]">
                                 WHO WE{" "}
@@ -83,6 +86,7 @@ export default function About() {
                                 </span>
                             </h1>
                         </Reveal>
+
                         <Reveal delay={160}>
                             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
                                 Veritas is Latin for truth. That's not a
@@ -95,6 +99,7 @@ export default function About() {
                                 expect from us: always, honesty, in all things.
                             </p>
                         </Reveal>
+
                         {/* <Reveal delay={220}>
                             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
                                 We work closely with trusted providers across
@@ -166,11 +171,13 @@ export default function About() {
                                                 "polygon(100% 0, 0 0, 100% 100%)",
                                         }}
                                     />
+
                                     <div className="flex items-center gap-3 text-indigo-600">
                                         <span className="font-mono text-[11px] font-semibold uppercase tracking-widest">
                                             {item.label}
                                         </span>
                                     </div>
+
                                     <p className="mt-5 text-base leading-relaxed text-slate-700 sm:text-lg">
                                         {item.text}
                                     </p>
@@ -195,6 +202,7 @@ export default function About() {
                                                     </li>
                                                 ))}
                                             </ul>
+
                                             {item.closing && (
                                                 <p className="mt-6 border-t border-slate-200 pt-6 text-sm font-medium italic leading-relaxed text-indigo-700">
                                                     {item.closing}
@@ -216,6 +224,7 @@ export default function About() {
                                 <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
                                 Our Core Values
                             </span>
+
                             <h2 className="mt-5 max-w-xl text-2xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-3xl">
                                 WHAT WE{" "}
                                 <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
@@ -229,12 +238,15 @@ export default function About() {
                                 <Reveal key={value.title} delay={i * 90}>
                                     <div className="group relative h-full overflow-hidden rounded-xl border border-slate-200 bg-white p-6">
                                         <span className="absolute left-0 top-0 h-full w-[3px] scale-y-0 bg-indigo-600 transition-transform duration-300 ease-out group-hover:scale-y-100" />
+
                                         <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-indigo-400">
                                             {String(i + 1).padStart(2, "0")}
                                         </span>
+
                                         <h3 className="mt-3 text-lg font-bold tracking-tight text-slate-900">
                                             {value.title}
                                         </h3>
+
                                         <p className="mt-2 text-sm leading-relaxed text-slate-500">
                                             {value.description}
                                         </p>
@@ -259,6 +271,7 @@ export default function About() {
                                             "polygon(0 0, 100% 4%, 96% 100%, 4% 96%)",
                                     }}
                                 />
+
                                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-200 to-slate-300">
                                     {/* Base photo — always visible */}
                                     <img
@@ -266,6 +279,7 @@ export default function About() {
                                         alt="Gerald Lee, Founder of Veritas Organisation"
                                         className="h-full w-full object-cover"
                                     />
+
                                     {/* Second photo — crossfades in on hover */}
                                     <img
                                         src={founder_image2}
@@ -299,10 +313,12 @@ export default function About() {
                                         className="h-10 w-[3px] bg-gradient-to-b from-indigo-600 to-fuchsia-600"
                                         aria-hidden="true"
                                     />
+
                                     <div>
                                         <p className="font-bold tracking-tight text-slate-900">
                                             Gerald Lee
                                         </p>
+
                                         <p className="text-sm text-slate-500">
                                             Founder, Veritas Organisation
                                         </p>
@@ -321,12 +337,14 @@ export default function About() {
                                 <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
                                 Meet the Team
                             </span>
+
                             <h2 className="mt-5 max-w-xl text-2xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-3xl">
                                 THE LEADERSHIP BEHIND{" "}
                                 <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">
                                     VERITAS
                                 </span>
                             </h2>
+
                             <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-500">
                                 Our leadership team oversees the Group's
                                 day-to-day operations while driving the
@@ -353,6 +371,7 @@ export default function About() {
                                                 const src = employeePhotoSrc(
                                                     employee.photo,
                                                 );
+
                                                 return (
                                                     <Reveal
                                                         key={employee.id}
@@ -368,10 +387,16 @@ export default function About() {
                                                                 <img
                                                                     src={src}
                                                                     alt={
-                                                                        employee.name
+                                                                        employee.name ||
+                                                                        employee.role
                                                                     }
                                                                     loading="lazy"
-                                                                    className="absolute inset-0 h-full w-full object-cover object-top grayscale-[15%] transition-all duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
+                                                                    className={
+                                                                        employee.id ===
+                                                                        "copier-admin"
+                                                                            ? "absolute left-1/2 top-1/2 z-10 h-2/5 w-2/5 -translate-x-1/2 -translate-y-1/2 object-contain"
+                                                                            : "absolute inset-0 h-full w-full object-cover object-top grayscale-[15%] transition-all duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
+                                                                    }
                                                                 />
                                                             ) : (
                                                                 <div className="absolute inset-0 flex items-center justify-center">
@@ -397,6 +422,7 @@ export default function About() {
                                                                         employee.name
                                                                     }
                                                                 </h4>
+
                                                                 <p className="mt-1 text-sm font-semibold text-indigo-200">
                                                                     {
                                                                         employee.role
