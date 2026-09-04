@@ -1,3 +1,5 @@
+import veritasLogo from "../assets/images/new-veritas-logo-new.png";
+
 export interface Employee {
     id: string;
     name: string;
@@ -18,6 +20,7 @@ export const EMPLOYEES: Employee[] = [
         photo: "jerome.jpg",
         featured: true,
     },
+
     {
         id: "cza",
         name: "Cza",
@@ -25,6 +28,7 @@ export const EMPLOYEES: Employee[] = [
         department: "Admin",
         photo: "cza.jpg",
     },
+
     {
         id: "jen",
         name: "Jen",
@@ -32,28 +36,31 @@ export const EMPLOYEES: Employee[] = [
         department: "Admin",
         photo: "jen.jpg",
     },
+
     {
         id: "erin",
         name: "Erin",
         role: "HR & Compliance Manager",
-        photo: "erin.jpeg",
         department: "Admin",
+        photo: "erin.jpeg",
     },
-    {
-        id: "june",
-        name: "June",
-        role: "Channel Sales Director, Copier Sales",
-        department: "Copier/Printer",
-        featured: true,
-        photo: "june.jpeg",
-    },
+
     {
         id: "raejan",
         name: "Raejan",
-        role: "Administrative Manager - Copier Team",
+        role: "Channel Sales Director, Copier Sales",
         department: "Copier/Printer",
         photo: "raejan.jpg",
     },
+
+    {
+        id: "copier-admin",
+        name: "",
+        role: "Administrative Manager - Copier Team",
+        department: "Copier/Printer",
+        photo: "veritas-logo",
+    },
+
     {
         id: "joshua",
         name: "Joshua",
@@ -64,8 +71,8 @@ export const EMPLOYEES: Employee[] = [
     },
 ];
 
-/* Groups employees by department, preserving first-appearance order —
-   same pattern used for the News archive-by-month grouping. */
+/** Groups employees by department, preserving first-appearance order —
+ * same pattern used for the News archive-by-month grouping. */
 export const groupByDepartment = (): Map<string, Employee[]> =>
     EMPLOYEES.reduce<Map<string, Employee[]>>((map, employee) => {
         const group = map.get(employee.department);
@@ -74,21 +81,29 @@ export const groupByDepartment = (): Map<string, Employee[]> =>
         return map;
     }, new Map());
 
-/* Resolve team photo filenames against bundled assets. */
+/** Resolve team photo filenames against bundled assets. */
 const teamImages = import.meta.glob("../assets/images/team/*", {
     eager: true,
     import: "default",
 }) as Record<string, string>;
 
-export const employeePhotoSrc = (file?: string): string | undefined =>
-    file ? teamImages[`../assets/images/team/${file}`] : undefined;
+export const employeePhotoSrc = (file?: string): string | undefined => {
+    if (!file) return undefined;
+
+    if (file === "veritas-logo") {
+        return veritasLogo;
+    }
+
+    return teamImages[`../assets/images/team/${file}`];
+};
 
 export const initialsOf = (name: string): string =>
     name
-        .replace(/[[\]]/g, "")
+        .replace(/[\[\]\\]/g, "")
         .split(" ")
         .map((w) => w[0])
         .filter(Boolean)
         .slice(0, 2)
         .join("")
         .toUpperCase();
+        
