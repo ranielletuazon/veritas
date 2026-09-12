@@ -31,9 +31,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         const { data, error } = await resend.emails.send({
-            from: "Veritas Careers Application <enquiry@veritasorganisation.com>",
+            from: "Veritas Careers Application <erin@veritasorganisation.com>",
             to: [
-                "enquiry@veritasorganisation.com",
+                "erin@veritasorganisation.com",
+                "yuko@veritasorganisation.com"
                 "adrianetuazon18@gmail.com",
             ],
             replyTo: email,
