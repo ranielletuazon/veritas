@@ -60,7 +60,6 @@ export const EMPLOYEES: Employee[] = [
         department: "Copier/Printer",
         photo: "veritas-logo",
     },
-
     {
         id: "joshua",
         name: "Joshua",
@@ -68,6 +67,13 @@ export const EMPLOYEES: Employee[] = [
         department: "Energy Sales",
         photo: "joshua.jpg",
         featured: true,
+    },
+    {
+        id: "copier-admin",
+        name: "",
+        role: "Key Account Manager, Energy Sales",
+        department: "Energy Sales",
+        photo: "veritas-logo",
     },
 ];
 
@@ -106,4 +112,3 @@ export const initialsOf = (name: string): string =>
         .slice(0, 2)
         .join("")
         .toUpperCase();
-        
